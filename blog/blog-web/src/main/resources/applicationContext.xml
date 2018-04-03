@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:jee="http://www.springframework.org/schema/jee" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:web="http://www.springframework.org/schema/web" xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation=" 
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd  
+        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd  
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd  
+        http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-4.0.xsd  
+        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+        http://www.springframework.org/schema/web http://www.springframework.org/schema/web/spring-web-4.0.xsd  
+        http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">
+	
+	<!-- peoperties文件读取 -->
+	<!-- <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+				<value>file:C:/apps/dongnao/config/firstApp/config.properties</value>
+				<value>classpath:config-web-test.properties</value>
+			</list>
+		</property>
+	</bean> -->
+	<import resource="spring-datasource.xml"/>
+	<import resource="spring-mybatis.xml"/>
+	<import resource="spring-dao.xml"/>
+	<import resource="spring-service.xml"/>
+	<import resource="spring-transaction.xml"/>
+	
+	<!-- 2016-10-25 shiro+velocity后面需要整合 -->
+	<!-- <import resource="spring-shiro.xml"/> -->
+	
+	
+	<!-- 支持上传文件 -->  
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="defaultEncoding" value="utf-8"></property>   
+        <property name="maxUploadSize" value="200000"></property>  
+        <property name="maxInMemorySize" value="50000"></property>  
+    </bean>
+</beans>

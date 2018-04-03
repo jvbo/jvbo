@@ -1,0 +1,61 @@
+##set($layout = "/layout/front.vm")
+
+	<title>后台用户列表</title>
+    <script type="text/javascript">
+    	var columns=[[
+    			{field:'loginName',title:'登录名'},
+    			{field:'userName',title:'真实姓名'},
+    			{field:'addTime',title:'添加时间',formatter:formatDatebox},
+    			{field:'updTime',title:'修改时间',formatter:formatDatebox},
+    			{field:'iId',title:'操作',formatter:function(value,row,index){
+    				var str="<a href=javascript:void(0); onclick=viewJf('"+row.id+"')>角色设置</a>";
+    				return str;
+    			}}
+    		]];
+    		
+    	var id="";
+    	function viewJf(value){
+    		id=value;
+    		$("#roleWin").dialog("refresh",ctx+"/sys/user/roleTree.ajax");
+    		$("#roleWin").dialog("open");
+    	}
+    	var roleButtons=[
+    	{text:"确定",iconCls:'icons-other-tick',
+		  		handler:function(){ 
+		  			var nodes=$("#treeUl").tree("getChecked");
+		  			var array=new Array();
+		  			for(var i=0;i<nodes.length;i++){
+		  				array.push(nodes[i].id);
+		  			}
+		  			var data=ajaxPost('/sys/user/userRole.ajax',{ids:array,userId:id});
+		  			if(data){
+		  				$.messager.alert("系统提示","操作成功");
+		  				$("#roleWin").dialog("close");
+		  			}else{
+		  				$.messager.alert("系统提示","操作失败");
+		  			}
+		  		}},
+    	{text:"关闭",iconCls:'icons-arrow-cross',handler:function(){$('#roleWin').dialog('close');}}];
+    	
+    	$(function(){
+   			initPage("/sys/user/","用户列表","用户信息","用户信息",columns);
+	    	initDialog("roleWin","角色列表",400,300,roleButtons);
+   		});
+    
+    </script>
+    
+    	<table id="tab" toolbar="#tb" ></table>
+    	<div id="tb">
+    		<form id="queryForm">
+	    		<a id="add" href="javascript:void(0);" class="easyui-linkbutton" data-options="iconCls:'icon-add'">添加用户</a> 
+	    		<a id="edit" href="javascript:void(0);" class="easyui-linkbutton" data-options="iconCls:'icon-edit'">修改</a>
+	    		<a id="remove" href="javascript:void(0);" class="easyui-linkbutton" data-options="iconCls:'icon-remove'">删除</a>
+	    		<a id="see" href="javascript:void(0);" class="easyui-linkbutton" data-options="iconCls:'icon-large-smartart'">查看</a>
+	    		<input placeholder="用户名称" name="name" style="margin-top: 1px;" />
+	    		<a id="search" href="javascript:void(0);" class="easyui-linkbutton" data-options="iconCls:'icon-search'">搜索</a>
+    		</form>
+    	</div>
+    	
+    	<div id="win"></div>
+    	<div id="seeWin"></div>
+    	<div id="roleWin"></div>

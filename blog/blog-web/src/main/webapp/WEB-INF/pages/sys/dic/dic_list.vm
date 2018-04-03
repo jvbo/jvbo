@@ -1,0 +1,89 @@
+##set($layout = "/layout/front.vm")
+
+	<title>数据字典</title>
+	<script type="text/javascript">
+		var columns=[[
+					{field:'dicType',title:'字典类型'},
+					{field:'dicKey',title:'字典主键'},
+					{field:'dicVal',title:'字典值'},
+					{field:'sort',title:'排序'},
+					{field:'addTime',title:'添加时间',formatter:formatDatebox}
+				]];
+			//---按钮
+	  	var buttons=[{
+		  		text:'确定',
+		  		iconCls:'icons-other-tick',
+		  		handler:function(){  
+		  		ISubmit("myform","/sys/dic/modify.ajax",null,function(data){
+		  				if(data.success){
+							$.messager.alert("系统提示","操作成功");
+							$("#win").dialog("close");
+							$("#tab").datagrid("reload");
+			  			}else{
+			  				if(data.mark==-1){
+			  					$.messager.alert("系统提示","该类型的字典主键已存在");
+			  				}else{
+			  					$.messager.alert("系统提示","操作失败");
+			  				}
+			  			}
+		  			
+		  			});
+		  		}
+	  		},
+    		{
+	    		text:'取消',
+	    		iconCls:'icons-arrow-cross',
+	    		handler:function(){$('#win').dialog('close');}
+    		}];		
+				
+		
+		var seeButtons=[{text:"关闭",iconCls:'icons-arrow-cross',handler:function(){$('#seeWin').dialog('close');}}];
+				
+		$(function(){
+			init();
+		});
+		
+		function init(){
+		
+			initDatagrid("/sys/dic/index.ajax","菜单列表",columns);
+			initDialog("win","菜单信息",400,300,buttons);
+			initDialog("seeWin","菜单信息",400,300,seeButtons);
+			
+			
+			$("#search").click(function(){
+	  				$("#tab").datagrid("load",$("#queryForm").serializeObject());
+	  		});
+			
+			$("#add").click(function(){
+				IAdd("win","/sys/dic/modify.ajax");
+			});
+			
+			$("#edit").click(function(){
+	  			IModify("/sys/dic/modify.ajax")
+	  		});
+	  			
+	  		$("#remove").click(function(){
+	  			IRemove("/sys/dic/remove.ajax");
+	  		});
+	  			
+	  		$("#see").click(function(){
+	  			ISee("seeWin","/sys/dic/modify.ajax");
+	  		});
+		
+			
+		}
+	</script>
+    	<table id="tab" toolbar="#tb"></table>
+    	<div id="tb">
+    	<form id="queryForm">
+    		<a id="add" href="javascript:void(0);" class="easyui-linkbutton" data-options="iconCls:'icon-add'">新增</a> 
+    		<a id="edit" href="javascript:void(0);" class="easyui-linkbutton" data-options="iconCls:'icon-edit'">修改</a>
+    		<a id="remove" href="javascript:void(0);" class="easyui-linkbutton" data-options="iconCls:'icon-remove'">删除</a>
+    		<a id="see" href="javascript:void(0);" class="easyui-linkbutton" data-options="iconCls:'icon-large-smartart'">查看</a>
+    		<input  placeholder="字典类型" name="type"  style="margin-top: 1px;" />
+    		<input  placeholder="字典主键" name="key"  style="margin-top: 1px;" />
+    		<a id="search" href="javascript:void(0);" class="easyui-linkbutton" data-options="iconCls:'icon-search'">搜索</a>
+    	</form>
+    	</div>
+    	<div id="win"></div>
+    	<div id="seeWin"></div>

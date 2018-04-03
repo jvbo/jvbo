@@ -1,0 +1,9 @@
+#set($layout = "velocity/layout/admin_error.vm")
+
+<!-- 代码 开始 -->
+<div id="container"><img class="png" src="$rc.contextPath/STATIC/images/error/404.png" /> 
+<img class="png msg" src="$rc.contextPath/STATIC/images/error/404_msg.png" />
+  <p><a href="$rc.contextPath/sys/index.htm" ><img class="png" src="$rc.contextPath/STATIC/images/error/404_to_index.png" /></a> </p>
+</div>
+<div id="cloud" class="png"></div>
+<!-- 代码 结束 -->

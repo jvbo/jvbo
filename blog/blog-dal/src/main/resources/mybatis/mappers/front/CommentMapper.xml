@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jvbo.blog.dao.front.FrontCommentMapper">
+
+	<resultMap id="CommentResult" type="com.jvbo.blog.bo.CommentBo">
+		<id column="id" jdbcType="VARCHAR" property="id" />
+		<result column="userIp" jdbcType="VARCHAR" property="userIp" />
+		<result column="blogId" jdbcType="VARCHAR" property="blogId" />
+		<result column="content" jdbcType="VARCHAR" property="content" />
+		<result column="commentDate" jdbcType="TIMESTAMP" property="commentDate" />
+		<result column="state" jdbcType="INTEGER" property="state" />
+		<result column="addUserId" jdbcType="VARCHAR" property="addUserId" />
+		<result column="addTime" jdbcType="TIMESTAMP" property="addTime" />
+		<result column="updTime" jdbcType="TIMESTAMP" property="updTime" />
+		<result column="updUserId" jdbcType="VARCHAR" property="updUserId" />
+		<result column="delFlag" jdbcType="CHAR" property="delFlag" />
+		<association property="blogBo" column="blogId" select="com.jvbo.blog.dao.front.FrontBlogMapper.findById"></association>
+	</resultMap>
+	
+	<insert id="add" parameterType="com.jvbo.blog.bo.CommentBo">
+		insert into t_comment
+	<trim prefix="(" suffix=")" suffixOverrides=",">
+		<if test="id != null">
+			id,
+		</if>
+		<if test="userIp != null">
+			userIp,
+		</if>
+		<if test="blogBo.id != null">
+			blogId,
+		</if>
+		<if test="content != null">
+			content,
+		</if>
+		<if test="commentDate != null">
+			commentDate,
+		</if>
+		<if test="state != null">
+			state,
+		</if>
+		<if test="addUserId != null">
+			addUserId,
+		</if>
+		<if test="addTime != null">
+			addTime,
+		</if>
+		<if test="updTime != null">
+			updTime,
+		</if>
+		<if test="updUserId != null">
+			updUserId,
+		</if>
+		<if test="delFlag != null">
+			delFlag,
+		</if>
+	</trim>
+	<trim prefix="values (" suffix=")" suffixOverrides=",">
+		<if test="id != null">
+			#{id,jdbcType=VARCHAR},
+		</if>
+		<if test="userIp != null">
+			#{userIp,jdbcType=VARCHAR},
+		</if>
+		<if test="blogBo.id != null">
+			#{blogBo.id,jdbcType=VARCHAR},
+		</if>
+		<if test="content != null">
+			#{content,jdbcType=VARCHAR},
+		</if>
+		<if test="commentDate != null">
+			#{commentDate,jdbcType=TIMESTAMP},
+		</if>
+		<if test="state != null">
+			#{state,jdbcType=INTEGER},
+		</if>
+		<if test="addUserId != null">
+			#{addUserId,jdbcType=VARCHAR},
+		</if>
+		<if test="addTime != null">
+			#{addTime,jdbcType=TIMESTAMP},
+		</if>
+		<if test="updTime != null">
+			#{updTime,jdbcType=TIMESTAMP},
+		</if>
+		<if test="updUserId != null">
+			#{updUserId,jdbcType=VARCHAR},
+		</if>
+		<if test="delFlag != null">
+			#{delFlag,jdbcType=CHAR},
+		</if>
+	</trim>
+	</insert>
+	<select id="list" parameterType="Map" resultMap="CommentResult">
+		select * from t_comment
+		<where>
+			<if test="blogId!=null">
+				and blogId=#{blogId}
+			</if>
+			<if test="state!=null">
+				and state=#{state}
+			</if>
+		</where>
+		order by commentDate
+		<if test="start!=null and size!=null">
+			limit #{start},#{size}
+		</if>
+	</select>
+
+	<select id="getTotal" parameterType="Map" resultType="Long">
+		select count(*) from t_comment
+		<where>
+			<if test="state!=null">
+				and state=#{state}
+			</if>
+		</where>
+	</select>
+</mapper> 

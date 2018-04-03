@@ -1,0 +1,60 @@
+##set($layout = "/layout/front.vm")
+<form id="myform" style="margin: 50px;">
+<input type="hidden" name="id" value="$!{vo.id}"/>
+<table style="font-size: 12px;" cellspacing="6" width="100%">
+<tbody>
+		#if($mark == 1)
+			<tr>
+				<td>字典类型：</td>
+				<td>
+					$!{vo.dicType}
+				</td>
+			</tr>
+			<tr>
+				<td>字典主键：</td>
+				<td>
+					$!{vo.dicKey}
+				</td>
+			</tr>
+			
+			<tr>
+				<td>字典值：</td>
+				<td>
+					$!{vo.dicVal}
+				</td>
+			</tr>
+			<tr>
+				<td>排序：</td>
+				<td>
+					$!{vo.sort}
+				</td>
+			</tr>
+		#else
+			<tr>
+				<td>字典类型：</td>
+				<td>
+					<input type="text" value="$!{vo.dicType}" name="dicType" class="easyui-validatebox" data-options="required:true,validType:['length[1,20,\'字典类型\']']" />
+				</td>
+			</tr>
+			<tr>
+				<td>字典主键：</td>
+				<td>
+					<input type="text" value="$!{vo.dicKey}" name="dicKey" class="easyui-validatebox" data-options="required:true,validType:['length[1,20,\'字典主键\']']"/>
+				</td>
+			</tr>
+			<tr>
+				<td>字典值：</td>
+				<td>
+					<input type="text" value="$!{vo.dicVal}" name="dicVal" class="easyui-validatebox" data-options="required:true,validType:['length[1,20,\'字典值\']']"/>
+				</td>
+			</tr>
+			<tr>
+				<td>排序：</td>
+				<td>
+					<input type="text" value="$!{vo.sort}" name="sort" class="easyui-numberbox" data-options="precision:0"/>
+				</td>
+			</tr>
+		#end
+</tbody>
+</table>
+</form>

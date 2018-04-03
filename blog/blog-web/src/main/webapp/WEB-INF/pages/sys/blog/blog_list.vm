@@ -1,0 +1,92 @@
+	<title>博客列表</title>
+  	  <script type="text/javascript">
+		var columns=[[
+					{field:'blogType.typeName',title:'分类',width:'13%'},
+					{field:'title',title:'标题',width:'13%'},
+					{field:'summary',title:'摘要',width:'13%'},
+					{field:'keyWord',title:'关键字',width:'13%'},
+					/* {field:'content',title:'内容',width:'20%',formatter:function (value, row, index) {
+				        if (value.length > 10) {
+				        	value = value.substring(0, 10) + "...";
+				        }
+				        return value;
+				    }}, */
+					{field:'releaseDateStr',title:'发布日期(年月)',width:'13%'},
+					{field:'releaseDate',title:'发布日期',width:'13%',formatter:formatDatebox}
+				]];
+		var buttons=[{
+	  		text:'确定',
+	  		iconCls:'icons-other-tick',
+	  		handler:function(){ 
+	  			$("#contentNoTag").val(UE.getEditor('modifyContent').getContentTxt());
+	  			ISubmit("myform","/sys/blog/modify.ajax");
+	  		}
+  		},
+		{
+    		text:'取消',
+    		iconCls:'icons-arrow-cross',
+    		handler:function(){
+    			if (typeof (UE) !== "undefined") {
+					UE.getEditor('modifyContent').destroy();
+				}
+    			$('#win').dialog('close');
+    		}
+		}];
+		
+		var seeButtons=[{text:"关闭",iconCls:'icons-arrow-cross',handler:function(){
+			if (typeof (UE) !== "undefined") {
+				UE.getEditor('indexContent').destroy();
+			}
+			$('#seeWin').dialog('close');
+		}}];
+		$(function(){
+	    	initDatagrid("/sys/blog/index.ajax","博客列表",columns);
+	    	initDialog("win","博客信息",900,555,buttons);
+	    	initDialog("seeWin","博客信息",900,555,seeButtons);
+	    	
+	    	$("#add").click(function(){
+		  			$("#win").dialog("refresh",ctx+"/sys/blog/modify.ajax");
+					$("#win").dialog("open");
+		  	});
+	    	$("#edit").click(function(){
+  				IModify("/sys/blog/modify.ajax")
+  			});
+  			
+  			$("#remove").click(function(){
+  				IRemove("/sys/blog/remove.ajax");
+  			});
+  			
+  			$("#see").click(function(){
+  				ISee("seeWin","/sys/blog/modify.ajax");
+  			});
+  			
+  			$("#search").click(function(){
+  				initDatagrid("/sys/blog/index.ajax?"+$("#queryForm").serialize(),"商品分类列表",columns);
+  			});
+	    });
+		
+		function refreshSystem(){
+			$.post("$rc.contextPath/sys/refreshSystem.htm",{},function(result){
+				if(result.success){
+					$.messager.alert("系统提示","已成功刷新系统缓存！");
+				}else{
+					$.messager.alert("系统提示","刷新系统缓存失败！");
+				}
+			},"json");
+		}
+	</script>
+    	<table id="tab" toolbar="#tb"></table>
+    	<div id="tb">
+    		<form id="queryForm">
+    			<a id="add" href="javascript:void(0);" class="easyui-linkbutton" data-options="iconCls:'icon-add'">新增</a> 
+    			<a id="edit" href="javascript:void(0);" class="easyui-linkbutton" data-options="iconCls:'icon-edit'">修改</a>
+    			<a id="remove" href="javascript:void(0);" class="easyui-linkbutton" data-options="iconCls:'icon-remove'">删除</a>
+    			<a id="see" href="javascript:void(0);" class="easyui-linkbutton" data-options="iconCls:'icon-large-smartart'">查看</a>
+    			<a id="refreshSys" onclick="refreshSystem()" href="javascript:void(0);" class="easyui-linkbutton" data-options="iconCls:'icon-mini-refresh'">刷新系统缓存</a>
+    			<input placeholder="博客标题" name="title"  style="margin-top: 1px;" />
+    			<a id="search" href="javascript:void(0);" class="easyui-linkbutton" data-options="iconCls:'icon-search'">搜索</a>
+    		</form>
+    	</div>
+    	
+    	<div id="win"></div>
+    	<div id="seeWin"></div>

@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+	<context id="context1" targetRuntime="Mybatis3">
+		<property name="autoDelimitKeywords" value="true" />
+		<property name="beginningDelimiter" value="`" />
+		<property name="endingDelimiter" value="`" />
+		<plugin type="org.mybatis.generator.plugins.ToStringPlugin"></plugin>
+		<plugin type="org.mybatis.generator.plugins.EqualsHashCodePlugin"></plugin>
+		<plugin type="com.jvbo.framework.mybatis.pageplugin.MySQLPaginationPlugin"></plugin>
+		<commentGenerator>
+			<property name="suppressAllComments" value="true" />
+		</commentGenerator>
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
+			connectionURL="jdbc:mysql://192.168.1.66:3306/edobee" userId="root"
+			password="edobe" />
+		<javaModelGenerator targetPackage="edobee.core.models"
+			targetProject="src/main/java" />
+		<sqlMapGenerator targetPackage="edobee/core/mappers"
+			targetProject="src/main/resources" />
+		<javaClientGenerator targetPackage="edobee.core.mappers"
+			targetProject="src/main/java" type="XMLMAPPER" />
+		<!-- table其他属性例如:enableCountByExample="false" enableUpdateByExample="false" 
+			enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" -->
+		<!-- <table tableName="desiger_duty" domainObjectName="DesignerDuty"> <property 
+			name="useActualColumnNames" value="true" /> <columnOverride column="shift" 
+			javaType="Integer" jdbcType="tinyint"/> <columnOverride column="isDeleted" 
+			javaType="Integer" jdbcType="tinyint"/> </table> -->
+		<!-- <table tableName="task_psd" domainObjectName="TaskPsd"> <property 
+			name="useActualColumnNames" value="true" /> <columnOverride column="isConvert" 
+			javaType="Integer" jdbcType="TINYINT"/> <columnOverride column="status" javaType="Integer" 
+			jdbcType="TINYINT"/> <columnOverride column="isDeleted" javaType="Integer" 
+			jdbcType="TINYINT"/> </table> -->
+
+		<!-- <table tableName="admin_user_operate" domainObjectName="AdminUserOperate"> 
+			<property name="useActualColumnNames" value="true" /> <columnOverride column="isDeleted" 
+			javaType="Integer" jdbcType="TINYINT"/> </table> -->
+
+		<!-- <table tableName="user_operate" domainObjectName="UserOperate"> <property 
+			name="useActualColumnNames" value="true" /> <columnOverride column="isDeleted" 
+			javaType="Integer" jdbcType="TINYINT"/> <columnOverride column="operInfo" 
+			javaType="String" jdbcType="VARCHAR" /> </table> -->
+
+		<!-- <table tableName="config_size" domainObjectName="ConfigSize"> <property 
+			name="useActualColumnNames" value="true" /> <columnOverride column="clientType" 
+			javaType="Integer" jdbcType="TINYINT"/> <columnOverride column="platformType" 
+			javaType="Integer" jdbcType="TINYINT"/> <columnOverride column="pattern" 
+			javaType="Integer" jdbcType="TINYINT"/> <columnOverride column="isDeleted" 
+			javaType="Integer" jdbcType="TINYINT"/> </table> <table tableName="config_size_std" 
+			domainObjectName="ConfigSizeStd"> <property name="useActualColumnNames" value="true" 
+			/> <columnOverride column="clientType" javaType="Integer" jdbcType="TINYINT"/> 
+			<columnOverride column="platformType" javaType="Integer" jdbcType="TINYINT"/> 
+			<columnOverride column="pattern" javaType="Integer" jdbcType="TINYINT"/> 
+			<columnOverride column="isOperate" javaType="Integer" jdbcType="TINYINT"/> 
+			<columnOverride column="isDeleted" javaType="Integer" jdbcType="TINYINT"/> 
+			</table> -->
+
+
+		<!-- <table tableName="admin_user" domainObjectName="AdminUser"> <property 
+			name="useActualColumnNames" value="true" /> <columnOverride column="enabled" 
+			javaType="Integer" jdbcType="TINYINT" /> <columnOverride column="source" 
+			javaType="Integer" jdbcType="TINYINT" /> </table> <table tableName="auth_role" 
+			domainObjectName="AuthRole"> <property name="useActualColumnNames" value="true" 
+			/> <columnOverride column="created_by" property="createdBy" /> <columnOverride 
+			column="gmt_created" property="gmtCreated" /> <columnOverride column="modified_by" 
+			property="modifiedBy" /> <columnOverride column="gmt_modified" property="gmtModified" 
+			/> <columnOverride column="is_deleted" property="isDeleted" javaType="Integer" 
+			jdbcType="TINYINT" /> </table> <table tableName="auth_menu" domainObjectName="AuthMenu"> 
+			<property name="useActualColumnNames" value="true" /> <columnOverride column="type" 
+			javaType="Integer" jdbcType="TINYINT" /> <columnOverride column="parent_menu" 
+			property="parentMenu" /> <columnOverride column="created_by" property="createdBy" 
+			/> <columnOverride column="gmt_created" property="gmtCreated" /> <columnOverride 
+			column="modified_by" property="modifiedBy" /> <columnOverride column="gmt_modified" 
+			property="gmtModified" /> <columnOverride column="is_deleted" property="isDeleted" 
+			javaType="Integer" jdbcType="TINYINT" /> </table> <table tableName="auth_operate" 
+			domainObjectName="AuthOperate"> <property name="useActualColumnNames" value="true" 
+			/> <columnOverride column="created_by" property="createdBy" /> <columnOverride 
+			column="gmt_created" property="gmtCreated" /> <columnOverride column="modified_by" 
+			property="modifiedBy" /> <columnOverride column="gmt_modified" property="gmtModified" 
+			/> <columnOverride column="is_deleted" property="isDeleted" javaType="Integer" 
+			jdbcType="TINYINT" /> </table> <table tableName="auth_user_role" domainObjectName="AuthUserRole"> 
+			<property name="useActualColumnNames" value="true" /> <columnOverride column="user_id" 
+			property="userId" /> <columnOverride column="role_id" property="roleId" /> 
+			<columnOverride column="created_by" property="createdBy" /> <columnOverride 
+			column="gmt_created" property="gmtCreated" /> <columnOverride column="modified_by" 
+			property="modifiedBy" /> <columnOverride column="gmt_modified" property="gmtModified" 
+			/> <columnOverride column="is_deleted" property="isDeleted" javaType="Integer" 
+			jdbcType="TINYINT" /> </table> <table tableName="auth_role_menu" domainObjectName="AuthRoleMenu"> 
+			<property name="useActualColumnNames" value="true" /> <columnOverride column="role_id" 
+			property="roleId" /> <columnOverride column="menu_id" property="menuId" /> 
+			<columnOverride column="created_by" property="createdBy" /> <columnOverride 
+			column="gmt_created" property="gmtCreated" /> <columnOverride column="modified_by" 
+			property="modifiedBy" /> <columnOverride column="gmt_modified" property="gmtModified" 
+			/> <columnOverride column="is_deleted" property="isDeleted" javaType="Integer" 
+			jdbcType="TINYINT" /> </table> <table tableName="auth_menu_operate" domainObjectName="AuthMenuOperate"> 
+			<property name="useActualColumnNames" value="true" /> <columnOverride column="operate_id" 
+			property="operateId" /> <columnOverride column="menu_id" property="menuId" 
+			/> <columnOverride column="created_by" property="createdBy" /> <columnOverride 
+			column="gmt_created" property="gmtCreated" /> <columnOverride column="modified_by" 
+			property="modifiedBy" /> <columnOverride column="gmt_modified" property="gmtModified" 
+			/> <columnOverride column="is_deleted" property="isDeleted" javaType="Integer" 
+			jdbcType="TINYINT" /> </table> <table tableName="auth_user_operate" domainObjectName="AuthUserOperate"> 
+			<property name="useActualColumnNames" value="true" /> <columnOverride column="operate_id" 
+			property="operateId" /> <columnOverride column="user_id" property="userId" 
+			/> <columnOverride column="created_by" property="createdBy" /> <columnOverride 
+			column="gmt_created" property="gmtCreated" /> <columnOverride column="modified_by" 
+			property="modifiedBy" /> <columnOverride column="gmt_modified" property="gmtModified" 
+			/> <columnOverride column="is_deleted" property="isDeleted" javaType="Integer" 
+			jdbcType="TINYINT" /> </table> -->
+
+		<!-- <table tableName="goods_info_ali1688_sku" domainObjectName="GoodInfoAli1688Sku"> 
+			<property name="useActualColumnNames" value="true" /> <columnOverride column="isDeleted" 
+			javaType="Integer" jdbcType="TINYINT" /> </table> -->
+
+		<!-- <table tableName="user_record" domainObjectName="UserRecord"> <property 
+			name="useActualColumnNames" value="true" /> <columnOverride column="uparam" 
+			javaType="String" jdbcType="VARCHAR" /> <columnOverride column="isDeleted" 
+			javaType="Integer" jdbcType="TINYINT" /> </table> -->
+
+		<!-- <table tableName="user_level_std" domainObjectName="UserLevelStd"> 
+			<property name="useActualColumnNames" value="true" /> <columnOverride column="version" 
+			property="version" javaType="Integer" jdbcType="TINYINT" /> <columnOverride 
+			column="download_pro_times" property="downloadProTimes" /> <columnOverride 
+			column="upload_sheet_times" property="uploadSheetTimes" /> <columnOverride 
+			column="make_sheet_times" property="makeSheetTimes" /> <columnOverride column="upload_psd_times" 
+			property="uploadPsdTimes" /> <columnOverride column="normal_colourplate_times" 
+			property="normalColourplateTimes" /> <columnOverride column="intelligent_colourplate_times" 
+			property="intelligentColourplateTimes" /> <columnOverride column="smart_psd_times" 
+			property="smartPsdTimes" /> <columnOverride column="instant_ground_times" 
+			property="instantGroundTimes" /> <columnOverride column="sub_amount_num" 
+			property="subAmountNum" /> <columnOverride column="invalid_date_millis" property="invalidDateMillis" 
+			/> <columnOverride column="gmt_created" property="gmtCreated" /> <columnOverride 
+			column="gmt_modified" property="gmtModified" /> <columnOverride column="is_deleted" 
+			property="isDeleted" javaType="Integer" jdbcType="TINYINT" /> </table> -->
+
+		<table tableName="user_expand" domainObjectName="UserExpand">
+			<property name="useActualColumnNames" value="true" />
+			<columnOverride column="isDeleted" javaType="Integer"
+				jdbcType="TINYINT" />
+			<columnOverride column="version" javaType="Integer"
+				jdbcType="TINYINT" />
+			<columnOverride column="subAmount" javaType="Integer"
+				jdbcType="TINYINT" />
+		</table>
+		<table tableName="user_level_std" domainObjectName="UserLevelStd">
+			<property name="useActualColumnNames" value="true" />
+			<columnOverride column="version" property="version"
+				javaType="Integer" jdbcType="TINYINT" />
+			<columnOverride column="download_pro_times" property="downloadProTimes" />
+			<columnOverride column="upload_sheet_times" property="uploadSheetTimes" />
+			<columnOverride column="make_sheet_times" property="makeSheetTimes" />
+			<columnOverride column="upload_psd_times" property="uploadPsdTimes" />
+			<columnOverride column="normal_colourplate_times"
+				property="normalColourplateTimes" />
+			<columnOverride column="intelligent_colourplate_times"
+				property="intelligentColourplateTimes" />
+			<columnOverride column="smart_psd_times" property="smartPsdTimes" />
+			<columnOverride column="instant_ground_times"
+				property="instantGroundTimes" />
+			<columnOverride column="sub_amount_num" property="subAmountNum" />
+			<columnOverride column="invalid_date_millis" property="invalidDateMillis" />
+			<columnOverride column="gmt_created" property="gmtCreated" />
+			<columnOverride column="gmt_modified" property="gmtModified" />
+			<columnOverride column="is_deleted" property="isDeleted"
+				javaType="Integer" jdbcType="TINYINT" />
+		</table>
+
+
+		<!-- <table tableName="goods_info_ali1688" domainObjectName="GoodInfoAli1688"> 
+			<property name="useActualColumnNames" value="true" /> <columnOverride column="attributes" 
+			javaType="String" jdbcType="VARCHAR" /> <columnOverride column="saleInfo" 
+			javaType="String" jdbcType="VARCHAR" /> <columnOverride column="shippingInfo" 
+			javaType="String" jdbcType="VARCHAR" /> <columnOverride column="isDeleted" 
+			javaType="Integer" jdbcType="TINYINT" /> </table> -->
+
+	</context>
+</generatorConfiguration>

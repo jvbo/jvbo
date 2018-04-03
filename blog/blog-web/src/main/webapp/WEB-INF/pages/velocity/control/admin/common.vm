@@ -1,0 +1,17 @@
+
+<link rel="stylesheet" type="text/css" href="$rc.contextPath/STATIC/js/sys/common/easyUI/themes/icon.css">
+<link rel="stylesheet" type="text/css" href="$rc.contextPath/STATIC/css/default.css">
+<link rel="stylesheet" type="text/css" href="$rc.contextPath/STATIC/css/icons.css">
+<link rel="stylesheet" type="text/css" href="$rc.contextPath/STATIC/js/sys/common/easyUI/themes/bootstrap/easyui.css">
+<link rel="stylesheet" type="text/css" href="$rc.contextPath/STATIC/css/bootstrap.css">
+
+<script>
+	var ctx = "$rc.contextPath";
+</script>
+<script type="text/javascript" src="#getJsPath('sys/common/easyUI/jquery.min.js')"></script>
+<script type="text/javascript" src="$rc.contextPath/STATIC/js/sys/common/easyUI/jquery.easyui.min.js"></script>
+<script type="text/javascript" src="$rc.contextPath/STATIC/js/sys/common/easyUI/locale/easyui-lang-zh_CN.js"></script>
+<script type="text/javascript" src="$rc.contextPath/STATIC/js/validateboxExtend.js"></script>
+<script type="text/javascript" src="$rc.contextPath/STATIC/js/sys/sysCommon.js"></script>
+<script type="text/javascript" src="$rc.contextPath/STATIC/js/common.js"></script>
+<script type="text/javascript" src="$rc.contextPath/STATIC/js/easyui-extend.js"></script>

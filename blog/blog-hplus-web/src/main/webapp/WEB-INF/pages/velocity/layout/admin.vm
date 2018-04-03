@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<title>#if($pageTitle) $pageTitle #else 弹出页面标题 #end</title>
+	<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
+    <META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+    <META HTTP-EQUIV="Cache-Control" CONTENT="no-cache">
+    <META HTTP-EQUIV="Expires" CONTENT="0">
+ 	<link rel="shortcut icon" href="$rc.contextPath/favicon.ico" type="image/x-icon" />
+	<link rel="bookmark" href="$rc.contextPath/favicon.ico" type="image/x-icon"/>
+	#parse("/velocity/control/admin/common.vm")
+</head>
+
+$screen_content
+
+</html>

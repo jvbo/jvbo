@@ -1,0 +1,21 @@
+<div class="data_list">
+		<div class="data_list_title">
+		<img src="$rc.contextPath/STATIC/images/search_icon.png"/>
+		搜索&nbsp;<font color="red">$!{searchKeyWord}</font>&nbsp;的结果 &nbsp;(总共搜索到&nbsp;$!{resultTotal}&nbsp;条记录) </div>
+		<div class="datas search">
+			<ul>
+				#if($blogList.size()==0)
+					<div align="center" style="padding-top: 20px">未查询到结果，请换个关键字试试看！</div>
+				#else
+					#foreach($blog in $blogList)
+						<li style="margin-bottom: 20px">
+						  	<span class="title"><a href="$rc.contextPath/front/blog/articles/$!{blog.id}.htm" target="_blank">$!{blog.title}</a></span>
+						  	<span class="summary">摘要: $!{blog.content}...</span>
+						  	<span class="link"><a href="$rc.contextPath/front/blog/articles/$!{blog.id}.htm">http://$rc.contextPath/front/blog/articles/$!{blog.id}.htm</a>&nbsp;&nbsp;&nbsp;&nbsp;发布日期：$!{blog.releaseDateStr}</span>
+						</li>
+					#end
+				#end
+			</ul>
+		</div>
+		$!{pageCode}
+   </div>

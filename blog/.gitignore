@@ -1,0 +1,17 @@
+/.idea
+/target/
+
+# idea
+*.iml
+.idea
+
+
+# eclipse
+.project
+.classpath
+.metadata
+.settings
+.import-summary.txt
+
+# svn
+.svn

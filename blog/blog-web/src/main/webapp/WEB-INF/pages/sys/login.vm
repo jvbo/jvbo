@@ -1,0 +1,102 @@
+<style type="text/css">
+	form{width:280px;height:120px;margin:30px auto 0;}
+	form div label{float:left;display:block;width:65px;font-size:16px;padding-top:6px;}
+	form div{margin:8px auto;}
+	form div.input input{height:29px;padding:2px 3px;}
+	form div.input img{cursor:pointer}
+	#username,#password{width:200px;}
+	#code{width:68px}
+</style>
+   <div class="easyui-dialog" title="用户登录" style="width:380px;height:240px" data-options="closable:false,iconCls:'icons-lock-lock',buttons:[{text:'登录',iconCls:'icons-user-user_go',handler:login}]">
+	<form id='form' method="post">
+		<div class="input">
+			<label for="username">用户名:</label>  
+	        <input type="text" name="loginName" id="username"  />  
+		</div>
+		<div class="input">
+			<label for="password">密&nbsp;码:</label>  
+	        <input type="password" name="passWord" id="password"  />  
+		</div>
+		 <div class="input">
+			<label for="code">验证码:</label>  
+	        <input type="text" name="code" id="code" size="4" />
+	        <span style="margin-left:10px"><img id="code_img" align="top" onclick="changeCode()" src="$rc.contextPath/verifyCodeServlet" title="点击切换验证码"></span> 
+		</div>
+	</form> 
+	</div>
+<script type="text/javascript">
+$(function(){
+	$('input:text:first').focus();
+	$('form').keyup(function(event){
+		if(event.keyCode ==13){
+			login();
+		}
+	});
+})
+var changeCode = function(){
+	var that = document.getElementById('code_img');
+	that.src = that.src + '?' + Math.random();
+}
+var login = function(){
+	if(!$('#username').val()){
+		$.messager.alert('提示信息', '请填写用户名', 'error');
+		return false;
+	}
+	if(!$('#password').val()){
+		$.messager.alert('提示信息', '请填写密码', 'error');
+		return false;
+	}
+	if(!$('#code').val()){
+		$.messager.alert('提示信息', '请填写验证码', 'error');
+		return false;
+	}
+	$.post(ctx+'/VerifyCodeResultServlet',{c:$("#code").val()},function(data){
+			if($.trim(data) == "false"){
+				$.messager.alert('提示信息', '验证码错误', 'error');
+				return false;
+			}else{
+				$.ajax({
+					type: "post",
+					url: ctx+'/sys/login.ajax',
+					cache: false,
+			        async: true,
+			        data: $("#form").serialize(),
+			        dataType: "json",
+			        timeout: 30000,
+			        beforeSend: function (XMLHttpRequest) {
+			            // TODO
+			        },
+					complete: function (XMLHttpRequest, textStatus) {
+		        		// TODO
+		        	},
+			        success: function(data){
+						if(!data.success){
+							$.messager.alert('提示信息', data.message, 'error');
+							changeCode();
+						}else{
+							$.messager.progress({text:'加载中，请稍候...'});
+							window.location.href = ctx+'/sys/index.htm';
+						}
+					},
+					error: function (XMLHttpRequest, textStatus, errorThrown) {
+			            console.log(XMLHttpRequest.status);
+			            console.log(XMLHttpRequest.readyState);
+			            console.log(textStatus);
+			            $.messager.alert('提示信息', "请求出现错误！", 'error');
+			        }
+				});
+				/* $.post(ctx+'/sys/login.htm', $("#form").serialize(), function(data){
+					if(!data.success){
+						$.messager.alert('提示信息', data.message, 'error');
+						changeCode();
+					}else{
+						$.messager.progress({text:'加载中，请稍候...'});
+						window.location.href = ctx+'/sys/index.htm';
+					}
+				},'json'); */
+	 		}
+	});
+	return false;
+}
+</script>
+

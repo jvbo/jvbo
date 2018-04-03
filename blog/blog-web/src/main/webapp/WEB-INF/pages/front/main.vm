@@ -1,0 +1,141 @@
+#set($layout = "velocity/layout/front.vm")
+<div class="container">
+	<!-- head start -->
+	<div class="row">
+		<div class="col-md-4">
+			<h1><a href="$rc.contextPath/front/index.htm">jvbo的个人博客</a></h1>
+			<font color="black"><strong>念念不忘，必有反向。</strong></font>
+		</div>
+		<div class="col-md-8">
+			<iframe style="float: right;" width="420" scrolling="no" height="60" frameborder="0" allowtransparency="true" src="http://i.tianqi.com/index.php?c=code&id=12&icon=1&num=5"></iframe>
+		</div>
+	</div>
+	<!-- head end -->
+	
+	<!-- menu start -->
+	<script type="text/javascript">
+		function checkData() {
+			var searchKeyWord = document.getElementById("searchKeyWord").value.trim();
+			if (searchKeyWord == null || searchKeyWord == "") {
+				alert("请输入您要查询的关键字！");
+				return false;
+			} else {
+				return true;
+			}
+		}
+	</script>
+	<div class="row">
+		<div class="col-md-12" style="padding-top: 10px">
+			<nav class="navbar navbar-default">
+				<div class="container-fluid">
+					<!-- Brand and toggle get grouped for better mobile display -->
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle collapsed"
+							data-toggle="collapse"
+							data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+							<span class="sr-only">Toggle navigation</span> <span
+								class="icon-bar"></span> <span class="icon-bar"></span> <span
+								class="icon-bar"></span>
+						</button>
+						<a class="navbar-brand"
+							href="$rc.contextPath/front/index.htm"><font
+							color="black"><strong>首页</strong></font></a>
+					</div>
+
+					<!-- Collect the nav links, forms, and other content for toggling -->
+					<div class="collapse navbar-collapse"
+						id="bs-example-navbar-collapse-1">
+						<ul class="nav navbar-nav">
+							<li><a href="$rc.contextPath/front/blog/archives.htm"><font color="black"><strong>归档</strong></font></a></li>
+							<li><a href="$rc.contextPath/front/blogger/aboutMe.htm"><font color="black"><strong>关于</strong></font></a></li>
+						</ul>
+						<form action="$rc.contextPath/front/blog/search.htm"
+							class="navbar-form navbar-right" role="search" method="post"
+							onsubmit="return checkData()">
+							<div class="form-group">
+								<input type="text" id="searchKeyWord" name="searchKeyWord" value="$!{searchKeyWord}"
+									class="form-control" placeholder="请输入要查询的关键字...">
+							</div>
+							<button type="submit" class="btn btn-default">搜索</button>
+						</form>
+					</div>
+					<!-- /.navbar-collapse -->
+				</div>
+				<!-- /.container-fluid -->
+			</nav>
+		</div>
+	</div>
+	<!-- menu end -->
+	
+	<div class="row">
+		<div class="col-md-9">
+			#parse($!{mainPage})
+		</div>
+		<div class="col-md-3">
+			<div class="data_list">
+				<div class="data_list_title">
+					<img src="$rc.contextPath/STATIC/images/news_icon.png"/>
+					最新文章
+				</div>
+				<div class="datas">
+					<ul>
+						#foreach($newBlog in $newBlogList)
+							<li><span><a href="$rc.contextPath/front/blog/articles/$!{newBlog.id}.htm">$!{newBlog.title}</a></span></li>
+						#end
+					</ul>
+				</div>
+			</div>
+			<div class="data_list">
+				<div class="data_list_title">
+					<img src="$rc.contextPath/STATIC/images/byType_icon.png"/>
+					按日志类别
+				</div>
+				<div class="datas">
+					<ul>
+						#foreach($blogTypeCount in $blogTypeCountList)
+							<li><span><a href="$rc.contextPath/front/index.htm?typeId=$!{blogTypeCount.id}">$!{blogTypeCount.typeName}($!{blogTypeCount.blogCount})</a></span></li>
+						#end
+					</ul>
+				</div>
+			</div>
+			<div class="data_list">
+				<div class="data_list_title">
+					<img src="$rc.contextPath/STATIC/images/byDate_icon.png"/>
+					按日志日期
+				</div>
+				<div class="datas">
+					<ul>
+						#foreach($blogCount in $blogCountList)
+							<li><span><a href="$rc.contextPath/front/index.htm?releaseDateStr=$!{blogCount.releaseDateStr}">$!{blogCount.releaseDateStr}($!{blogCount.blogCount})</a></span></li>
+						#end
+					</ul>
+				</div>
+			</div>
+			<div class="data_list">
+				<div class="data_list_title">
+					<img src="$rc.contextPath/STATIC/images/link_icon.png"/>
+					友情链接
+				</div>
+				<div class="datas">
+					<ul>
+						#foreach($link in $linkList)
+		 					<li><span><a href="$!{link.linkUrl}" target="_blank">$!{link.linkName}</a></span></li>
+		 				#end
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<!-- foot start -->
+	<div class="row">
+		<div class="col-md-12">
+			<div align="center" style="padding-top: 120px">
+				<span style="float: left;">Powered by <a
+					href="http://blog.jvbo.site" target="_blank">jvbo</a>V1.0
+				</span>Copyright (c) 2015-2016, Jv Bo (programmer_jv_bo@163.com).
+			</div>
+		</div>
+	</div>
+	<!-- foot end -->
+</div>

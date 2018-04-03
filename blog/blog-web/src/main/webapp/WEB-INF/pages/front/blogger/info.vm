@@ -1,0 +1,10 @@
+
+<div class="data_list">
+	<div class="data_list_title">
+		<img src="$rc.contextPath/STATIC/images/about_icon.png"/>
+		关于博主
+	</div>
+	<div style="padding: 30px">
+	   $!{blogger.profile}
+	</div>
+</div>

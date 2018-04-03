@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jvbo.blog.dao.admin.DataDicMapper">
+  <resultMap id="BaseResultMap" type="com.jvbo.blog.model.DataDic">
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="dicType" jdbcType="VARCHAR" property="dicType" />
+    <result column="dicKey" jdbcType="VARCHAR" property="dicKey" />
+    <result column="dicVal" jdbcType="VARCHAR" property="dicVal" />
+    <result column="sort" jdbcType="INTEGER" property="sort" />
+    <result column="addTime" jdbcType="TIMESTAMP" property="addTime" />
+    <result column="addUserId" jdbcType="VARCHAR" property="addUserId" />
+    <result column="updTime" jdbcType="TIMESTAMP" property="updTime" />
+    <result column="updUserId" jdbcType="VARCHAR" property="updUserId" />
+    <result column="delFlag" jdbcType="CHAR" property="delFlag" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.jvbo.blog.model.DataDic">
+    <result column="dicDesc" jdbcType="LONGVARCHAR" property="dicDesc" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    id, dicType, dicKey, dicVal, sort, addTime, addUserId, updTime, updUserId, delFlag
+  </sql>
+  <sql id="Blob_Column_List">
+    dicDesc
+  </sql>
+  <select id="selectByExampleWithBLOBs" parameterType="com.jvbo.blog.model.DataDicExample" resultMap="ResultMapWithBLOBs">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from t_data_dic
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" parameterType="com.jvbo.blog.model.DataDicExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from t_data_dic
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+    <if test="page != null">
+      limit #{page.begin} , #{page.rows}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from t_data_dic
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from t_data_dic
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.jvbo.blog.model.DataDicExample">
+    delete from t_data_dic
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.jvbo.blog.model.DataDic">
+    insert into t_data_dic (id, dicType, dicKey, 
+      dicVal, sort, addTime, 
+      addUserId, updTime, updUserId, 
+      delFlag, dicDesc)
+    values (#{id,jdbcType=VARCHAR}, #{dicType,jdbcType=VARCHAR}, #{dicKey,jdbcType=VARCHAR}, 
+      #{dicVal,jdbcType=VARCHAR}, #{sort,jdbcType=INTEGER}, #{addTime,jdbcType=TIMESTAMP}, 
+      #{addUserId,jdbcType=VARCHAR}, #{updTime,jdbcType=TIMESTAMP}, #{updUserId,jdbcType=VARCHAR}, 
+      #{delFlag,jdbcType=CHAR}, #{dicDesc,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.jvbo.blog.model.DataDic">
+    insert into t_data_dic
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="dicType != null">
+        dicType,
+      </if>
+      <if test="dicKey != null">
+        dicKey,
+      </if>
+      <if test="dicVal != null">
+        dicVal,
+      </if>
+      <if test="sort != null">
+        sort,
+      </if>
+      <if test="addTime != null">
+        addTime,
+      </if>
+      <if test="addUserId != null">
+        addUserId,
+      </if>
+      <if test="updTime != null">
+        updTime,
+      </if>
+      <if test="updUserId != null">
+        updUserId,
+      </if>
+      <if test="delFlag != null">
+        delFlag,
+      </if>
+      <if test="dicDesc != null">
+        dicDesc,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="dicType != null">
+        #{dicType,jdbcType=VARCHAR},
+      </if>
+      <if test="dicKey != null">
+        #{dicKey,jdbcType=VARCHAR},
+      </if>
+      <if test="dicVal != null">
+        #{dicVal,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null">
+        #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="addTime != null">
+        #{addTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="addUserId != null">
+        #{addUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="updTime != null">
+        #{updTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updUserId != null">
+        #{updUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null">
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="dicDesc != null">
+        #{dicDesc,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.jvbo.blog.model.DataDicExample" resultType="java.lang.Long">
+    select count(*) from t_data_dic
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update t_data_dic
+    <set>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=VARCHAR},
+      </if>
+      <if test="record.dicType != null">
+        dicType = #{record.dicType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.dicKey != null">
+        dicKey = #{record.dicKey,jdbcType=VARCHAR},
+      </if>
+      <if test="record.dicVal != null">
+        dicVal = #{record.dicVal,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sort != null">
+        sort = #{record.sort,jdbcType=INTEGER},
+      </if>
+      <if test="record.addTime != null">
+        addTime = #{record.addTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.addUserId != null">
+        addUserId = #{record.addUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.updTime != null">
+        updTime = #{record.updTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.updUserId != null">
+        updUserId = #{record.updUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.delFlag != null">
+        delFlag = #{record.delFlag,jdbcType=CHAR},
+      </if>
+      <if test="record.dicDesc != null">
+        dicDesc = #{record.dicDesc,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map">
+    update t_data_dic
+    set id = #{record.id,jdbcType=VARCHAR},
+      dicType = #{record.dicType,jdbcType=VARCHAR},
+      dicKey = #{record.dicKey,jdbcType=VARCHAR},
+      dicVal = #{record.dicVal,jdbcType=VARCHAR},
+      sort = #{record.sort,jdbcType=INTEGER},
+      addTime = #{record.addTime,jdbcType=TIMESTAMP},
+      addUserId = #{record.addUserId,jdbcType=VARCHAR},
+      updTime = #{record.updTime,jdbcType=TIMESTAMP},
+      updUserId = #{record.updUserId,jdbcType=VARCHAR},
+      delFlag = #{record.delFlag,jdbcType=CHAR},
+      dicDesc = #{record.dicDesc,jdbcType=LONGVARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update t_data_dic
+    set id = #{record.id,jdbcType=VARCHAR},
+      dicType = #{record.dicType,jdbcType=VARCHAR},
+      dicKey = #{record.dicKey,jdbcType=VARCHAR},
+      dicVal = #{record.dicVal,jdbcType=VARCHAR},
+      sort = #{record.sort,jdbcType=INTEGER},
+      addTime = #{record.addTime,jdbcType=TIMESTAMP},
+      addUserId = #{record.addUserId,jdbcType=VARCHAR},
+      updTime = #{record.updTime,jdbcType=TIMESTAMP},
+      updUserId = #{record.updUserId,jdbcType=VARCHAR},
+      delFlag = #{record.delFlag,jdbcType=CHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.jvbo.blog.model.DataDic">
+    update t_data_dic
+    <set>
+      <if test="dicType != null">
+        dicType = #{dicType,jdbcType=VARCHAR},
+      </if>
+      <if test="dicKey != null">
+        dicKey = #{dicKey,jdbcType=VARCHAR},
+      </if>
+      <if test="dicVal != null">
+        dicVal = #{dicVal,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null">
+        sort = #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="addTime != null">
+        addTime = #{addTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="addUserId != null">
+        addUserId = #{addUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="updTime != null">
+        updTime = #{updTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updUserId != null">
+        updUserId = #{updUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null">
+        delFlag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="dicDesc != null">
+        dicDesc = #{dicDesc,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.jvbo.blog.model.DataDic">
+    update t_data_dic
+    set dicType = #{dicType,jdbcType=VARCHAR},
+      dicKey = #{dicKey,jdbcType=VARCHAR},
+      dicVal = #{dicVal,jdbcType=VARCHAR},
+      sort = #{sort,jdbcType=INTEGER},
+      addTime = #{addTime,jdbcType=TIMESTAMP},
+      addUserId = #{addUserId,jdbcType=VARCHAR},
+      updTime = #{updTime,jdbcType=TIMESTAMP},
+      updUserId = #{updUserId,jdbcType=VARCHAR},
+      delFlag = #{delFlag,jdbcType=CHAR},
+      dicDesc = #{dicDesc,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.jvbo.blog.model.DataDic">
+    update t_data_dic
+    set dicType = #{dicType,jdbcType=VARCHAR},
+      dicKey = #{dicKey,jdbcType=VARCHAR},
+      dicVal = #{dicVal,jdbcType=VARCHAR},
+      sort = #{sort,jdbcType=INTEGER},
+      addTime = #{addTime,jdbcType=TIMESTAMP},
+      addUserId = #{addUserId,jdbcType=VARCHAR},
+      updTime = #{updTime,jdbcType=TIMESTAMP},
+      updUserId = #{updUserId,jdbcType=VARCHAR},
+      delFlag = #{delFlag,jdbcType=CHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

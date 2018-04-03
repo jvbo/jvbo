@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jvbo.blog.dao.admin.SysRoleMenuMapper">
+	<resultMap id="BaseResultMap" type="com.jvbo.blog.model.SysRoleMenu">
+		<id column="id" jdbcType="VARCHAR" property="id" />
+		<result column="name" jdbcType="VARCHAR" property="name" />
+		<result column="state" jdbcType="VARCHAR" property="state" />
+		<result column="checked" jdbcType="VARCHAR" property="checked" />
+	</resultMap>
+
+	<select id="selectMenuTreeByRoleId" parameterType="java.util.HashMap"
+		resultMap="BaseResultMap">
+		select tm.id,tm.name,case tm.parentMenu when '0' then
+		'closed' else 'open' end state,
+		case when trm.id is null then '' else 'checked' end checked
+		from t_menu tm
+		left join t_role_menu trm on trm.delFlag='1' and tm.id=trm.menuId 
+		and trm.roleId=#{roleId,jdbcType=VARCHAR}
+		where tm.delFlag='1' 
+        <if test="id == null">
+			and tm.parentMenu='0' 
+        </if>
+		<if test="id != null">
+            and tm.parentMenu=#{id,jdbcType=VARCHAR}
+        </if>
+	</select>
+
+</mapper>

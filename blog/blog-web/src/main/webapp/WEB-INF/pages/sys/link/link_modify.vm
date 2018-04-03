@@ -1,0 +1,48 @@
+##set($layout = "/layout/front.vm")
+<form id="myform" style="margin: 50px;">
+<input type="hidden" name="id" value="$!{vo.id}"/>
+<table style="font-size: 12px;" cellspacing="6" width="100%">
+<tbody>
+		#if($mark == 1)
+			<tr>
+				<td>链接名称：</td>
+				<td>
+					$!{vo.linkName}
+				</td>
+			</tr>
+			<tr>
+				<td>链接地址：</td>
+				<td>
+					$!{vo.linkUrl}
+				</td>
+			</tr>
+			
+			<tr>
+				<td>排序：</td>
+				<td>
+					$!{vo.orderNo}
+				</td>
+			</tr>
+		#else
+			<tr>
+				<td>链接名称：</td>
+				<td>
+					<input type="text" value="$!{vo.linkName}" name="linkName" class="easyui-validatebox" data-options="required:true" />
+				</td>
+			</tr>
+			<tr>
+				<td>链接地址：</td>
+				<td>
+					<input type="text" value="$!{vo.linkUrl}" name="linkUrl" class="easyui-validatebox" data-options="required:true"/>
+				</td>
+			</tr>
+			<tr>
+				<td>排序：</td>
+				<td>
+					<input type="text" value="$!{vo.orderNo}" name="orderNo" class="easyui-validatebox" data-options="required:true"/>
+				</td>
+			</tr>
+		#end
+</tbody>
+</table>
+</form>

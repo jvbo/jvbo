@@ -1,0 +1,56 @@
+	<title>评论列表</title>
+  	  <script type="text/javascript">
+		var columns=[[
+					{field:'userIp',title:'用户IP',width:'20%'},
+					{field:'content',title:'评论内容',width:'20%'},
+					{field:'commentDate',title:'评论时间',width:'20%',formatter:formatDatebox},
+					{field:'state',title:'审核状态',width:'20%',formatter:function(value,row,index){
+	  					var str=value;
+	  					var temp ="";
+	  					if(str=="0"||str==0){
+	  						temp = "待审核";
+	  					}else if(str=="1"||str==1){
+	  						temp = "审核通过";
+	  					}else if(str=="2"||str==2){
+	  						temp = "审核未通过";
+	  					}else{
+	  						temp = "未说明";
+	  					}
+	  					return temp;
+	  				}},
+	  				{field:'iId',title:'操作',width:'20%',formatter:function(value,row,index){
+    					var str="<a href=javascript:void(0); onclick=handlerTo('"+row.id+"')>审核</a>";
+    					return str;
+    				}}
+				]];
+		var id = "";
+    	//审核	
+    	function handlerTo(value){
+    		id = value;
+			var data=ajaxPost("/sys/comment/audit.ajax",{id:id});
+			if(data.success){
+				Ialert("操作成功");
+				$("#tab").datagrid("reload");
+			}else{
+				Ialert("操作失败");
+				$("#tab").datagrid("reload");
+			}
+    	}
+		$(function(){
+			initPage("/sys/comment/","评论列表","评论信息","评论信息",columns);
+		});
+	</script>
+    	<table id="tab" toolbar="#tb"></table>
+    	<div id="tb">
+    		<form id="queryForm">
+    			<a id="add" href="javascript:void(0);" class="easyui-linkbutton" data-options="iconCls:'icon-add'">新增</a> 
+    			<a id="edit" href="javascript:void(0);" class="easyui-linkbutton" data-options="iconCls:'icon-edit'">修改</a>
+    			<a id="remove" href="javascript:void(0);" class="easyui-linkbutton" data-options="iconCls:'icon-remove'">删除</a>
+    			<a id="see" href="javascript:void(0);" class="easyui-linkbutton" data-options="iconCls:'icon-large-smartart'">查看</a>
+    			<input placeholder="评论内容" name="content"  style="margin-top: 1px;" />
+    			<a id="search" href="javascript:void(0);" class="easyui-linkbutton" data-options="iconCls:'icon-search'">搜索</a>
+    		</form>
+    	</div>
+    	
+    	<div id="win"></div>
+    	<div id="seeWin"></div>

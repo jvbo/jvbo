@@ -1,0 +1,21 @@
+<div class="data_list">
+	<div class="data_list_title">
+		<img src="$rc.contextPath/STATIC/images/byDate_icon.png"/>
+		归档
+	</div>
+	<div class="datas">
+		#foreach($blogArchiveBo in $blogArchiveBoList)
+			<span style="color: #212121;font-size: 2rem;line-height: 1.3;">$!{blogArchiveBo.year} ($!{blogArchiveBo.blogNum})</span>
+			<ul>
+				#foreach($blog in $blogArchiveBo.blogBoList)
+					<li>
+						<span class="date">
+							<a href="$rc.contextPath/front/blog/articles/$!{blog.id}.htm">$!date.format("yyyy年MM月dd日", $!{blog.releaseDate})</a>
+							&nbsp;&nbsp;<a style="color: black;" href="$rc.contextPath/front/blog/articles/$!{blog.id}.htm">$!{blog.title}</a>	
+						</span>
+					</li>
+				#end
+			</ul>
+		#end
+	</div>
+</div>

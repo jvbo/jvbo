@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jvbo.blog.dao.front.FrontBloggerMapper">
+
+	<resultMap type="com.jvbo.blog.model.Blogger" id="BloggerResult">
+		<id column="id" jdbcType="VARCHAR" property="id" />
+		<result column="userName" jdbcType="VARCHAR" property="userName" />
+		<result column="profile" jdbcType="VARCHAR" property="profile" />
+		<result column="nickName" jdbcType="VARCHAR" property="nickName" />
+		<result column="email" jdbcType="VARCHAR" property="email" />
+		<result column="sign" jdbcType="VARCHAR" property="sign" />
+		<result column="imageName" jdbcType="VARCHAR" property="imageName" />
+		<result column="addUserId" jdbcType="VARCHAR" property="addUserId" />
+		<result column="addTime" jdbcType="TIMESTAMP" property="addTime" />
+		<result column="updTime" jdbcType="TIMESTAMP" property="updTime" />
+		<result column="updUserId" jdbcType="VARCHAR" property="updUserId" />
+		<result column="delFlag" jdbcType="CHAR" property="delFlag" />
+	</resultMap>
+
+	<select id="find" resultMap="BloggerResult">
+		select * from t_blogger where id='8957d2d2db2448da815276b25e253815';
+	</select>
+
+	<select id="getByUserName" parameterType="String" resultMap="BloggerResult">
+		select * from t_blogger where userName=#{userName}
+	</select>
+</mapper> 

@@ -1,0 +1,373 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jvbo.blog.dao.admin.BlogMapper">
+  <resultMap id="BaseResultMap" type="com.jvbo.blog.model.Blog">
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="typeId" jdbcType="VARCHAR" property="typeId" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="summary" jdbcType="VARCHAR" property="summary" />
+    <result column="keyWord" jdbcType="VARCHAR" property="keyWord" />
+    <result column="content" jdbcType="VARCHAR" property="content" />
+    <result column="releaseDate" jdbcType="TIMESTAMP" property="releaseDate" />
+    <result column="releaseDateStr" jdbcType="VARCHAR" property="releaseDateStr" />
+    <result column="clickNum" jdbcType="INTEGER" property="clickNum" />
+    <result column="replyNum" jdbcType="INTEGER" property="replyNum" />
+    <result column="addUserId" jdbcType="VARCHAR" property="addUserId" />
+    <result column="addTime" jdbcType="TIMESTAMP" property="addTime" />
+    <result column="updTime" jdbcType="TIMESTAMP" property="updTime" />
+    <result column="updUserId" jdbcType="VARCHAR" property="updUserId" />
+    <result column="delFlag" jdbcType="CHAR" property="delFlag" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    id, typeId, title, summary, keyWord, content, releaseDate, releaseDateStr, clickNum, 
+    replyNum, addUserId, addTime, updTime, updUserId, delFlag
+  </sql>
+  <select id="selectByExample" parameterType="com.jvbo.blog.model.BlogExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from t_blog
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+    <if test="page != null">
+      limit #{page.begin} , #{page.rows}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_blog
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from t_blog
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.jvbo.blog.model.BlogExample">
+    delete from t_blog
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.jvbo.blog.model.Blog">
+    insert into t_blog (id, typeId, title, 
+      summary, keyWord, content, 
+      releaseDate, releaseDateStr, clickNum, 
+      replyNum, addUserId, addTime, 
+      updTime, updUserId, delFlag
+      )
+    values (#{id,jdbcType=VARCHAR}, #{typeId,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, 
+      #{summary,jdbcType=VARCHAR}, #{keyWord,jdbcType=VARCHAR}, #{content,jdbcType=VARCHAR}, 
+      #{releaseDate,jdbcType=TIMESTAMP}, #{releaseDateStr,jdbcType=VARCHAR}, #{clickNum,jdbcType=INTEGER}, 
+      #{replyNum,jdbcType=INTEGER}, #{addUserId,jdbcType=VARCHAR}, #{addTime,jdbcType=TIMESTAMP}, 
+      #{updTime,jdbcType=TIMESTAMP}, #{updUserId,jdbcType=VARCHAR}, #{delFlag,jdbcType=CHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.jvbo.blog.model.Blog">
+    insert into t_blog
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="typeId != null">
+        typeId,
+      </if>
+      <if test="title != null">
+        title,
+      </if>
+      <if test="summary != null">
+        summary,
+      </if>
+      <if test="keyWord != null">
+        keyWord,
+      </if>
+      <if test="content != null">
+        content,
+      </if>
+      <if test="releaseDate != null">
+        releaseDate,
+      </if>
+      <if test="releaseDateStr != null">
+        releaseDateStr,
+      </if>
+      <if test="clickNum != null">
+        clickNum,
+      </if>
+      <if test="replyNum != null">
+        replyNum,
+      </if>
+      <if test="addUserId != null">
+        addUserId,
+      </if>
+      <if test="addTime != null">
+        addTime,
+      </if>
+      <if test="updTime != null">
+        updTime,
+      </if>
+      <if test="updUserId != null">
+        updUserId,
+      </if>
+      <if test="delFlag != null">
+        delFlag,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="typeId != null">
+        #{typeId,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="summary != null">
+        #{summary,jdbcType=VARCHAR},
+      </if>
+      <if test="keyWord != null">
+        #{keyWord,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null">
+        #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="releaseDate != null">
+        #{releaseDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="releaseDateStr != null">
+        #{releaseDateStr,jdbcType=VARCHAR},
+      </if>
+      <if test="clickNum != null">
+        #{clickNum,jdbcType=INTEGER},
+      </if>
+      <if test="replyNum != null">
+        #{replyNum,jdbcType=INTEGER},
+      </if>
+      <if test="addUserId != null">
+        #{addUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="addTime != null">
+        #{addTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updTime != null">
+        #{updTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updUserId != null">
+        #{updUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null">
+        #{delFlag,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.jvbo.blog.model.BlogExample" resultType="java.lang.Long">
+    select count(*) from t_blog
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update t_blog
+    <set>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=VARCHAR},
+      </if>
+      <if test="record.typeId != null">
+        typeId = #{record.typeId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.title != null">
+        title = #{record.title,jdbcType=VARCHAR},
+      </if>
+      <if test="record.summary != null">
+        summary = #{record.summary,jdbcType=VARCHAR},
+      </if>
+      <if test="record.keyWord != null">
+        keyWord = #{record.keyWord,jdbcType=VARCHAR},
+      </if>
+      <if test="record.content != null">
+        content = #{record.content,jdbcType=VARCHAR},
+      </if>
+      <if test="record.releaseDate != null">
+        releaseDate = #{record.releaseDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.releaseDateStr != null">
+        releaseDateStr = #{record.releaseDateStr,jdbcType=VARCHAR},
+      </if>
+      <if test="record.clickNum != null">
+        clickNum = #{record.clickNum,jdbcType=INTEGER},
+      </if>
+      <if test="record.replyNum != null">
+        replyNum = #{record.replyNum,jdbcType=INTEGER},
+      </if>
+      <if test="record.addUserId != null">
+        addUserId = #{record.addUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.addTime != null">
+        addTime = #{record.addTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.updTime != null">
+        updTime = #{record.updTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.updUserId != null">
+        updUserId = #{record.updUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.delFlag != null">
+        delFlag = #{record.delFlag,jdbcType=CHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update t_blog
+    set id = #{record.id,jdbcType=VARCHAR},
+      typeId = #{record.typeId,jdbcType=VARCHAR},
+      title = #{record.title,jdbcType=VARCHAR},
+      summary = #{record.summary,jdbcType=VARCHAR},
+      keyWord = #{record.keyWord,jdbcType=VARCHAR},
+      content = #{record.content,jdbcType=VARCHAR},
+      releaseDate = #{record.releaseDate,jdbcType=TIMESTAMP},
+      releaseDateStr = #{record.releaseDateStr,jdbcType=VARCHAR},
+      clickNum = #{record.clickNum,jdbcType=INTEGER},
+      replyNum = #{record.replyNum,jdbcType=INTEGER},
+      addUserId = #{record.addUserId,jdbcType=VARCHAR},
+      addTime = #{record.addTime,jdbcType=TIMESTAMP},
+      updTime = #{record.updTime,jdbcType=TIMESTAMP},
+      updUserId = #{record.updUserId,jdbcType=VARCHAR},
+      delFlag = #{record.delFlag,jdbcType=CHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.jvbo.blog.model.Blog">
+    update t_blog
+    <set>
+      <if test="typeId != null">
+        typeId = #{typeId,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null">
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="summary != null">
+        summary = #{summary,jdbcType=VARCHAR},
+      </if>
+      <if test="keyWord != null">
+        keyWord = #{keyWord,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null">
+        content = #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="releaseDate != null">
+        releaseDate = #{releaseDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="releaseDateStr != null">
+        releaseDateStr = #{releaseDateStr,jdbcType=VARCHAR},
+      </if>
+      <if test="clickNum != null">
+        clickNum = #{clickNum,jdbcType=INTEGER},
+      </if>
+      <if test="replyNum != null">
+        replyNum = #{replyNum,jdbcType=INTEGER},
+      </if>
+      <if test="addUserId != null">
+        addUserId = #{addUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="addTime != null">
+        addTime = #{addTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updTime != null">
+        updTime = #{updTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updUserId != null">
+        updUserId = #{updUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null">
+        delFlag = #{delFlag,jdbcType=CHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.jvbo.blog.model.Blog">
+    update t_blog
+    set typeId = #{typeId,jdbcType=VARCHAR},
+      title = #{title,jdbcType=VARCHAR},
+      summary = #{summary,jdbcType=VARCHAR},
+      keyWord = #{keyWord,jdbcType=VARCHAR},
+      content = #{content,jdbcType=VARCHAR},
+      releaseDate = #{releaseDate,jdbcType=TIMESTAMP},
+      releaseDateStr = #{releaseDateStr,jdbcType=VARCHAR},
+      clickNum = #{clickNum,jdbcType=INTEGER},
+      replyNum = #{replyNum,jdbcType=INTEGER},
+      addUserId = #{addUserId,jdbcType=VARCHAR},
+      addTime = #{addTime,jdbcType=TIMESTAMP},
+      updTime = #{updTime,jdbcType=TIMESTAMP},
+      updUserId = #{updUserId,jdbcType=VARCHAR},
+      delFlag = #{delFlag,jdbcType=CHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

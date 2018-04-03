@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+  <context id="context1" targetRuntime="Mybatis3"> 
+  	<plugin type="org.mybatis.generator.plugins.ToStringPlugin"></plugin>
+  	<plugin type="org.mybatis.generator.plugins.EqualsHashCodePlugin"></plugin>
+  	<plugin type="com.jvbo.framework.mybatis.pageplugin.MySQLPaginationPlugin"></plugin>
+    <commentGenerator>
+    	<property name="suppressAllComments" value="true" />
+  	</commentGenerator>
+    <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://114.55.1.70:3306/jvbo_blog" userId="root" password="111111" />
+    <javaModelGenerator targetPackage="com.jvbo.blog.model" targetProject="src/main/java" />  
+    <sqlMapGenerator targetPackage="mybatis/mappers/admin" targetProject="src/main/resources" />  
+    <javaClientGenerator targetPackage="com.jvbo.blog.dao.admin" targetProject="src/main/java" type="XMLMAPPER" />
+    <!-- table其他属性例如:enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" -->
+    <table tableName="t_blog" domainObjectName="Blog">
+    	<property name="useActualColumnNames" value="true" />
+    	<columnOverride column="content" jdbcType="VARCHAR" />
+    </table>
+    <table tableName="t_blog_type" domainObjectName="BlogType">
+    	<property name="useActualColumnNames" value="true" />
+    </table>
+    <table tableName="t_blogger" domainObjectName="Blogger">
+    	<property name="useActualColumnNames" value="true" />
+    </table>
+    <table tableName="t_comment" domainObjectName="Comment">
+    	<property name="useActualColumnNames" value="true" />
+    </table>
+    <table tableName="t_data_dic" domainObjectName="DataDic">
+    	<property name="useActualColumnNames" value="true" />
+    </table>
+    <table tableName="t_link" domainObjectName="Link">
+    	<property name="useActualColumnNames" value="true" />
+    </table>
+    <table tableName="t_menu" domainObjectName="Menu">
+    	<property name="useActualColumnNames" value="true" />
+    </table>
+    <table tableName="t_role" domainObjectName="Role">
+    	<property name="useActualColumnNames" value="true" />
+    </table>
+    <table tableName="t_role_menu" domainObjectName="RoleMenu">
+    	<property name="useActualColumnNames" value="true" />
+    </table>
+    <table tableName="t_user" domainObjectName="User">
+    	<property name="useActualColumnNames" value="true" />
+    </table>
+    <table tableName="t_user_role" domainObjectName="UserRole">
+    	<property name="useActualColumnNames" value="true" />
+    </table>
+  </context>
+</generatorConfiguration>
