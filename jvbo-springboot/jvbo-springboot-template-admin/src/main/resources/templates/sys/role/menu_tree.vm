@@ -1,0 +1,30 @@
+<script>
+	$(function(){
+		$("#treeUl").tree({
+			url:ctx+'/sys/role/menuTree.ajax?roleId='+id,
+			checkbox:true,
+			onBeforeExpand: function (node){
+				$(this).tree("options").url=ctx+'/sys/role/menuTree.ajax?menuId='+node.id+'&roleId='+id;
+			},
+			onLoadSuccess:function(node,data){
+				var t = $(this);
+				if(data){
+					$(data).each(function(index, d) {
+	                	if (this.state == 'closed') {
+	                		t.tree('expandAll');
+	                	}
+	                });
+	                $("#treeUl").tree("collapseAll");
+	                if($("#treeUl").tree('getChildren').length>0){
+	     				$("#treeUl").tree('getChildren').tree("collapseAll");
+	     			}
+	             }
+			}
+		});
+	});
+</script>
+
+
+<ul id="treeUl">
+
+</ul>

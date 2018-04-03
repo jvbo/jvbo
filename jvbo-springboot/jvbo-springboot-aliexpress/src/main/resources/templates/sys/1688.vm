@@ -1,0 +1,268 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+    </head>
+    <body>
+        appkey:<input type="text" name="appkey" />
+        <input type="button" name="go" value="go" />
+        <p>
+            <span class="mf-1 s1" style="display: none;">
+                <select name="sel" style="width: 70%;"> 
+                </select>
+            </span>
+        </p>
+        <p>
+            <span class="mf-1 s2" style="display: none;">
+                <select name="se2" style="width: 70%;"></select>
+            </span>
+        </p>
+        <p>
+            <span class="mf-1 s3" style="display: none;">
+                <select name="se3" style="width: 70%;"></select>
+            </span>
+        </p>
+        <p>
+            <span class="mf-1 s4" style="display: none;">
+                <select name="se4" style="width: 70%;"></select>
+            </span>
+        </p>
+        <p>
+            <span class="mf-1 s5" style="display: none;">
+                <select name="se5" style="width: 70%;"></select>
+            </span>
+        </p>
+        <p>
+            <input class="add-info-button" type="button" style="display: none;" name="add" value="add" />
+        </p>
+        <div class="cate-attr">
+            
+        </div>
+    </body>
+    <script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script type="text/javascript">
+var appkey = "";
+$('input[name="go"]').click(function(){
+    appkey=$('input[name="appkey"]').val();
+    loadclass(0,0);
+});
+var proclass = -1;
+$('.s1').on('change','select[name="sel"]',function(){
+    var can = $(this).find("option:selected").attr("isLeaf");
+    var id = $(this).val();
+    if (id >= -1) {
+        $('select[name="se2"]').html('');
+        $('select[name="se3"]').html('');
+        $('select[name="se4"]').html('');
+        $('select[name="se5"]').html('');
+        if (can == "false") {
+            loadclass(id, 1);
+        } else {
+            proclass = id;
+            $('.add-info-button').show();
+            $('.s2').hide();
+            $('.s3').hide();
+            $('.s4').hide();
+            $('.s5').hide();
+        }
+    }else {
+        $('.s2').hide();
+        $('.s3').hide();
+        $('.s4').hide();
+        $('.s5').hide();
+    }
+});
+$('.s2').on('change','select[name="se2"]',function(){
+    var can = $(this).find("option:selected").attr("isLeaf");
+    var id = $(this).val();
+    if (id >= -1) {
+        $('select[name="se3"]').html('');
+        $('select[name="se4"]').html('');
+        $('select[name="se5"]').html('');
+        if (can == "false") {
+            loadclass(id, 2);
+        } else {
+            proclass = id;
+            $('.add-info-button').show();
+            $('.s3').hide();
+            $('.s4').hide();
+            $('.s5').hide();
+        }
+    }else {
+        $('.s3').hide();
+        $('.s4').hide();
+        $('.s5').hide();
+    }
+});
+$('.s3').on('change','select[name="se3"]',function(){
+    var can = $(this).find("option:selected").attr("isLeaf");
+    var id = $(this).val();
+    if (id >= -1) {
+        $('select[name="se4"]').html('');
+        $('select[name="se5"]').html('');
+        if (can == "false") {
+            loadclass(id, 3);
+        } else {
+            proclass = id;
+            $('.add-info-button').show();
+            $('.s4').hide();
+            $('.s5').hide();
+        }
+    }else {
+        $('.s4').hide();
+        $('.s5').hide();
+    }
+});
+$('.s4').on('change','select[name="se4"]',function(){
+    var can = $(this).find("option:selected").attr("isLeaf");
+    var id = $(this).val();
+    if (id >= -1) {
+        $('select[name="se5"]').html('');
+        if (can == "false") {
+            loadclass(id, 4);
+        } else {
+            proclass = id;
+            $('.add-info-button').show();
+            $('.s5').hide();
+        }
+    }else {
+        $('.s5').hide();
+    }
+});
+function loadclass(id,num){
+    var Url = "https://gw.open.1688.com/openapi/param2/1/com.alibaba.product/alibaba.category.get/"+appkey+"?categoryID="+id+"&webSite=1688";
+    $.ajax({
+        type: "get",
+        url: Url,
+        async: 'false',
+        dataType: 'json',
+        beforeSend: function () {
+        },
+        error: function () {
+        },
+        success: function (e) {
+            var JsonVal = e["categoryInfo"][0]["childIDs"];
+            var htmlt ="";
+            for(var i = 0;i<JsonVal.length;i++){
+                var nextid= JsonVal[i];
+                var Url1 = "https://gw.open.1688.com/openapi/param2/1/com.alibaba.product/alibaba.category.get/"+appkey+"?categoryID="+nextid+"&webSite=1688";
+                $.ajax({
+                    type: "get",
+                    url: Url1,
+                    async: 'false',
+                    dataType: 'json',
+                    beforeSend: function () {
+                    },
+                    error: function () {
+                    },
+                    success: function (n) {
+                        var JsonVal1 = n["categoryInfo"][0];
+                        var isLeaf="";
+                        htmlt="<option isLeaf='"+JsonVal1["isLeaf"]+"' value='"+JsonVal1["categoryID"]+"'>"+JsonVal1['name']+"</option>";
+                        if(num == 0){
+                            $('.s1').show();
+                            $('.s2').hide();
+                            $('.s3').hide();
+                            $('.s4').hide();
+                            $('.s4').hide();
+                            $('select[name="sel"]').append(htmlt);
+                        }
+                        if(num == 1){
+                            $('.s2').show();
+                            $('.s3').hide();
+                            $('.s4').hide();
+                            $('.s4').hide();
+                            $('select[name="se2"]').append(htmlt);
+                        }
+                        if(num == 2){
+                            $('.s3').show();
+                            $('.s4').hide();
+                            $('select[name="se3"]').append(htmlt);
+                        }
+                        if(num == 3){
+                            $('.s4').show();
+                            $('.s5').hide();
+                            $('select[name="se4"]').append(htmlt);
+                        }
+                        if(num == 4){
+                            $('.s5').show();
+                            $('select[name="se5"]').append(htmlt);
+                        }
+                    }
+                });
+            }
+        }
+    });
+}
+
+$('input[name="add"]').click(function(){
+    loadCategoryAttribute(proclass);
+});
+function loadCategoryAttribute(categoryID){
+    //女士休闲裤:1031871
+    //categoryID = 1031871;
+    var url = "/ali1688/findCategoryAttributeByCateId21688";
+    $.ajax({
+        type: "get",
+        url: url,
+        async: 'false',
+        dataType: 'json',
+        param: {'categoryID':categoryID},
+        beforeSend: function () {
+        },
+        error: function () {
+        },
+        success: function (n) {
+            console.info(n);
+            var JsonAttr = n["attributes"];
+            var attrHtml = "";
+            var seeName = "";
+            for(var i = 0;i<JsonAttr.length;i++){
+                var JsonAttrInner = JsonAttr[i];
+                var attrName = JsonAttrInner["name"];
+                seeName+=attrName;
+                seeName+=",";
+            }
+            console.log(seeName);
+        }
+    });
+}
+
+
+
+//TODO inputType=-1
+function loadNumber(htmlUi, name, value){
+    var numberForm = name +":<input class='' type='text' name='' value=''/>";
+}
+
+//TODO inputType=0
+function loadInput(htmlUi, name, value){
+    var inputForm = name +":<input class='' type='text' name='' value=''/>";
+}
+
+//TODO inputType=1
+function loadDropDown(htmlUi, name, value){
+    var dropDownForm = name +":<select class='' name=''></select>";
+}
+
+
+//TODO inputType=2
+function loadCheckBox(htmlUi, name, value){
+    var checkBoxForm = name +":<input class='' type='checkbox' name='' value=''/>";
+}
+
+//TODO inputType=3
+function loadRadio(htmlUi, name, value){
+    var radioForm = name +":<input class='' type='radio' name='' value=''/>";
+}
+
+//TODO inputType=4
+function loadDropDownList(htmlUi, name, value){
+    var dropDownListForm = name +":<select class='' name=''></select>";
+}
+
+//TODO inputType=5
+function loadDate(htmlUi, name, value){
+    var dateForm = name +":<input class='' type='text' name='' value=''/>";
+}
+</script>
+</html>

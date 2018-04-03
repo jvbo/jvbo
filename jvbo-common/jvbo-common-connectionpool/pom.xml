@@ -10,12 +10,6 @@
 	<artifactId>jvbo-common-connectionpool</artifactId>
 	<packaging>jar</packaging>
 
-	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-		<java.version>1.8</java.version>
-	</properties>
-
 	<dependencies>
 		<dependency>
 			<groupId>javax.servlet</groupId>
@@ -52,7 +46,7 @@
 				<configuration>
 					<source>${java.version}</source>
 					<target>${java.version}</target>
-					<encoding>UTF-8</encoding>
+					<encoding>${environment.encoding}</encoding>
 				</configuration>
 			</plugin>
 		</plugins>
