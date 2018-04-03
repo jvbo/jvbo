@@ -2,11 +2,11 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
-		<groupId>com.jvbo</groupId>
-		<artifactId>blog</artifactId>
+		<groupId>com.jvbo.blog</groupId>
+		<artifactId>jvbo-blog</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
-	<artifactId>blog-web</artifactId>
+	<artifactId>bjvbo-log-hplus-web</artifactId>
 	<packaging>war</packaging>
 
 	<!-- <build> eclipse的m2e插件还没有支持到execution,这里添加pluginManagement解决 <pluginManagement> 
@@ -28,22 +28,22 @@
 
 	<dependencies>
 		<dependency>
-			<groupId>com.jvbo</groupId>
-			<artifactId>blog-core</artifactId>
+			<groupId>com.jvbo.blog</groupId>
+			<artifactId>jvbo-blog-core</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>com.jvbo</groupId>
-			<artifactId>blog-dal</artifactId>
+			<groupId>com.jvbo.blog</groupId>
+			<artifactId>jvbo-blog-dal</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>com.jvbo</groupId>
-			<artifactId>blog-api</artifactId>
+			<groupId>com.jvbo.blog</groupId>
+			<artifactId>jvbo-blog-api</artifactId>
 		</dependency>
 
 		<!-- 自定义的一些jar -->
 		<dependency>
-			<groupId>com.jvbo</groupId>
-			<artifactId>blog-ueditor</artifactId>
+			<groupId>com.jvbo.blog</groupId>
+			<artifactId>jvbo-blog-ueditor</artifactId>
 		</dependency>
 
 		<!-- jetty-all -->

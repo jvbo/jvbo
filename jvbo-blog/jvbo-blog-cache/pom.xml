@@ -2,16 +2,10 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
-		<groupId>com.jvbo</groupId>
-		<artifactId>blog</artifactId>
+		<groupId>com.jvbo.blog</groupId>
+		<artifactId>jvbo-blog</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
-	<artifactId>blog-api</artifactId>
-	
-	<dependencies>
-		<dependency>
-			<groupId>com.jvbo</groupId>
-			<artifactId>blog-common</artifactId>
-		</dependency>
-	</dependencies>
+	<artifactId>jvbo-blog-cache</artifactId>
+
 </project>

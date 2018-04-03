@@ -2,33 +2,33 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
-		<groupId>com.jvbo</groupId>
-		<artifactId>blog</artifactId>
+		<groupId>com.jvbo.blog</groupId>
+		<artifactId>jvbo-blog</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
-	<artifactId>blog-dal</artifactId>
+	<artifactId>jvbo-blog-dal</artifactId>
 
 	<dependencies>
 		<dependency>
-			<groupId>com.jvbo</groupId>
-			<artifactId>blog-common</artifactId>
+			<groupId>com.jvbo.blog</groupId>
+			<artifactId>jvbo-blog-common</artifactId>
 		</dependency>
 		<!-- logging -->
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-api</artifactId>
 		</dependency>
-		<!-- log4j桥接到slf4j -->
+		<!-- log4j ==> slf4j -->
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>log4j-over-slf4j</artifactId>
 		</dependency>
-		<!-- common-logging桥接到slf4j -->
+		<!-- common-logging ==> slf4j -->
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>jcl-over-slf4j</artifactId>
 		</dependency>
-		<!-- java.util.logging桥接到slf4j -->
+		<!-- java.util.logging ==> slf4j -->
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>jul-to-slf4j</artifactId>
@@ -37,7 +37,7 @@
 			<groupId>com.googlecode.log4jdbc</groupId>
 			<artifactId>log4jdbc</artifactId>
 		</dependency>
-		<!-- logback输出 -->
+		<!-- logback -->
 		<dependency>
 			<groupId>ch.qos.logback</groupId>
 			<artifactId>logback-classic</artifactId>

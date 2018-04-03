@@ -1,20 +1,20 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.jvbo</groupId>
-	<artifactId>blog</artifactId>
+	<groupId>com.jvbo.blog</groupId>
+	<artifactId>jvbo-blog</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<modules>
-		<module>blog-common</module>
-		<module>blog-api</module>
-		<module>blog-core</module>
-		<module>blog-dal</module>
-		<module>blog-web</module>
-		<module>blog-cache</module>
-		<module>blog-ueditor</module>
-		<module>blog-hplus-web</module>
+		<module>jvbo-blog-common</module>
+		<module>jvbo-blog-api</module>
+		<module>jvbo-blog-core</module>
+		<module>jvbo-blog-dal</module>
+		<module>jvbo-blog-web</module>
+		<module>jvbo-blog-cache</module>
+		<module>jvbo-blog-ueditor</module>
+		<module>jvbo-blog-hplus-web</module>
 	</modules>
 	<properties>
 		<!-- 主要依赖库的版本定义 -->
@@ -66,7 +66,7 @@
 	</properties>
 
 	<build>
-		<finalName>blog-web</finalName>
+		<finalName>jvbo-blog-web</finalName>
 		<pluginManagement>
 			<plugins>
 				<!-- maven-compiler -->
@@ -120,40 +120,40 @@
 		<dependencies>
 			<!-- 项目间pom依赖管理，引入jar -->
 			<dependency>
-				<groupId>com.jvbo</groupId>
-				<artifactId>blog-common</artifactId>
+				<groupId>com.jvbo.blog</groupId>
+				<artifactId>jvbo-blog-common</artifactId>
 				<version>${project.version}</version>
 			</dependency>
 			<dependency>
-				<groupId>com.jvbo</groupId>
-				<artifactId>blog-api</artifactId>
+				<groupId>com.jvbo.blog</groupId>
+				<artifactId>jvbo-blog-api</artifactId>
 				<version>${project.version}</version>
 			</dependency>
 			<dependency>
-				<groupId>com.jvbo</groupId>
-				<artifactId>blog-dal</artifactId>
+				<groupId>com.jvbo.blog</groupId>
+				<artifactId>jvbo-blog-dal</artifactId>
 				<version>${project.version}</version>
 			</dependency>
 			<dependency>
-				<groupId>com.jvbo</groupId>
-				<artifactId>blog-core</artifactId>
+				<groupId>com.jvbo.blog</groupId>
+				<artifactId>jvbo-blog-core</artifactId>
 				<version>${project.version}</version>
 			</dependency>
 			<dependency>
-				<groupId>com.jvbo</groupId>
-				<artifactId>blog-web</artifactId>
+				<groupId>com.jvbo.blog</groupId>
+				<artifactId>jvbo-blog-web</artifactId>
 				<version>${project.version}</version>
 			</dependency>
 			<dependency>
-				<groupId>com.jvbo</groupId>
-				<artifactId>blog-cache</artifactId>
+				<groupId>com.jvbo.blog</groupId>
+				<artifactId>jvbo-blog-cache</artifactId>
 				<version>${project.version}</version>
 			</dependency>
 
 			<!-- 自定义的一些jar -->
 			<dependency>
-				<groupId>com.jvbo</groupId>
-				<artifactId>blog-ueditor</artifactId>
+				<groupId>com.jvbo.blog</groupId>
+				<artifactId>jvbo-blog-ueditor</artifactId>
 				<version>${project.version}</version>
 			</dependency>
 
