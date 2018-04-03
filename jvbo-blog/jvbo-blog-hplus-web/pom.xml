@@ -6,7 +6,7 @@
 		<artifactId>jvbo-blog</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
-	<artifactId>bjvbo-log-hplus-web</artifactId>
+	<artifactId>jvbo-blog-hplus-web</artifactId>
 	<packaging>war</packaging>
 
 	<!-- <build> eclipse的m2e插件还没有支持到execution,这里添加pluginManagement解决 <pluginManagement> 

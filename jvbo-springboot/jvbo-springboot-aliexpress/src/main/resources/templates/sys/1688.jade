@@ -1,0 +1,37 @@
+doctype html
+html
+    head
+        title 1688
+    body
+        |appkey:
+        input(type="text",name="appkey")
+        | 
+        input(type="button",name="go",value="go")
+        p
+            span.mf-1.s1(style="display:none;")
+                select(name="sel",style="width:70%;")
+        p
+            span.mf-1.s2(style="display:none;")
+                select(name="se2",style="width:70%;")
+        p
+            span.mf-1.s3(style="display:none;")
+                select(name="se3",style="width:70%")
+        p
+            span.mf-1.s4(style="display:none;")
+                select(name="se4",style="width:70%;")
+        p
+            span.mf-1.s5(style="display:none;")
+                select(name="se5",style="width:70%;")
+        p
+            input.add-info-button(type="button",name="add",value="add",style="display:none;")
+        div#attr-info
+        li.li-prop.key-prop
+            ul.attribute-content
+        li.li-prop.sale-prop
+            ul.attribute-content
+        li.li-prop.not-key-prop
+            ul.attribute-content
+        
+script(src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js")
+script(src="/static/sys/module/load-1688-categoty.js")
+script(src="/static/sys/module/load-1688-attr.js")

@@ -8,6 +8,7 @@
 	</parent>
 	
 	<artifactId>jvbo-common-concurrent</artifactId>
+    <packaging>jar</packaging>
 
 	<dependencies>
 		<dependency>

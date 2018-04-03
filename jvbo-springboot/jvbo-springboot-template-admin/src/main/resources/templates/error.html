@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <title>出错了</title>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8"/>
+    <META HTTP-EQUIV="Pragma" CONTENT="no-cache"/>
+    <META HTTP-EQUIV="Cache-Control" CONTENT="no-cache"/>
+    <META HTTP-EQUIV="Expires" CONTENT="0"/>
+    <link th:href="@{/images/favicon/favicon.ico}" rel="shortcut icon" type="image/x-icon"/>
+    <link th:href="@{/images/favicon/favicon.ico}" rel="bookmark" type="image/x-icon"/>
+</head>
+<body>
+<div id="container"><img class="png" th:src="@{/images/error/404.png}" /> 
+<img class="png msg" th:src="@{/images/error/404_msg.png}" />
+  <p><a th:href="@{/sys/index}" ><img class="png" th:src="@{/images/error/404_to_index.png}" /></a> </p>
+</div>
+<div id="cloud" class="png"></div>
+</body>
+</html>

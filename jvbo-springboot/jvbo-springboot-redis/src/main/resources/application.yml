@@ -1,0 +1,28 @@
+server:
+  port: 8090
+spring:
+  jpa:
+    generate-ddl: false
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+  datasource:
+    platform: h2
+    schema: classpath:schema.sql
+    data: classpath:data.sql
+  redis:
+    host: localhost
+    port: 6379
+    password: 111111
+    pool:
+      max-active: 8
+      max-idle: 8
+      max-wait: -1
+      min-idle: 0
+logging:
+  level:
+    root: info
+    org.hibernate: info
+    org.hibernate.type.descriptor.sql.BasicBinder.sql: trace
+    org.hibernate.type.descriptor.sql.BasicExtractor.sql: trace
+    com.jvbo: debug

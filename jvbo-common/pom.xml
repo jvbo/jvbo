@@ -25,8 +25,7 @@
 	</modules>
 
 	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<environment.encoding>UTF-8</environment.encoding>
 		<java.version>1.8</java.version>
 		<springboot.version>2.0.0.RELEASE</springboot.version>
 		<slf4j.version>1.7.6</slf4j.version>
@@ -43,6 +42,7 @@
 		<jsoup.version>1.10.1</jsoup.version>
 		<sun.tools.btrace>1.2.3</sun.tools.btrace>
 		<openjdk.jmh>1.19</openjdk.jmh>
+		<jodd.version>3.8.1</jodd.version>
 	</properties>
 
 	<dependencyManagement>
@@ -136,6 +136,13 @@
 				<groupId>org.openjdk.jmh</groupId>
 				<artifactId>jmh-generator-annprocess</artifactId>
 				<version>${openjdk.jmh}</version>
+			</dependency>
+
+			<!-- jodd -->
+			<dependency>
+				<groupId>org.jodd</groupId>
+				<artifactId>jodd-all</artifactId>
+				<version>${jodd.version}</version>
 			</dependency>
 
 			<dependency>
