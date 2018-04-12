@@ -1,0 +1,466 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jvbo.springboot.practice.core.dao.SysLogDao">
+  <resultMap id="BaseResultMap" type="com.jvbo.springboot.practice.core.model.SysLog">
+    <id column="log_id" jdbcType="VARCHAR" property="logId" />
+    <result column="app_name" jdbcType="VARCHAR" property="appName" />
+    <result column="log_type" jdbcType="TINYINT" property="logType" />
+    <result column="method_name" jdbcType="VARCHAR" property="methodName" />
+    <result column="method_desc" jdbcType="VARCHAR" property="methodDesc" />
+    <result column="request_user" jdbcType="VARCHAR" property="requestUser" />
+    <result column="request_ip" jdbcType="VARCHAR" property="requestIp" />
+    <result column="request_uri" jdbcType="VARCHAR" property="requestUri" />
+    <result column="request_path" jdbcType="VARCHAR" property="requestPath" />
+    <result column="request_params" jdbcType="VARCHAR" property="requestParams" />
+    <result column="exception_code" jdbcType="VARCHAR" property="exceptionCode" />
+    <result column="exception_desc" jdbcType="VARCHAR" property="exceptionDesc" />
+    <result column="response_status" jdbcType="VARCHAR" property="responseStatus" />
+    <result column="response_code" jdbcType="VARCHAR" property="responseCode" />
+    <result column="response_msg" jdbcType="VARCHAR" property="responseMsg" />
+    <result column="response_data" jdbcType="VARCHAR" property="responseData" />
+    <result column="created_by" jdbcType="VARCHAR" property="createdBy" />
+    <result column="gmt_created" jdbcType="BIGINT" property="gmtCreated" />
+    <result column="modified_by" jdbcType="VARCHAR" property="modifiedBy" />
+    <result column="gmt_modified" jdbcType="BIGINT" property="gmtModified" />
+    <result column="is_deleted" jdbcType="TINYINT" property="isDeleted" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    log_id, app_name, log_type, method_name, method_desc, request_user, request_ip, request_uri, 
+    request_path, request_params, exception_code, exception_desc, response_status, response_code, 
+    response_msg, response_data, created_by, gmt_created, modified_by, gmt_modified, 
+    is_deleted
+  </sql>
+  <select id="selectByExample" parameterType="com.jvbo.springboot.practice.core.model.SysLogExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from t_sys_log
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_sys_log
+    where log_id = #{logId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from t_sys_log
+    where log_id = #{logId,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.jvbo.springboot.practice.core.model.SysLogExample">
+    delete from t_sys_log
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.jvbo.springboot.practice.core.model.SysLog">
+    insert into t_sys_log (log_id, app_name, log_type, 
+      method_name, method_desc, request_user, 
+      request_ip, request_uri, request_path, 
+      request_params, exception_code, exception_desc, 
+      response_status, response_code, response_msg, 
+      response_data, created_by, gmt_created, 
+      modified_by, gmt_modified, is_deleted
+      )
+    values (#{logId,jdbcType=VARCHAR}, #{appName,jdbcType=VARCHAR}, #{logType,jdbcType=TINYINT}, 
+      #{methodName,jdbcType=VARCHAR}, #{methodDesc,jdbcType=VARCHAR}, #{requestUser,jdbcType=VARCHAR}, 
+      #{requestIp,jdbcType=VARCHAR}, #{requestUri,jdbcType=VARCHAR}, #{requestPath,jdbcType=VARCHAR}, 
+      #{requestParams,jdbcType=VARCHAR}, #{exceptionCode,jdbcType=VARCHAR}, #{exceptionDesc,jdbcType=VARCHAR}, 
+      #{responseStatus,jdbcType=VARCHAR}, #{responseCode,jdbcType=VARCHAR}, #{responseMsg,jdbcType=VARCHAR}, 
+      #{responseData,jdbcType=VARCHAR}, #{createdBy,jdbcType=VARCHAR}, #{gmtCreated,jdbcType=BIGINT}, 
+      #{modifiedBy,jdbcType=VARCHAR}, #{gmtModified,jdbcType=BIGINT}, #{isDeleted,jdbcType=TINYINT}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.jvbo.springboot.practice.core.model.SysLog">
+    insert into t_sys_log
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="logId != null">
+        log_id,
+      </if>
+      <if test="appName != null">
+        app_name,
+      </if>
+      <if test="logType != null">
+        log_type,
+      </if>
+      <if test="methodName != null">
+        method_name,
+      </if>
+      <if test="methodDesc != null">
+        method_desc,
+      </if>
+      <if test="requestUser != null">
+        request_user,
+      </if>
+      <if test="requestIp != null">
+        request_ip,
+      </if>
+      <if test="requestUri != null">
+        request_uri,
+      </if>
+      <if test="requestPath != null">
+        request_path,
+      </if>
+      <if test="requestParams != null">
+        request_params,
+      </if>
+      <if test="exceptionCode != null">
+        exception_code,
+      </if>
+      <if test="exceptionDesc != null">
+        exception_desc,
+      </if>
+      <if test="responseStatus != null">
+        response_status,
+      </if>
+      <if test="responseCode != null">
+        response_code,
+      </if>
+      <if test="responseMsg != null">
+        response_msg,
+      </if>
+      <if test="responseData != null">
+        response_data,
+      </if>
+      <if test="createdBy != null">
+        created_by,
+      </if>
+      <if test="gmtCreated != null">
+        gmt_created,
+      </if>
+      <if test="modifiedBy != null">
+        modified_by,
+      </if>
+      <if test="gmtModified != null">
+        gmt_modified,
+      </if>
+      <if test="isDeleted != null">
+        is_deleted,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="logId != null">
+        #{logId,jdbcType=VARCHAR},
+      </if>
+      <if test="appName != null">
+        #{appName,jdbcType=VARCHAR},
+      </if>
+      <if test="logType != null">
+        #{logType,jdbcType=TINYINT},
+      </if>
+      <if test="methodName != null">
+        #{methodName,jdbcType=VARCHAR},
+      </if>
+      <if test="methodDesc != null">
+        #{methodDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="requestUser != null">
+        #{requestUser,jdbcType=VARCHAR},
+      </if>
+      <if test="requestIp != null">
+        #{requestIp,jdbcType=VARCHAR},
+      </if>
+      <if test="requestUri != null">
+        #{requestUri,jdbcType=VARCHAR},
+      </if>
+      <if test="requestPath != null">
+        #{requestPath,jdbcType=VARCHAR},
+      </if>
+      <if test="requestParams != null">
+        #{requestParams,jdbcType=VARCHAR},
+      </if>
+      <if test="exceptionCode != null">
+        #{exceptionCode,jdbcType=VARCHAR},
+      </if>
+      <if test="exceptionDesc != null">
+        #{exceptionDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="responseStatus != null">
+        #{responseStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="responseCode != null">
+        #{responseCode,jdbcType=VARCHAR},
+      </if>
+      <if test="responseMsg != null">
+        #{responseMsg,jdbcType=VARCHAR},
+      </if>
+      <if test="responseData != null">
+        #{responseData,jdbcType=VARCHAR},
+      </if>
+      <if test="createdBy != null">
+        #{createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="gmtCreated != null">
+        #{gmtCreated,jdbcType=BIGINT},
+      </if>
+      <if test="modifiedBy != null">
+        #{modifiedBy,jdbcType=VARCHAR},
+      </if>
+      <if test="gmtModified != null">
+        #{gmtModified,jdbcType=BIGINT},
+      </if>
+      <if test="isDeleted != null">
+        #{isDeleted,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.jvbo.springboot.practice.core.model.SysLogExample" resultType="java.lang.Long">
+    select count(*) from t_sys_log
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update t_sys_log
+    <set>
+      <if test="record.logId != null">
+        log_id = #{record.logId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.appName != null">
+        app_name = #{record.appName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.logType != null">
+        log_type = #{record.logType,jdbcType=TINYINT},
+      </if>
+      <if test="record.methodName != null">
+        method_name = #{record.methodName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.methodDesc != null">
+        method_desc = #{record.methodDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="record.requestUser != null">
+        request_user = #{record.requestUser,jdbcType=VARCHAR},
+      </if>
+      <if test="record.requestIp != null">
+        request_ip = #{record.requestIp,jdbcType=VARCHAR},
+      </if>
+      <if test="record.requestUri != null">
+        request_uri = #{record.requestUri,jdbcType=VARCHAR},
+      </if>
+      <if test="record.requestPath != null">
+        request_path = #{record.requestPath,jdbcType=VARCHAR},
+      </if>
+      <if test="record.requestParams != null">
+        request_params = #{record.requestParams,jdbcType=VARCHAR},
+      </if>
+      <if test="record.exceptionCode != null">
+        exception_code = #{record.exceptionCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.exceptionDesc != null">
+        exception_desc = #{record.exceptionDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="record.responseStatus != null">
+        response_status = #{record.responseStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="record.responseCode != null">
+        response_code = #{record.responseCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.responseMsg != null">
+        response_msg = #{record.responseMsg,jdbcType=VARCHAR},
+      </if>
+      <if test="record.responseData != null">
+        response_data = #{record.responseData,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createdBy != null">
+        created_by = #{record.createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="record.gmtCreated != null">
+        gmt_created = #{record.gmtCreated,jdbcType=BIGINT},
+      </if>
+      <if test="record.modifiedBy != null">
+        modified_by = #{record.modifiedBy,jdbcType=VARCHAR},
+      </if>
+      <if test="record.gmtModified != null">
+        gmt_modified = #{record.gmtModified,jdbcType=BIGINT},
+      </if>
+      <if test="record.isDeleted != null">
+        is_deleted = #{record.isDeleted,jdbcType=TINYINT},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update t_sys_log
+    set log_id = #{record.logId,jdbcType=VARCHAR},
+      app_name = #{record.appName,jdbcType=VARCHAR},
+      log_type = #{record.logType,jdbcType=TINYINT},
+      method_name = #{record.methodName,jdbcType=VARCHAR},
+      method_desc = #{record.methodDesc,jdbcType=VARCHAR},
+      request_user = #{record.requestUser,jdbcType=VARCHAR},
+      request_ip = #{record.requestIp,jdbcType=VARCHAR},
+      request_uri = #{record.requestUri,jdbcType=VARCHAR},
+      request_path = #{record.requestPath,jdbcType=VARCHAR},
+      request_params = #{record.requestParams,jdbcType=VARCHAR},
+      exception_code = #{record.exceptionCode,jdbcType=VARCHAR},
+      exception_desc = #{record.exceptionDesc,jdbcType=VARCHAR},
+      response_status = #{record.responseStatus,jdbcType=VARCHAR},
+      response_code = #{record.responseCode,jdbcType=VARCHAR},
+      response_msg = #{record.responseMsg,jdbcType=VARCHAR},
+      response_data = #{record.responseData,jdbcType=VARCHAR},
+      created_by = #{record.createdBy,jdbcType=VARCHAR},
+      gmt_created = #{record.gmtCreated,jdbcType=BIGINT},
+      modified_by = #{record.modifiedBy,jdbcType=VARCHAR},
+      gmt_modified = #{record.gmtModified,jdbcType=BIGINT},
+      is_deleted = #{record.isDeleted,jdbcType=TINYINT}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.jvbo.springboot.practice.core.model.SysLog">
+    update t_sys_log
+    <set>
+      <if test="appName != null">
+        app_name = #{appName,jdbcType=VARCHAR},
+      </if>
+      <if test="logType != null">
+        log_type = #{logType,jdbcType=TINYINT},
+      </if>
+      <if test="methodName != null">
+        method_name = #{methodName,jdbcType=VARCHAR},
+      </if>
+      <if test="methodDesc != null">
+        method_desc = #{methodDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="requestUser != null">
+        request_user = #{requestUser,jdbcType=VARCHAR},
+      </if>
+      <if test="requestIp != null">
+        request_ip = #{requestIp,jdbcType=VARCHAR},
+      </if>
+      <if test="requestUri != null">
+        request_uri = #{requestUri,jdbcType=VARCHAR},
+      </if>
+      <if test="requestPath != null">
+        request_path = #{requestPath,jdbcType=VARCHAR},
+      </if>
+      <if test="requestParams != null">
+        request_params = #{requestParams,jdbcType=VARCHAR},
+      </if>
+      <if test="exceptionCode != null">
+        exception_code = #{exceptionCode,jdbcType=VARCHAR},
+      </if>
+      <if test="exceptionDesc != null">
+        exception_desc = #{exceptionDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="responseStatus != null">
+        response_status = #{responseStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="responseCode != null">
+        response_code = #{responseCode,jdbcType=VARCHAR},
+      </if>
+      <if test="responseMsg != null">
+        response_msg = #{responseMsg,jdbcType=VARCHAR},
+      </if>
+      <if test="responseData != null">
+        response_data = #{responseData,jdbcType=VARCHAR},
+      </if>
+      <if test="createdBy != null">
+        created_by = #{createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="gmtCreated != null">
+        gmt_created = #{gmtCreated,jdbcType=BIGINT},
+      </if>
+      <if test="modifiedBy != null">
+        modified_by = #{modifiedBy,jdbcType=VARCHAR},
+      </if>
+      <if test="gmtModified != null">
+        gmt_modified = #{gmtModified,jdbcType=BIGINT},
+      </if>
+      <if test="isDeleted != null">
+        is_deleted = #{isDeleted,jdbcType=TINYINT},
+      </if>
+    </set>
+    where log_id = #{logId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.jvbo.springboot.practice.core.model.SysLog">
+    update t_sys_log
+    set app_name = #{appName,jdbcType=VARCHAR},
+      log_type = #{logType,jdbcType=TINYINT},
+      method_name = #{methodName,jdbcType=VARCHAR},
+      method_desc = #{methodDesc,jdbcType=VARCHAR},
+      request_user = #{requestUser,jdbcType=VARCHAR},
+      request_ip = #{requestIp,jdbcType=VARCHAR},
+      request_uri = #{requestUri,jdbcType=VARCHAR},
+      request_path = #{requestPath,jdbcType=VARCHAR},
+      request_params = #{requestParams,jdbcType=VARCHAR},
+      exception_code = #{exceptionCode,jdbcType=VARCHAR},
+      exception_desc = #{exceptionDesc,jdbcType=VARCHAR},
+      response_status = #{responseStatus,jdbcType=VARCHAR},
+      response_code = #{responseCode,jdbcType=VARCHAR},
+      response_msg = #{responseMsg,jdbcType=VARCHAR},
+      response_data = #{responseData,jdbcType=VARCHAR},
+      created_by = #{createdBy,jdbcType=VARCHAR},
+      gmt_created = #{gmtCreated,jdbcType=BIGINT},
+      modified_by = #{modifiedBy,jdbcType=VARCHAR},
+      gmt_modified = #{gmtModified,jdbcType=BIGINT},
+      is_deleted = #{isDeleted,jdbcType=TINYINT}
+    where log_id = #{logId,jdbcType=VARCHAR}
+  </update>
+</mapper>

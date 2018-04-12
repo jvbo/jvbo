@@ -1,0 +1,40 @@
+CREATE TABLE `t_sys_log` (
+  `log_id` varchar(32) NOT NULL COMMENT '日志id',
+  `app_name` varchar(255) DEFAULT NULL COMMENT '所属应用名称',
+  `log_type` tinyint(4) DEFAULT NULL COMMENT '日志类型 0:操作日志 1:异常日志',
+  `method_name` varchar(255) DEFAULT NULL COMMENT '方法名',
+  `method_desc` varchar(255) DEFAULT NULL COMMENT '方法描述',
+  `request_user` varchar(32) DEFAULT NULL COMMENT '请求用户',
+  `request_ip` varchar(50) DEFAULT NULL COMMENT '请求ip',
+  `request_uri` varchar(50) DEFAULT NULL COMMENT '请求uri',
+  `request_path` varchar(50) DEFAULT NULL COMMENT '请求path',
+  `request_params` varchar(255) DEFAULT NULL COMMENT '请求参数',
+  `exception_code` varchar(50) DEFAULT NULL COMMENT '异常码',
+  `exception_desc` varchar(255) DEFAULT NULL COMMENT '异常描述',
+  `response_status` varchar(50) DEFAULT NULL COMMENT '响应状态',
+  `response_code` varchar(50) DEFAULT NULL COMMENT '响应码',
+  `response_msg` varchar(255) DEFAULT NULL COMMENT '响应提示信息',
+  `response_data` varchar(255) DEFAULT NULL COMMENT '响应数据',
+  `created_by` varchar(20) NOT NULL COMMENT '创建人',
+  `gmt_created` bigint(20) NOT NULL COMMENT '创建时间',
+  `modified_by` varchar(50) DEFAULT NULL COMMENT '修改人',
+  `gmt_modified` bigint(20) DEFAULT NULL COMMENT '修改时间',
+  `is_deleted` tinyint(4) NOT NULL DEFAULT '0' COMMENT '删除标识',
+  PRIMARY KEY (`log_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='系统日志表';
+
+CREATE TABLE `t_uc_member` (
+  `member_id` varchar(32) NOT NULL COMMENT '会员id',
+  `phone` varchar(20) DEFAULT NULL COMMENT '手机号',
+  `password` varchar(20) NOT NULL COMMENT '密码',
+  `login_name` varchar(20) DEFAULT NULL COMMENT '登录名',
+  `nick_name` varchar(20) DEFAULT NULL COMMENT '昵称',
+  `head_url` varchar(255) DEFAULT NULL COMMENT '头像',
+  `from_who` varchar(50) DEFAULT NULL COMMENT '邀请人',
+  `created_by` varchar(20) NOT NULL COMMENT '创建人',
+  `gmt_created` bigint(20) NOT NULL COMMENT '创建时间',
+  `modified_by` varchar(50) DEFAULT NULL COMMENT '修改人',
+  `gmt_modified` bigint(20) DEFAULT NULL COMMENT '修改时间',
+  `is_deleted` tinyint(4) NOT NULL DEFAULT '0' COMMENT '删除标识',
+  PRIMARY KEY (`member_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='会员表';

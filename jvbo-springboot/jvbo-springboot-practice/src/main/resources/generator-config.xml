@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+    <!-- 数据库驱动文件路径 -->
+    <classPathEntry location="F:/software/maven/maven-repo/mysql/mysql-connector-java/5.1.42/mysql-connector-java-5.1.42.jar"/>
+	<!-- 
+    context:生成一组对象的环境 
+    id:必选，上下文id，用于在生成错误时提示
+    defaultModelType:指定生成对象的样式
+        1，conditional：类似hierarchical；
+        2，flat：所有内容（主键，blob）等全部生成在一个对象中；
+        3，hierarchical：主键生成一个XXKey对象(key class)，Blob等单独生成一个对象，其他简单属性在一个对象中(record class)
+    targetRuntime:
+        1，MyBatis3：默认的值，生成基于MyBatis3.x以上版本的内容，包括XXXBySample；
+        2，MyBatis3Simple：类似MyBatis3，只是不生成XXXBySample；
+    introspectedColumnImpl：类全限定名，用于扩展MBG
+    -->
+	<context id="context1" defaultModelType="flat" targetRuntime="MyBatis3">
+		<property name="autoDelimitKeywords" value="true" />
+		<property name="beginningDelimiter" value="`" />
+		<property name="endingDelimiter" value="`" />
+		
+		<plugin type="org.mybatis.generator.plugins.ToStringPlugin"></plugin>
+		<plugin type="org.mybatis.generator.plugins.EqualsHashCodePlugin"></plugin>
+		<plugin type="org.mybatis.generator.plugins.SerializablePlugin" />
+		
+		<!-- 自定义插件-分页(使用pageHelper时无需使用此插件) -->
+		<!-- <plugin type="com.jvbo.springboot.practice.framework.mybatis.plugin.MySQLPaginationPlugin"></plugin> -->
+		
+        <!-- 自定义插件-mapper的xml文件每次重新生成 -->
+        <plugin type="com.jvbo.springboot.practice.framework.mybatis.plugin.OverIsMergeablePlugin"></plugin>
+        
+		<commentGenerator>
+			<property name="suppressAllComments" value="true" />
+		</commentGenerator>
+		
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://192.168.1.230:3306/jvbo" userId="root" password="111111" />
+		<javaTypeResolver type="org.mybatis.generator.internal.types.JavaTypeResolverDefaultImpl">
+        <!-- 
+            true：使用BigDecimal对应DECIMAL和 NUMERIC数据类型
+            false：默认,
+                scale>0;length>18：使用BigDecimal;
+                scale=0;length[10,18]：使用Long；
+                scale=0;length[5,9]：使用Integer；
+                scale=0;length<5：使用Short；
+         -->
+        <property name="forceBigDecimals" value="true"/>
+        </javaTypeResolver>
+		<javaModelGenerator targetProject="src/main/java" targetPackage="com.jvbo.springboot.practice.core.model"/>
+		<sqlMapGenerator targetProject="src/main/resources" targetPackage="mapper/generate"/>
+		<javaClientGenerator targetProject="src/main/java" targetPackage="com.jvbo.springboot.practice.core.dao" type="XMLMAPPER"/>
+		<!-- table其他属性例如:enableCountByExample="false" enableUpdateByExample="false" 
+			enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" -->
+
+        <!-- mapperName="{XX}Dao" 用于区分自己写的xml和生成的xml -->
+        <table tableName="t_sys_log" domainObjectName="SysLog" mapperName="SysLogDao">
+            <property name="useActualColumnNames" value="true" />
+            <columnOverride column="log_id" property="logId"/>
+            <columnOverride column="app_name" property="appName"/>
+            <columnOverride column="log_type" property="logType" javaType="Integer" jdbcType="TINYINT"/>
+            <columnOverride column="method_name" property="methodName"/>
+            <columnOverride column="method_desc" property="methodDesc"/>
+            <columnOverride column="request_user" property="requestUser"/>
+            <columnOverride column="request_ip" property="requestIp"/>
+            <columnOverride column="request_uri" property="requestUri"/>
+            <columnOverride column="request_path" property="requestPath"/>
+            <columnOverride column="request_params" property="requestParams"/>
+            <columnOverride column="exception_code" property="exceptionCode"/>
+            <columnOverride column="exception_desc" property="exceptionDesc"/>
+            <columnOverride column="response_status" property="responseStatus"/>
+            <columnOverride column="response_code" property="responseCode"/>
+            <columnOverride column="response_msg" property="responseMsg"/>
+            <columnOverride column="response_data" property="responseData"/>
+            <columnOverride column="created_by" property="createdBy"/>
+            <columnOverride column="gmt_created" property="gmtCreated"/>
+            <columnOverride column="modified_by" property="modifiedBy"/>
+            <columnOverride column="gmt_modified" property="gmtModified"/>
+            <columnOverride column="is_deleted" property="isDeleted" javaType="Integer" jdbcType="TINYINT" />
+        </table>
+        
+        <table tableName="t_uc_member" domainObjectName="UcMember" mapperName="UcMemberDao">
+            <property name="useActualColumnNames" value="true" />
+            <columnOverride column="member_id" property="memberId"/>
+            <columnOverride column="login_name" property="loginName"/>
+            <columnOverride column="nick_name" property="nickName"/>
+            <columnOverride column="head_url" property="headUrl"/>
+            <columnOverride column="from_who" property="fromWho"/>
+            <columnOverride column="created_by" property="createdBy"/>
+            <columnOverride column="gmt_created" property="gmtCreated"/>
+            <columnOverride column="modified_by" property="modifiedBy"/>
+            <columnOverride column="gmt_modified" property="gmtModified"/>
+            <columnOverride column="is_deleted" property="isDeleted" javaType="Integer" jdbcType="TINYINT" />
+        </table>
+	</context>
+</generatorConfiguration>
