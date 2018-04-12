@@ -26,9 +26,9 @@ import com.jvbo.springboot.practice.framework.util.SpringUtils;
  * @author jvbo
  * @date 2017年8月29日
  */
-public abstract class BaseServiceImpl<Mapper, Record, Example> implements BaseService<Record, Example> {
+public abstract class BaseServiceImpl<DaoMapper, Record, Example> implements BaseService<Record, Example> {
 
-	public Mapper mapper;
+	public DaoMapper mapper;
 
 	@Override
 	public long countByExample(Example example) {
@@ -491,8 +491,8 @@ public abstract class BaseServiceImpl<Mapper, Record, Example> implements BaseSe
 	}
 
 	@Override
-	public void initMapper() {
-		this.mapper = SpringUtils.getBean(getMapperClass());
+	public void initDaoMapper() {
+		this.mapper = SpringUtils.getBean(getDaoMapperClass());
 	}
 
 	/**
@@ -500,8 +500,8 @@ public abstract class BaseServiceImpl<Mapper, Record, Example> implements BaseSe
 	 * @return
 	 */
 	@SuppressWarnings("unchecked")
-    public Class<Mapper> getMapperClass() {
-		return (Class<Mapper>) ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[0];
+    public Class<DaoMapper> getDaoMapperClass() {
+		return (Class<DaoMapper>) ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[0];
 	}
 
 }

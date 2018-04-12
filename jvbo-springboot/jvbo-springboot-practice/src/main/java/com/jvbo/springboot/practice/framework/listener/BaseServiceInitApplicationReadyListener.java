@@ -22,15 +22,15 @@ public class BaseServiceInitApplicationReadyListener implements ApplicationListe
     public void onApplicationEvent(ApplicationReadyEvent applicationReadyEvent) {
         if(null == applicationReadyEvent.getApplicationContext().getParent()) {
             logger.debug(">>>>> spring初始化完毕 <<<<<");
-            // spring初始化完毕后，通过反射调用所有使用BaseService注解的initMapper方法
+            // spring初始化完毕后，通过反射调用所有使用BaseService注解的initDaoMapper方法
             Map<String, Object> baseServices = applicationReadyEvent.getApplicationContext().getBeansWithAnnotation(BaseService.class);
             for(Object service : baseServices.values()) {
-                logger.debug(">>>>> {}.initMapper()", service.getClass().getName());
+                logger.debug(">>>>> {}.initDaoMapper()", service.getClass().getName());
                 try {
-                    Method initMapper = service.getClass().getMethod("initMapper");
+                    Method initMapper = service.getClass().getMethod("initDaoMapper");
                     initMapper.invoke(service);
                 } catch (Exception e) {
-                    logger.error("初始化BaseService的initMapper方法异常", e);
+                    logger.error("初始化BaseService的initDaoMapper方法异常", e);
                     e.printStackTrace();
                 }
             }
