@@ -9,8 +9,8 @@ fi
 cd /opt/env/git/jvbo
 git stash
 git pull
-mvn -DskipTests install
 cd /jvbo-springboot/jvbo-springboot-practice
+mvn -DskipTests install
 
 exec_args="jvbo-springboot-practice"
 debug_port=5007
