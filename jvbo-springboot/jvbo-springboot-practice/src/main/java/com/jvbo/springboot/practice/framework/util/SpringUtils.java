@@ -37,7 +37,7 @@ public class SpringUtils {
         if (applicationContext.containsBean(beanId)) {
             return applicationContext.getBean(beanId, requiredType);
         } else if (throwIfNotContain) {
-            throw new BaseRuntimeException(ResponseStatusEnum.DEFAULT_ERROR.getCode(), "不存在bean的配置:" + beanId);
+            throw new BaseRuntimeException(ResponseStatusEnum.ERR.getCode(), "不存在bean的配置:" + beanId);
         }
         return null;
     }

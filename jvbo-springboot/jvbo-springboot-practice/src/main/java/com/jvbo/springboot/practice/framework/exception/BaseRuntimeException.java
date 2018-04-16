@@ -35,7 +35,7 @@ public class BaseRuntimeException extends RuntimeException {
     }
 
     public BaseRuntimeException(String message) {
-        this(ResponseStatusEnum.DEFAULT_ERROR.getCode(), message, null);
+        this(ResponseStatusEnum.ERR.getCode(), message, null);
     }
 
     public BaseRuntimeException(String code, String message) {
@@ -44,10 +44,10 @@ public class BaseRuntimeException extends RuntimeException {
 
 
     public BaseRuntimeException(String message, Throwable cause) {
-        this(ResponseStatusEnum.DEFAULT_ERROR.getCode(), message, cause);
+        this(ResponseStatusEnum.ERR.getCode(), message, cause);
     }
 
     public BaseRuntimeException(Throwable cause) {
-        this(ResponseStatusEnum.DEFAULT_ERROR.getCode(), "", cause);
+        this(ResponseStatusEnum.ERR.getCode(), "", cause);
     }
 }

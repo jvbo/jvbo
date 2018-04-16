@@ -2,36 +2,16 @@ package com.jvbo.springboot.practice.framework.response;
 
 public class Response<T> {
 
-    public enum Status {
-        OK,
-        ERR_UNKNOWN,
-        ERR_INTERNAL_SERVER,
-        ERR_LOAD,
-        ERR_CREATE,
-        ERR_UPDATE,
-        ERR_DELETE,
-        ERR_UNAUTHORIZED,
-        ERR_NOT_FOUND,
-        ERR_DATA_FORMAT,
-        ERR_VALIDATE,
-        ERR_FILE_LOAD,
-        ERR_FILE_SAVE,
-        ERR_INVALID_DATE,
-        ERR_PAY_FAILED,
-        ERR_OPERATE,
-        ERR_UPLOAD
-    }
-
-    private Status status;
+    private String code;
     private String message;
     private T data;
 
-    public Status getStatus() {
-        return status;
+    public String getCode() {
+        return code;
     }
 
-    public void setStatus(Status status) {
-        this.status = status;
+    public void setCode(String code) {
+        this.code = code;
     }
 
     public String getMessage() {

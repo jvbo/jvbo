@@ -9,6 +9,10 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.jvbo.springboot.practice.core.enums.ResponseStatusEnum;
+import com.jvbo.springboot.practice.framework.response.Result;
 
 @Controller
 @RequestMapping("/ucenter/test")
@@ -20,5 +24,11 @@ private static final Logger logger = LoggerFactory.getLogger(TestController.clas
         logger.info("enter");
         map.addAttribute("host", "http://www.baidu.com");
         return "test-home";
+    }
+    
+    @RequestMapping("/error")
+    @ResponseBody
+    public Object error(){
+        return new Result(ResponseStatusEnum.OK, "data");
     }
 }

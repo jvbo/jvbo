@@ -44,7 +44,7 @@ public class MvcExceptionHandler extends ExceptionHandlerExceptionResolver {
         if (responseBodyAnn != null || classBodyAnn != null) {
             response.setCharacterEncoding(EnCodingEnum.UTF8.getCode());
             
-            String exceptionCode = ResponseStatusEnum.DEFAULT_ERROR.getCode();
+            String exceptionCode = ResponseStatusEnum.ERR.getCode();
             String exceptionDesc = exception.getMessage();
             
             // TODO 这里结合业务场景判断是否需要入库
