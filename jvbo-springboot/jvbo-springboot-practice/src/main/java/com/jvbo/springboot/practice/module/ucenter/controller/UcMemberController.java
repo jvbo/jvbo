@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.baidu.unbiz.fluentvalidator.ComplexResult;
 import com.baidu.unbiz.fluentvalidator.FluentValidator;
 import com.baidu.unbiz.fluentvalidator.ResultCollectors;
+import com.jvbo.springboot.practice.core.enums.ResponseStatusEnum;
 import com.jvbo.springboot.practice.core.model.UcMember;
 import com.jvbo.springboot.practice.core.model.UcMemberExample;
 import com.jvbo.springboot.practice.core.service.IUcMemberService;
@@ -29,7 +30,6 @@ import com.jvbo.springboot.practice.framework.annotation.ControllerLog;
 import com.jvbo.springboot.practice.framework.exception.ControllerException;
 import com.jvbo.springboot.practice.framework.mybatis.page.DataGrid;
 import com.jvbo.springboot.practice.framework.response.Response;
-import com.jvbo.springboot.practice.framework.response.Response.Status;
 import com.jvbo.springboot.practice.framework.response.ResponseBuilder;
 import com.jvbo.springboot.practice.framework.validator.LengthValidator;
 import com.jvbo.springboot.practice.module.ucenter.vo.UcMemberVo;
@@ -48,7 +48,7 @@ public class UcMemberController {
             @RequestParam(required = false, defaultValue = "10", value = "pageSize") int pageSize,
             @RequestParam(required = false, defaultValue = "gmt_created", value = "sort") String sort,
             @RequestParam(required = false, defaultValue = "desc", value = "order") String order) {
-        return ResponseBuilder.create().defaultError(Status.ERR_LOAD, "加载出错!").buildResponse(() -> {
+        return ResponseBuilder.create().defaultError(ResponseStatusEnum.ERR_LOAD.getCode(), "加载出错!").buildResponse(() -> {
             UcMemberExample ucMemberExample = new UcMemberExample();
             if (StringUtils.isNotBlank(sort)&& !StringUtils.isBlank(order)) {
                 ucMemberExample.setOrderByClause(sort + " " + order);
@@ -63,7 +63,7 @@ public class UcMemberController {
             @RequestParam(required = false, defaultValue = "10", value = "limit") int limit,
             @RequestParam(required = false, value = "gmt_created") String sort,
             @RequestParam(required = false, value = "desc") String order) {
-        return ResponseBuilder.create().defaultError(Status.ERR_LOAD, "加载出错!").buildResponse(() -> {
+        return ResponseBuilder.create().defaultError(ResponseStatusEnum.ERR_LOAD.getCode(), "加载出错!").buildResponse(() -> {
             UcMemberExample ucMemberExample = new UcMemberExample();
             if (StringUtils.isNotBlank(sort)&& !StringUtils.isBlank(order)) {
                 ucMemberExample.setOrderByClause(sort + " " + order);
@@ -78,7 +78,7 @@ public class UcMemberController {
             @RequestParam(required = false, defaultValue = "10", value = "pageSize") int pageSize,
             @RequestParam(required = false, defaultValue = "gmt_created", value = "sort") String sort,
             @RequestParam(required = false, defaultValue = "desc", value = "order") String order) {
-        return ResponseBuilder.create().defaultError(Status.ERR_LOAD, "加载出错!").buildResponse(() -> {
+        return ResponseBuilder.create().defaultError(ResponseStatusEnum.ERR_LOAD.getCode(), "加载出错!").buildResponse(() -> {
             UcMemberExample ucMemberExample = new UcMemberExample();
             if (StringUtils.isNotBlank(sort)&& !StringUtils.isBlank(order)) {
                 ucMemberExample.setOrderByClause(sort + " " + order);
@@ -93,7 +93,7 @@ public class UcMemberController {
             @RequestParam(required = false, defaultValue = "10", value = "limit") int limit,
             @RequestParam(required = false, value = "gmt_created") String sort,
             @RequestParam(required = false, value = "desc") String order) {
-        return ResponseBuilder.create().defaultError(Status.ERR_LOAD, "加载出错!").buildResponse(() -> {
+        return ResponseBuilder.create().defaultError(ResponseStatusEnum.ERR_LOAD.getCode(), "加载出错!").buildResponse(() -> {
             UcMemberExample ucMemberExample = new UcMemberExample();
             if (StringUtils.isNotBlank(sort)&& !StringUtils.isBlank(order)) {
                 ucMemberExample.setOrderByClause(sort + " " + order);
@@ -104,7 +104,7 @@ public class UcMemberController {
     
     @RequestMapping(value = "/find/{id}", method = RequestMethod.GET)
     public Response<UcMember> find(@PathVariable("id") String id) {
-        return ResponseBuilder.create().defaultError(Status.ERR_LOAD, "加载出错!").buildResponse(() -> {
+        return ResponseBuilder.create().defaultError(ResponseStatusEnum.ERR_LOAD.getCode(), "加载出错!").buildResponse(() -> {
             return ucMemberService.selectByPrimaryKey(id);
         });
     }
@@ -112,9 +112,9 @@ public class UcMemberController {
     @ControllerLog("新建")
     @RequestMapping(value = "/create", method = RequestMethod.POST)
     public Response<Boolean> create(@Validated UcMemberVo ucMemberVo, BindingResult bindingResult) {
-        return ResponseBuilder.create().defaultError(Status.ERR_CREATE, "操作出错!").buildResponse(() -> {
+        return ResponseBuilder.create().defaultError(ResponseStatusEnum.ERR_CREATE.getCode(), "操作出错!").buildResponse(() -> {
             if(bindingResult.hasErrors())
-                throw new ControllerException(Status.ERR_DATA_FORMAT, bindingResult.getFieldError().getDefaultMessage());
+                throw new ControllerException(ResponseStatusEnum.ERR_DATA_FORMAT.getCode(), bindingResult.getFieldError().getDefaultMessage());
             UcMember record = new UcMember();
             BeanUtils.copyProperties(ucMemberVo, record);
             return ucMemberService.insertSelective(record) > 0;
@@ -124,7 +124,7 @@ public class UcMemberController {
     @ControllerLog("修改")
     @RequestMapping(value = "/update/{id}", method = RequestMethod.POST)
     public Response<Boolean> modify(@PathVariable("id") @NotBlank String id, UcMemberVo ucMemberVo) {
-        return ResponseBuilder.create().defaultError(Status.ERR_UPDATE, "操作出错!").buildResponse(() -> {
+        return ResponseBuilder.create().defaultError(ResponseStatusEnum.ERR_UPDATE.getCode(), "操作出错!").buildResponse(() -> {
             ComplexResult result = FluentValidator.checkAll()
                     .on(ucMemberVo.getNickName(), new LengthValidator(1, 20, "昵称"))
                     .doValidate()
@@ -142,7 +142,7 @@ public class UcMemberController {
     @ControllerLog("删除")
     @RequestMapping(value = "/delete/{ids}", method = RequestMethod.POST)
     public Response<Boolean> delete(@PathVariable("ids") String ids) {
-        return ResponseBuilder.create().defaultError(Status.ERR_DELETE, "操作出错!").buildResponse(() -> {
+        return ResponseBuilder.create().defaultError(ResponseStatusEnum.ERR_DELETE.getCode(), "操作出错!").buildResponse(() -> {
             return ucMemberService.deleteByPrimaryKeys(ids) > 0;
         });
     }
