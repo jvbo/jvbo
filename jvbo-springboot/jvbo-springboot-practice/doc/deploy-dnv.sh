@@ -10,7 +10,7 @@ cd /opt/env/git/jvbo
 git stash
 git pull
 mvn -DskipTests install
-cd edobee-web
+cd /jvbo-springboot/jvbo-springboot-practice
 
 exec_args="jvbo-springboot-practice"
 debug_port=5007
