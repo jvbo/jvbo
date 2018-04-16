@@ -1,9 +1,9 @@
 #/bin/sh
 
-if [ $(lsof -t -i:8001) ]; then
-kill -9 $(lsof -t -i:8001)
+if [ $(lsof -t -i:8088) ]; then
+kill -9 $(lsof -t -i:8088)
 else
-echo "no 8001"
+echo "no 8088"
 fi
 
 mv jvbo-springboot-practice-0.0.1-SNAPSHOT.war jvbo-springboot-practice-0.0.1-SNAPSHOT.war`date '+%Y-%m-%d-%H%M%S'`

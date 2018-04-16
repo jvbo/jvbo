@@ -1,9 +1,9 @@
 #/bin/sh
 
-if [ $(lsof -t -i:8080) ]; then
-kill -9 $(lsof -t -i:8080)
+if [ $(lsof -t -i:8088) ]; then
+kill -9 $(lsof -t -i:8088)
 else
-echo "no 8080"
+echo "no 8088"
 fi
 
 cd /opt/env/git/jvbo
