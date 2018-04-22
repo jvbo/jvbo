@@ -1,0 +1,6 @@
+spring:
+  rabbitmq:
+    host: 192.168.137.235
+    port: 5672
+    username: jvbo
+    password: 111111
