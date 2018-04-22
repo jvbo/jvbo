@@ -10,13 +10,11 @@ spring:
     platform: h2
     schema: classpath:schema.sql
     data: classpath:data.sql
-  activemq:
-    broker-url: tcp://localhost:61616
-    in-memory: false
-    user: admin
-    password: admin
-    pool:
-      enabled: false
+  rabbitmq:
+    host: 192.168.137.235
+    port: 5672
+    username: jvbo
+    password: 111111
 logging:
   level:
     root: info
