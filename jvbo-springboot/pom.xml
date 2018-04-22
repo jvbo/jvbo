@@ -8,6 +8,7 @@
 
 	<modules>
 		<module>jvbo-springboot-activemq</module>
+		<module>jvbo-springboot-rabbitmq</module>
 		<module>jvbo-springboot-redis</module>
 		<module>jvbo-springboot-template-admin</module>
 		<module>jvbo-springboot-aliexpress</module>
