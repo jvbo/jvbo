@@ -4,6 +4,11 @@
  */
 package com.jvbo.common.study.job;
 
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.ZoneOffset;
+
 /**
  * Java中的四个重要部分-漫谈
  * @ClassName: App 
@@ -59,5 +64,9 @@ public class App {
      *      问完以后，还可能会让你结合内存模型的设计谈谈volatile关键字的作用？
      *      你在谈的时候，肯定会提到可见性，那么接着可见性这三个字，还可以继续问你并发的内容。
      */
+    
+    public static void main(String[] args) {
+        System.out.println(Instant.now().toEpochMilli());
+    }
 
 }
