@@ -4,10 +4,15 @@
  */
 package com.jvbo.common.study.job;
 
-import java.time.Instant;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.ZoneOffset;
+import java.text.ParseException;
+import java.util.Arrays;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.function.Function;
+import java.util.stream.Collectors;
+
+import com.google.common.collect.Maps;
 
 /**
  * Java中的四个重要部分-漫谈
@@ -63,10 +68,30 @@ public class App {
      *      你回答了以后，还会继续问你为什么要这么设计？
      *      问完以后，还可能会让你结合内存模型的设计谈谈volatile关键字的作用？
      *      你在谈的时候，肯定会提到可见性，那么接着可见性这三个字，还可以继续问你并发的内容。
+     * @throws ParseException 
      */
     
-    public static void main(String[] args) {
-        System.out.println(Instant.now().toEpochMilli());
+    public static void main(String[] args) throws ParseException {
+        /*System.out.println(Instant.now().toEpochMilli());
+        String str = "2018-04-26 23:00:00";
+        System.out.println(DateUtils.parseDate(str, "yyyy-MM-dd"));
+        Date date = null;
+        System.out.println(date);*/
+        
+        /*Map<Integer, String> result = Maps.newHashMap();
+        result.put(1, "1");
+        result.put(2, "1");
+        result.put(5, "1");
+        result.put(4, "1");
+        result.put(3, "1");
+        System.out.println(result);
+        Map<Integer, String> finalMap = new LinkedHashMap<>();
+        result.entrySet().stream()
+                .sorted(Map.Entry.<Integer, String>comparingByValue()
+                        .reversed()).forEachOrdered(e -> finalMap.put(e.getKey(), e.getValue()));
+        System.out.println(finalMap);*/
+        
+        System.out.println(String.class.getSimpleName());
     }
 
 }

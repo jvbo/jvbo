@@ -1,0 +1,26 @@
+server:
+  port: 8090
+spring:
+  jpa:
+    generate-ddl: false
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+  datasource:
+    platform: h2
+    schema: classpath:schema.sql
+    data: classpath:data.sql
+  activemq:
+    broker-url: tcp://localhost:61616
+    in-memory: false
+    user: admin
+    password: admin
+    pool:
+      enabled: false
+logging:
+  level:
+    root: info
+    org.hibernate: info
+    org.hibernate.type.descriptor.sql.BasicBinder.sql: trace
+    org.hibernate.type.descriptor.sql.BasicExtractor.sql: trace
+    com.jvbo: debug
