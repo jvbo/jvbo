@@ -92,6 +92,10 @@ public class App {
         System.out.println(finalMap);*/
         
         System.out.println(String.class.getSimpleName());
+        
+        String phone = "134****9511";
+        System.out.println(phone.substring(phone.length() - 4, phone.length()));
+        System.out.println(phone.substring(1, phone.length()));
     }
 
 }
