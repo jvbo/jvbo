@@ -15,9 +15,7 @@
 		<module>jvbo-blog</module>
 		<module>jvbo-common</module>
 		<module>jvbo-springboot</module>
+		<module>jvbo-springcloud</module>
 	</modules>
-
-	<!-- <properties> <environment.encoding>UTF-8</environment.encoding> <java.version>1.7</java.version> 
-		</properties> -->
 
 </project>

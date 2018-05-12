@@ -91,5 +91,10 @@
             <columnOverride column="gmt_modified" property="gmtModified"/>
             <columnOverride column="is_deleted" property="isDeleted" javaType="Integer" jdbcType="TINYINT" />
         </table>
+        
+        <table tableName="t_user_machine" domainObjectName="UserMachine" mapperName="UserMachineDao">
+            <property name="useActualColumnNames" value="true" />
+            <columnOverride column="is_deleted" property="is_deleted" javaType="Integer" jdbcType="TINYINT" />
+        </table>
 	</context>
 </generatorConfiguration>
