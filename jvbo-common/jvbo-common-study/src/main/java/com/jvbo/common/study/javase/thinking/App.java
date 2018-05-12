@@ -18,6 +18,12 @@ public class App {
         Random randB = new Random(47);
         int j = randB.nextInt(20);
         System.out.println(j);
+        
+        System.out.println(new App().i(0));
+    }
+    
+    public int i(int i){
+        return i+=1;
     }
     
 }
