@@ -1,0 +1,5 @@
+server:
+  port: 8600
+spring:
+  application:
+    name: jvbo-springcloud-config-client

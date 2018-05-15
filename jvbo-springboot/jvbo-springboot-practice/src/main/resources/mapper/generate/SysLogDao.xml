@@ -119,29 +119,30 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.jvbo.springboot.practice.core.model.SysLog">
-    insert into t_sys_log (log_id, app_name, log_type, 
-      method_name, method_desc, request_user, 
-      request_ip, request_uri, request_path, 
-      request_params, exception_code, exception_desc, 
-      response_status, response_code, response_msg, 
-      response_data, created_by, gmt_created, 
-      modified_by, gmt_modified, is_deleted
-      )
-    values (#{logId,jdbcType=VARCHAR}, #{appName,jdbcType=VARCHAR}, #{logType,jdbcType=TINYINT}, 
-      #{methodName,jdbcType=VARCHAR}, #{methodDesc,jdbcType=VARCHAR}, #{requestUser,jdbcType=VARCHAR}, 
-      #{requestIp,jdbcType=VARCHAR}, #{requestUri,jdbcType=VARCHAR}, #{requestPath,jdbcType=VARCHAR}, 
-      #{requestParams,jdbcType=VARCHAR}, #{exceptionCode,jdbcType=VARCHAR}, #{exceptionDesc,jdbcType=VARCHAR}, 
-      #{responseStatus,jdbcType=VARCHAR}, #{responseCode,jdbcType=VARCHAR}, #{responseMsg,jdbcType=VARCHAR}, 
-      #{responseData,jdbcType=VARCHAR}, #{createdBy,jdbcType=VARCHAR}, #{gmtCreated,jdbcType=BIGINT}, 
-      #{modifiedBy,jdbcType=VARCHAR}, #{gmtModified,jdbcType=BIGINT}, #{isDeleted,jdbcType=TINYINT}
-      )
+    <selectKey keyProperty="logId" order="AFTER" resultType="java.lang.String">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into t_sys_log (app_name, log_type, method_name, 
+      method_desc, request_user, request_ip, 
+      request_uri, request_path, request_params, 
+      exception_code, exception_desc, response_status, 
+      response_code, response_msg, response_data, 
+      created_by, gmt_created, modified_by, 
+      gmt_modified, is_deleted)
+    values (#{appName,jdbcType=VARCHAR}, #{logType,jdbcType=TINYINT}, #{methodName,jdbcType=VARCHAR}, 
+      #{methodDesc,jdbcType=VARCHAR}, #{requestUser,jdbcType=VARCHAR}, #{requestIp,jdbcType=VARCHAR}, 
+      #{requestUri,jdbcType=VARCHAR}, #{requestPath,jdbcType=VARCHAR}, #{requestParams,jdbcType=VARCHAR}, 
+      #{exceptionCode,jdbcType=VARCHAR}, #{exceptionDesc,jdbcType=VARCHAR}, #{responseStatus,jdbcType=VARCHAR}, 
+      #{responseCode,jdbcType=VARCHAR}, #{responseMsg,jdbcType=VARCHAR}, #{responseData,jdbcType=VARCHAR}, 
+      #{createdBy,jdbcType=VARCHAR}, #{gmtCreated,jdbcType=BIGINT}, #{modifiedBy,jdbcType=VARCHAR}, 
+      #{gmtModified,jdbcType=BIGINT}, #{isDeleted,jdbcType=TINYINT})
   </insert>
   <insert id="insertSelective" parameterType="com.jvbo.springboot.practice.core.model.SysLog">
+    <selectKey keyProperty="logId" order="AFTER" resultType="java.lang.String">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
     insert into t_sys_log
     <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="logId != null">
-        log_id,
-      </if>
       <if test="appName != null">
         app_name,
       </if>
@@ -204,9 +205,6 @@
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="logId != null">
-        #{logId,jdbcType=VARCHAR},
-      </if>
       <if test="appName != null">
         #{appName,jdbcType=VARCHAR},
       </if>

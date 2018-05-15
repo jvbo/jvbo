@@ -1,0 +1,10 @@
+server:
+  port: 9100
+spring:
+  application:
+    name: jvbo-springcloud-zipkin-server-node1
+    
+logging:
+  level:
+    root: info
+    com.jvbo: debug

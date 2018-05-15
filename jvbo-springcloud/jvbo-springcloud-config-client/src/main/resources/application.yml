@@ -1,0 +1,19 @@
+server:
+  port: 8601
+spring:
+  cloud:
+    config:
+      #uri: http://localhost:8601/
+      #label: master
+      profile: dev
+      discovery:
+        enabled: true
+        service-id: config-server
+eureka:
+  client:
+    service-url:
+      defaulZone: http://localhost:8700/eureka/
+logging:
+  level:
+    root: info
+    com.jvbo: debug

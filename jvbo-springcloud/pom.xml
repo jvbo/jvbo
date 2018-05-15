@@ -7,14 +7,28 @@
 	<packaging>pom</packaging>
 
 	<modules>
+		<module>jvbo-springcloud-eureka-server-node1</module>
+		<module>jvbo-springcloud-eureka-client-user</module>
+		<module>jvbo-springcloud-eureka-client-user-ribbon</module>
+		<module>jvbo-springcloud-eureka-client-user-feign</module>
+		<module>jvbo-springcloud-eureka-client-order</module>
 		<module>jvbo-springcloud-zuul</module>
+		<module>jvbo-springcloud-gateway</module>
+		<module>jvbo-springcloud-config-repo</module>
+		<module>jvbo-springcloud-config-client</module>
+		<module>jvbo-springcloud-config-server-node1</module>
+		<module>jvbo-springcloud-eureka-client-user-ribbon-hystrix</module>
+		<module>jvbo-springcloud-hystrix-dashboard</module>
+		<module>jvbo-springcloud-turbine</module>
+		<module>jvbo-springcloud-stream-consumer-node1</module>
+		<module>jvbo-springcloud-zipkin-server-node1</module>
 	</modules>
 
 	<parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>1.5.4.RELEASE</version>
-    </parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>1.5.4.RELEASE</version>
+	</parent>
 
 	<properties>
 		<environment.encoding>UTF-8</environment.encoding>
@@ -42,17 +56,19 @@
 		<pagehelper.spring.boot.starter>1.2.4</pagehelper.spring.boot.starter>
 		<druid.springboot.starter.version>1.1.9</druid.springboot.starter.version>
 		<mybatis.generator.core.version>1.3.5</mybatis.generator.core.version>
+		<net.logstash.logback.version>4.6</net.logstash.logback.version>
 	</properties>
 
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-dependencies</artifactId>
-                <version>Dalston.RELEASE</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<version>Dalston.RELEASE</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+
 			<dependency>
 				<groupId>org.apache.commons</groupId>
 				<artifactId>commons-lang3</artifactId>
@@ -148,6 +164,12 @@
 				<artifactId>druid-spring-boot-starter</artifactId>
 				<version>${druid.springboot.starter.version}</version>
 			</dependency>
+
+			<dependency>
+				<groupId>net.logstash.logback</groupId>
+				<artifactId>logstash-logback-encoder</artifactId>
+				<version>${net.logstash.logback.version}</version>
+			</dependency>
 		</dependencies>
 	</dependencyManagement>
 
@@ -160,9 +182,18 @@
 				<enabled>false</enabled>
 			</snapshots>
 		</repository>
-		<!-- <repository> <id>maven2Repo</id> <name>maven2Repo</name> <url>http://repo2.maven.org/maven2/</url> 
-			<layout>default</layout> <releases> <enabled>true</enabled> </releases> <snapshots> 
-			<enabled>false</enabled> </snapshots> </repository> -->
+		<repository>
+			<id>maven2Repo</id>
+			<name>maven2Repo</name>
+			<url>http://repo2.maven.org/maven2/</url>
+			<layout>default</layout>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
 	</repositories>
 
 	<build>

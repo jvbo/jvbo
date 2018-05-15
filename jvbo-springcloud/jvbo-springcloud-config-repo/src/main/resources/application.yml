@@ -1,0 +1,10 @@
+server:
+  port: 8600
+spring:
+  application:
+    name: jvbo-springcloud-config-repo
+
+logging:
+  level:
+    root: info
+    com.jvbo: debug

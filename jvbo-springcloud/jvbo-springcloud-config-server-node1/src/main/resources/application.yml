@@ -1,0 +1,43 @@
+server:
+  port: 8602
+spring:
+  application:
+    name: jvbo-springcloud-config-server-node1
+  rabbitmq:
+    host: 192.168.137.235
+    port: 5672
+    username: jvbo
+    password: 111111
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/jvbo/jvbo/tree/master/jvbo-springcloud
+          # username: 
+          # password: 
+          
+#加密 http://$CONFIG_SERVER_URL:$CONFIG_SERVER_PORT/encrypt -d $originPwd
+#解密 http://$CONFIG_SERVER_URL:$CONFIG_SERVER_PORT/decrypt -d $secretPwd
+#加密后的内容以 '{cipher}密文' 的形式存储,yml需要带单引号,properted不用
+#encrypt:
+#  #key: jvbo #对称加密 
+#  key-store:
+#    location: config-server.keystore
+#    alias: config-server
+#    password: 111111
+#    secret: 111111
+
+eureka:
+  client:
+    service-url:
+      defaulZone: http://localhost:8700/eureka/
+
+management:
+  security:
+    enabled: false
+    
+
+logging:
+  level:
+    root: info
+    com.jvbo: debug
