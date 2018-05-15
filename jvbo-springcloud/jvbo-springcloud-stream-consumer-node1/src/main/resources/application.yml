@@ -1,0 +1,10 @@
+server:
+  port: 8100
+spring:
+  application:
+    name: jvbo-springcloud-stream
+
+logging:
+  level:
+    root: info
+    com.jvbo: debug

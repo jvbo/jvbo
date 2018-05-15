@@ -11,8 +11,6 @@ import java.util.List;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.ibatis.annotations.Param;
-import org.springframework.transaction.annotation.Propagation;
-import org.springframework.transaction.annotation.Transactional;
 
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
@@ -46,7 +44,6 @@ public abstract class BaseServiceImpl<DaoMapper, Record, Example> implements Bas
 		return 0L;
 	}
 
-	@Transactional(propagation = Propagation.REQUIRED)
 	@Override
 	public int deleteByExample(Example example) {
 		try {
@@ -63,7 +60,6 @@ public abstract class BaseServiceImpl<DaoMapper, Record, Example> implements Bas
 		return 0;
 	}
 
-	@Transactional(propagation = Propagation.REQUIRED)
 	@Override
 	public int deleteByPrimaryKey(String id) {
 		try {
@@ -80,7 +76,6 @@ public abstract class BaseServiceImpl<DaoMapper, Record, Example> implements Bas
 		return 0;
 	}
 
-	@Transactional(propagation = Propagation.REQUIRED)
 	@Override
 	public int insert(Record record) {
 		try {
@@ -97,7 +92,6 @@ public abstract class BaseServiceImpl<DaoMapper, Record, Example> implements Bas
 		return 0;
 	}
 
-	@Transactional(propagation = Propagation.REQUIRED)
 	@Override
 	public int insertSelective(Record record) {
 		try {
@@ -359,7 +353,6 @@ public abstract class BaseServiceImpl<DaoMapper, Record, Example> implements Bas
 		return null;
 	}
 
-	@Transactional(propagation = Propagation.REQUIRED)
 	@Override
 	public int updateByExampleSelective(@Param("record") Record record, @Param("example") Example example) {
 		try {
@@ -376,7 +369,6 @@ public abstract class BaseServiceImpl<DaoMapper, Record, Example> implements Bas
 		return 0;
 	}
 
-	@Transactional(propagation = Propagation.REQUIRED)
 	@Override
 	public int updateByExampleWithBLOBs(@Param("record") Record record, @Param("example") Example example) {
 		try {
@@ -393,7 +385,6 @@ public abstract class BaseServiceImpl<DaoMapper, Record, Example> implements Bas
 		return 0;
 	}
 
-	@Transactional(propagation = Propagation.REQUIRED)
 	@Override
 	public int updateByExample(@Param("record") Record record, @Param("example") Example example) {
 		try {
@@ -410,7 +401,6 @@ public abstract class BaseServiceImpl<DaoMapper, Record, Example> implements Bas
 		return 0;
 	}
 
-	@Transactional(propagation = Propagation.REQUIRED)
 	@Override
 	public int updateByPrimaryKeySelective(Record record) {
 		try {
@@ -427,7 +417,6 @@ public abstract class BaseServiceImpl<DaoMapper, Record, Example> implements Bas
 		return 0;
 	}
 
-	@Transactional(propagation = Propagation.REQUIRED)
 	@Override
 	public int updateByPrimaryKeyWithBLOBs(Record record) {
 		try {
@@ -444,7 +433,6 @@ public abstract class BaseServiceImpl<DaoMapper, Record, Example> implements Bas
 		return 0;
 	}
 
-	@Transactional(propagation = Propagation.REQUIRED)
 	@Override
 	public int updateByPrimaryKey(Record record) {
 		try {
@@ -461,7 +449,6 @@ public abstract class BaseServiceImpl<DaoMapper, Record, Example> implements Bas
 		return 0;
 	}
 
-	@Transactional(propagation = Propagation.REQUIRED)
 	@Override
 	public int deleteByPrimaryKeys(String ids) {
 		try {

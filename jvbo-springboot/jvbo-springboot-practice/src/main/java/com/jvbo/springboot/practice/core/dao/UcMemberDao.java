@@ -10,7 +10,7 @@ public interface UcMemberDao {
 
     int deleteByExample(UcMemberExample example);
 
-    int deleteByPrimaryKey(String memberId);
+    int deleteByPrimaryKey(Long memberId);
 
     int insert(UcMember record);
 
@@ -18,7 +18,7 @@ public interface UcMemberDao {
 
     List<UcMember> selectByExample(UcMemberExample example);
 
-    UcMember selectByPrimaryKey(String memberId);
+    UcMember selectByPrimaryKey(Long memberId);
 
     int updateByExampleSelective(@Param("record") UcMember record, @Param("example") UcMemberExample example);
 

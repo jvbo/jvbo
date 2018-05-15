@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.jvbo.springboot.practice.core.dao.UcMemberDao">
   <resultMap id="BaseResultMap" type="com.jvbo.springboot.practice.core.model.UcMember">
-    <id column="member_id" jdbcType="VARCHAR" property="memberId" />
+    <id column="member_id" jdbcType="BIGINT" property="memberId" />
     <result column="phone" jdbcType="VARCHAR" property="phone" />
     <result column="password" jdbcType="VARCHAR" property="password" />
     <result column="login_name" jdbcType="VARCHAR" property="loginName" />
@@ -91,15 +91,15 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
     from t_uc_member
-    where member_id = #{memberId,jdbcType=VARCHAR}
+    where member_id = #{memberId,jdbcType=BIGINT}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
     delete from t_uc_member
-    where member_id = #{memberId,jdbcType=VARCHAR}
+    where member_id = #{memberId,jdbcType=BIGINT}
   </delete>
   <delete id="deleteByExample" parameterType="com.jvbo.springboot.practice.core.model.UcMemberExample">
     delete from t_uc_member
@@ -108,23 +108,24 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.jvbo.springboot.practice.core.model.UcMember">
-    insert into t_uc_member (member_id, phone, `password`, 
-      login_name, nick_name, head_url, 
-      from_who, created_by, gmt_created, 
-      modified_by, gmt_modified, is_deleted
-      )
-    values (#{memberId,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
-      #{loginName,jdbcType=VARCHAR}, #{nickName,jdbcType=VARCHAR}, #{headUrl,jdbcType=VARCHAR}, 
-      #{fromWho,jdbcType=VARCHAR}, #{createdBy,jdbcType=VARCHAR}, #{gmtCreated,jdbcType=BIGINT}, 
-      #{modifiedBy,jdbcType=VARCHAR}, #{gmtModified,jdbcType=BIGINT}, #{isDeleted,jdbcType=TINYINT}
-      )
+    <selectKey keyProperty="memberId" order="AFTER" resultType="java.lang.Long">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into t_uc_member (phone, `password`, login_name, 
+      nick_name, head_url, from_who, 
+      created_by, gmt_created, modified_by, 
+      gmt_modified, is_deleted)
+    values (#{phone,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, #{loginName,jdbcType=VARCHAR}, 
+      #{nickName,jdbcType=VARCHAR}, #{headUrl,jdbcType=VARCHAR}, #{fromWho,jdbcType=VARCHAR}, 
+      #{createdBy,jdbcType=VARCHAR}, #{gmtCreated,jdbcType=BIGINT}, #{modifiedBy,jdbcType=VARCHAR}, 
+      #{gmtModified,jdbcType=BIGINT}, #{isDeleted,jdbcType=TINYINT})
   </insert>
   <insert id="insertSelective" parameterType="com.jvbo.springboot.practice.core.model.UcMember">
+    <selectKey keyProperty="memberId" order="AFTER" resultType="java.lang.Long">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
     insert into t_uc_member
     <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="memberId != null">
-        member_id,
-      </if>
       <if test="phone != null">
         phone,
       </if>
@@ -160,9 +161,6 @@
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="memberId != null">
-        #{memberId,jdbcType=VARCHAR},
-      </if>
       <if test="phone != null">
         #{phone,jdbcType=VARCHAR},
       </if>
@@ -208,7 +206,7 @@
     update t_uc_member
     <set>
       <if test="record.memberId != null">
-        member_id = #{record.memberId,jdbcType=VARCHAR},
+        member_id = #{record.memberId,jdbcType=BIGINT},
       </if>
       <if test="record.phone != null">
         phone = #{record.phone,jdbcType=VARCHAR},
@@ -250,7 +248,7 @@
   </update>
   <update id="updateByExample" parameterType="map">
     update t_uc_member
-    set member_id = #{record.memberId,jdbcType=VARCHAR},
+    set member_id = #{record.memberId,jdbcType=BIGINT},
       phone = #{record.phone,jdbcType=VARCHAR},
       `password` = #{record.password,jdbcType=VARCHAR},
       login_name = #{record.loginName,jdbcType=VARCHAR},
@@ -303,7 +301,7 @@
         is_deleted = #{isDeleted,jdbcType=TINYINT},
       </if>
     </set>
-    where member_id = #{memberId,jdbcType=VARCHAR}
+    where member_id = #{memberId,jdbcType=BIGINT}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.jvbo.springboot.practice.core.model.UcMember">
     update t_uc_member
@@ -318,6 +316,6 @@
       modified_by = #{modifiedBy,jdbcType=VARCHAR},
       gmt_modified = #{gmtModified,jdbcType=BIGINT},
       is_deleted = #{isDeleted,jdbcType=TINYINT}
-    where member_id = #{memberId,jdbcType=VARCHAR}
+    where member_id = #{memberId,jdbcType=BIGINT}
   </update>
 </mapper>

@@ -1,0 +1,34 @@
+server:
+  port: 8805
+spring:
+  application:
+    name: jvbo-springcloud-eureka-client-user-ribbon-hystrix
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://192.168.137.230:3306/jvbo
+    username: root
+    password: 111111
+    tomcat:
+      init-s-q-l: set names utf8mb4
+  jpa:
+    generate-ddl: false
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+    
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    service-url:
+      defaultZone: http://localhost:8700/eureka/
+
+logging:
+  config: classpath:logback-spring.xml
+  #file: ./logs/${spring.application.name}.log
+  level:
+    root: info
+    org.hibernate: info
+    org.hibernate.type.descriptor.sql.BasicBinder.sql: trace
+    org.hibernate.type.descriptor.sql.BasicExtractor.sql: trace
+    com.jvbo: debug

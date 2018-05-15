@@ -3,7 +3,7 @@ package com.jvbo.springboot.practice.core.model;
 import java.io.Serializable;
 
 public class UcMember implements Serializable {
-    private String memberId;
+    private Long memberId;
 
     private String phone;
 
@@ -29,11 +29,11 @@ public class UcMember implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    public String getMemberId() {
+    public Long getMemberId() {
         return memberId;
     }
 
-    public void setMemberId(String memberId) {
+    public void setMemberId(Long memberId) {
         this.memberId = memberId;
     }
 

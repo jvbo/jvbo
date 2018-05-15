@@ -1,0 +1,22 @@
+server:
+  port: 7000
+spring:
+  application:
+    name: jvbo-springcloud-zuul
+    
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    service-url:
+      defaultZone: http://localhost:8700/eureka/
+
+#zuul:
+#  routes:
+#    user-service: /user/**
+#    order-service: /order/**
+
+logging:
+  level:
+    root: info
+    com.jvbo: debug
