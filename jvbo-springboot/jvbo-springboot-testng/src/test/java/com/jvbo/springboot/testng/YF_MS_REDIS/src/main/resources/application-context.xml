@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+  
+ 	<dubbo:protocol name="dubbo" port="20882"></dubbo:protocol> 
+    <dubbo:application name="YF_MS_REDIS"/>
+	
+	<dubbo:registry address="zookeeper://192.168.253.142:2181" />
+	
+	 <dubbo:service interface="com.youfan.service.redis.MsproductDetailRedisService" ref="msproductDetailRedisServiceImpl"/>
+    <bean id="msproductDetailRedisServiceImpl" class="com.youfan.redis.MsproductDetailRedisServiceImpl"/>
+    
+    <dubbo:service interface="com.youfan.service.redis.MsproductRedisService" ref="msproductRedisServiceImpl"/>
+    <bean id="msproductRedisServiceImpl" class="com.youfan.redis.MsproductRedisServiceImpl"/>
+    
+    <dubbo:service interface="com.youfan.service.redis.OrderRedisService" ref="orderRedisServiceImpl"/>
+    <bean id="orderRedisServiceImpl" class="com.youfan.redis.OrderRedisServiceImpl"/>
+    
+    
+     <dubbo:reference id="msproductDetailCacheService" interface="com.youfan.service.cache.MsproductDetailCacheService"/>
+     <dubbo:reference id="msproductCacheService" interface="com.youfan.service.cache.MsproductCacheService"/>
+     
+     
+     
+	
+	
+    
+   
+     
+</beans>

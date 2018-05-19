@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper  
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.youfan.dao.MsOrderDao">
+	
+	<insert id="insertMsOrder" parameterType="msorder">
+	
+		<selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+			SELECT LAST_INSERT_ID()
+		</selectKey>
+		insert into msorder(productid,payamount,userid,merchantid,createtime,paystatus,receivingadress,receivingphone,receivingname,tradeserialnumber,num) value(#{productid},#{payamount},#{userid},#{merchantid},#{createtime},#{paystatus},#{receivingadress},#{receivingphone},#{receivingname},#{tradeserialnumber},#{num})
+	</insert>
+	
+	<select id="queryorderbyuserid" parameterType="int" resultType="msorder">
+		select * from msorder where userid = #{value}
+	</select>
+	
+	<select id="queryorderbymerchantid" parameterType="int" resultType="msorder">
+		select * from msorder where merchantid = #{value}
+	</select>
+	
+	
+	<update id="updateorderpaystatusbyid" parameterType="msorderVo">
+		update msorder set paystatus=#{constomOrder.paystatus},paytype=#{constomOrder.paytype} where id=#{constomOrder.id}
+	</update>
+	
+	<update id="updateorderbytrnumber" parameterType="msorderVo">
+		update msorder set paystatus=#{constomOrder.paystatus},paytype=#{constomOrder.paytype},paytime=#{constomOrder.paytime} where tradeserialnumber=#{constomOrder.tradeserialnumber}
+	</update>
+	
+	
+</mapper>
