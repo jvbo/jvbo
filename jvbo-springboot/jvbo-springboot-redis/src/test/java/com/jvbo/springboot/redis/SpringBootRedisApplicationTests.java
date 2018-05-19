@@ -1,38 +1,32 @@
 package com.jvbo.springboot.redis;
 
-import org.junit.Assert;
+import java.util.concurrent.TimeUnit;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.data.redis.core.RedisTemplate;
-import org.springframework.data.redis.core.ValueOperations;
+import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class SpringBootRedisApplicationTests {
-
-	@Autowired
-    private ValueOperations<String, Object> valueOperations;
+    
+    private static final Logger logger = LoggerFactory.getLogger(SpringBootRedisApplicationTests.class);
 
     @Autowired
-    private RedisTemplate<String, Object> redisTemplate;
+    private StringRedisTemplate stringRedisTemplate;
 
     @Test
-    public void contextLoads() {
-    }
-
-    @Test
-    public void testStringOps() {
-        this.valueOperations.set("k1", "spring-redis");
-
-        Boolean hasKey = this.redisTemplate.hasKey("k1");
-        Assert.assertEquals(true, hasKey);
-
-        Object str = this.valueOperations.get("k1");
-        Assert.assertNotNull(str);
-        Assert.assertEquals("spring-redis", str.toString());
+    public void testRedis(){
+        // TODO 向redis插入数据
+        String key = "aaaa";
+        stringRedisTemplate.opsForValue().set(key, "1111", 30, TimeUnit.DAYS);
+        String data = stringRedisTemplate.opsForValue().get(key);
+        logger.info("data:{}", data);
     }
 
 }

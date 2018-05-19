@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper  
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.youfan.dao.test.PersonDao">
+
+	<select id="querypersonbyid" parameterType="int" resultType="person">
+		select id,name,age,birthday,address from Person where id = #{value}
+	</select>
+	
+	<insert id="inserperson" parameterType="person">
+		<selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+			SELECT LAST_INSERT_ID()
+		</selectKey>
+		insert into Person(name,age,address,birthday) value(#{name},#{age},#{address},#{birthday})
+	</insert>
+</mapper>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper  
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.youfan.dao.MsmerchantDao">
+
+	<select id="queryMsmerchantByid" parameterType="int" resultType="msmerchant">
+		select * from msmerchant where id = #{value}
+	</select>
+	
+	<insert id="insertMsmerchant" parameterType="msmerchant">
+		<selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+			SELECT LAST_INSERT_ID()
+		</selectKey>
+		insert into msmerchant(merchantname,merchantshopname,merchantaccount,merchantpassword,merchantscope) value(#{merchantname},#{merchantshopname},#{merchantaccount},#{merchantpassword},#{merchantscope})
+	</insert>
+	
+	<delete id="deleteMsmerchantbyid" parameterType="int">
+		delete from msmerchant where id = #{id}
+	</delete>
+	
+	<update id="updateMsmerchant" parameterType="msmerchant">
+		update msmerchant set merchantname=#{merchantname},merchantshopname=#{merchantshopname},merchantaccount=#{merchantaccount},merchantpassword=#{merchantpassword},merchantscope=#{merchantscope} where id=#{id}
+	</update>
+	
+	<sql id="consutomsql" >
+		<if test="constomMsmerchant != null">
+			<if test="constomMsmerchant.merchantname!=null and constomMsmerchant.merchantname!=''">
+					and merchantname = "${constomMsmerchant.merchantname}"
+				</if>
+				<if test="constomMsmerchant.merchantshopname!=null and constomMsmerchant.merchantshopname!='' ">
+					and merchantshopname = "${constomMsmerchant.merchantshopname}"
+			</if>
+			<if test="constomMsmerchant.merchantaccount!=null and constomMsmerchant.merchantaccount!='' ">
+					and merchantaccount = "${constomMsmerchant.merchantaccount}"
+			</if>
+			<if test="constomMsmerchant.merchantpassword!=null and constomMsmerchant.merchantpassword!='' ">
+					and constomMsmerchant.merchantpassword = "${constomMsmerchant.merchantpassword}"
+			</if>
+			<if test="constomMsmerchant.merchantscope!=null and constomMsmerchant.merchantscope!='' ">
+					and merchantscope = "${constomMsmerchant.merchantscope}"
+			</if>
+		</if>
+	</sql>
+	
+	<select id="queryMsmerchantbyvo" parameterType="msmerchantVo" resultType="msmerchant">
+	select * from msmerchant
+		<where>
+			<include refid="consutomsql"></include>
+		</where>
+	</select>
+	
+	<select id="queryMsmerchantByaccount" parameterType="java.lang.String" resultType="msmerchant">
+		select * from msmerchant where merchantaccount = #{value}
+	</select>
+	
+</mapper>

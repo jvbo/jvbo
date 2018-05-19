@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+    <dubbo:protocol name="dubbo" port="20880"></dubbo:protocol> 
+    
+	<dubbo:application name="YF_MS_SERVICE"/>  
+	<dubbo:registry address="zookeeper://192.168.253.142:2181" />
+	
+	<dubbo:service interface="com.youfan.service.MsmerchantService" ref="msmerchantServiceImpl"/>
+    <bean id="msmerchantServiceImpl" class="com.youfan.service.MsmerchantServiceImpl"/>
+    
+    <dubbo:service interface="com.youfan.service.MsoderService" ref="msoderServiceImpl"/>
+    <bean id="msoderServiceImpl" class="com.youfan.service.MsoderServiceImpl"/>
+    
+    <dubbo:service interface="com.youfan.service.MsproductDetailService" ref="msproductDetailServiceImpl"/>
+    <bean id="msproductDetailServiceImpl" class="com.youfan.service.MsproductDetailServiceImpl"/>
+    
+    <dubbo:service interface="com.youfan.service.MsproductService" ref="msproductServiceImpl"/>
+    <bean id="msproductServicempl" class="com.youfan.service.MsproductServiceImpl"/>
+    
+    <dubbo:service interface="com.youfan.service.MsUserService" ref="msUserServiceImpl"/>
+    <bean id="msUserServiceImpl" class="com.youfan.service.MsUserServiceImpl"/>
+    
+   <dubbo:service interface="com.youfan.service.test.PersonService" ref="personServiceImpl"/>
+    <bean id="personServiceImpl" class="com.youfan.service.test.PersonServiceImpl"/>
+    
+    <dubbo:service interface="com.youfan.service.pay.WeixinPay" ref="weixinPayImpl"/>
+    <bean id="weixinPayImpl" class="com.youfan.service.pay.WeixinPayImpl"/>
+    
+    <dubbo:service interface="com.youfan.service.pay.Yinghangkapay" ref="yinghangkapayImpl"/>
+    <bean id="yinghangkapayImpl" class="com.youfan.service.pay.YinghangkapayImpl"/>
+    
+    <dubbo:service interface="com.youfan.service.pay.ZhifubaoPay" ref="zhifubaoPayImpl"/>
+    <bean id="zhifubaoPayImpl" class="com.youfan.service.pay.ZhifubaoPayImpl"/>
+   
+</beans>

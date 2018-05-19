@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper  
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.youfan.dao.MsproductDao">
+
+	<insert id="applymsproduct" parameterType="msproductinfo">
+	
+		<selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+			SELECT LAST_INSERT_ID()
+		</selectKey>
+		insert into msproductinfo(productid,producttitle,productpicture,miaoshaprice,originalprice,msmerchantid,applydate,auditstate,starttime,endtime,productcount,stockcount,description) value(#{productid},#{producttitle},#{productpicture},#{miaoshaprice},#{originalprice},#{msmerchantid},#{applydate},#{auditstate},#{starttime},#{endtime},#{productcount},#{stockcount},#{description})
+	</insert>
+	
+	<sql id="consutomsql" >
+		<if test="constomProduct != null">
+			<if test="constomProduct.productid!=null and constomProduct.productid!=''">
+					and productid = "${constomProduct.productid}"
+				</if>
+			<if test="constomProduct.producttitle!=null and constomProduct.producttitle!='' ">
+					and producttitle  like "%${constomProduct.producttitle}%"
+			</if>
+			<if test="constomProduct.startmiaoshaprice!=null and constomProduct.startmiaoshaprice!='' ">
+					and miaoshaprice <![CDATA[ >= ]]> "${constomProduct.startmiaoshaprice}"
+			</if>
+			<if test="constomProduct.endmiaoshaprice!=null and constomProduct.endmiaoshaprice!='' ">
+				and miaoshaprice <![CDATA[ <= ]]> "${constomProduct.endmiaoshaprice}"
+			</if>
+			<if test="constomProduct.startoriginalprice!=null and constomProduct.startoriginalprice!='' ">
+					and originalprice <![CDATA[ >= ]]> "${constomProduct.startoriginalprice}"
+			</if>
+			<if test="constomProduct.endoriginalprice!=null and constomProduct.endoriginalprice!='' " >
+					and originalprice <![CDATA[ <= ]]> "${constomProduct.endoriginalprice}"
+			</if>
+			<if test="constomProduct.endstockcount!=null and constomProduct.endstockcount!='' ">
+					and stockcount <![CDATA[ <= ]]> "${constomProduct.endstockcount}"
+			</if>
+			<if test="constomProduct.description!=null and constomProduct.description!=''">
+					and description like "%${constomProduct.description}%"
+			</if>
+			<if test="constomProduct.endapplydate!=null and constomProduct.endapplydate!='' ">
+					and applydate <![CDATA[ <= ]]> STR_TO_DATE(#{constomProduct.endapplydate},'%Y-%m-%d %H:%i:%S')
+			</if>
+
+			<if test="constomProduct.endauditdate!=null and constomProduct.endauditdate!='' ">
+					and auditdate <![CDATA[ <= ]]> STR_TO_DATE(#{constomProduct.endauditdate},'%Y-%m-%d %H:%i:%S')
+			</if>
+			<if test="constomProduct.startapplydate!=null and constomProduct.startapplydate!='' ">
+					and applydate <![CDATA[ >= ]]> STR_TO_DATE(#{constomUser.startapplydate},'%Y-%m-%d %H:%i:%S')
+			</if>
+			<if test="constomProduct.startauditdate!=null and constomProduct.startauditdate!='' ">
+					and auditdate <![CDATA[ >= ]]> STR_TO_DATE(#{constomProduct.startauditdate},'%Y-%m-%d %H:%i:%S')
+			</if>
+			<if test="constomProduct.auditstate!=null and constomProduct.auditstate!='' ">
+					and auditstate = "${constomProduct.auditstate}"
+			</if>
+			<if test="constomProduct.startstarttime!=null and constomProduct.startstarttime!='' ">
+					and starttime <![CDATA[ >= ]]> STR_TO_DATE(#{constomProduct.startstarttime},'%Y-%m-%d %H:%i:%S')
+			</if>
+			<if test="constomProduct.endstarttime!=null and constomProduct.endstarttime!='' ">
+					and starttime <![CDATA[ <= ]]> STR_TO_DATE(#{constomProduct.endstarttime},'%Y-%m-%d %H:%i:%S')
+			</if>
+			<if test="constomProduct.startendtime!=null and constomProduct.startendtime!='' ">
+					and endtime <![CDATA[ >= ]]> STR_TO_DATE(#{constomProduct.startendtime},'%Y-%m-%d %H:%i:%S')
+					
+			</if>
+			<if test="constomProduct.endendtime!=null and constomProduct.endendtime!='' ">
+					and endtime <![CDATA[ <= ]]>  STR_TO_DATE(#{constomProduct.endendtime},'%Y-%m-%d %H:%i:%S')
+			</if>
+			<if test="constomProduct.startproductcount!=null and constomProduct.startproductcount!='' ">
+					and productcount <![CDATA[ >= ]]> "${constomProduct.startproductcount}"
+			</if>
+			<if test="constomProduct.endproductcount!=null and constomProduct.endproductcount!='' ">
+					and productcount <![CDATA[ <= ]]> "${constomProduct.endproductcount}"
+			</if>
+			<if test="constomProduct.startstockcount!=null and constomProduct.startstockcount!='' ">
+					and stockcount <![CDATA[ >= ]]> "${constomProduct.startstockcount}"
+			</if>
+			<if test="constomProduct.endstockcount!=null and constomProduct.endstockcount!='' ">
+					and stockcount <![CDATA[ <= ]]> "${constomProduct.endstockcount}"
+			</if>
+		</if>
+	</sql>
+	
+	<select id="listmsproduct" parameterType="msProductVo" resultType="msproductinfo">
+	select * from msproductinfo
+		<where>
+			<include refid="consutomsql"></include>
+		</where>
+	</select>
+	
+	<delete id="deletemsproductByid"  parameterType="int">
+		delete from msproductinfo where id = #{id}
+	</delete>
+	
+	<update id="updatemsproduct" parameterType="msproductinfo">
+		update msproductinfo set producttitle=#{producttitle},productpicture=#{productpicture},miaoshaprice=#{miaoshaprice},originalprice=#{originalprice},starttime=#{starttime},endtime=#{endtime},productcount=#{productcount},productcount=#{productcount},stockcount=#{stockcount},description=#{description} where id=#{id}
+	</update>
+	
+	<update id="updatemsproductstate" parameterType="msProductVo">
+		update msproductinfo set auditstate=#{constomProduct.auditstate} where id=#{constomProduct.id}
+	</update>
+	
+	<select id="querymsproductByid" parameterType="int" resultType="msproductinfo">
+		select * from msproductinfo where id = #{value}
+	</select>
+	
+</mapper>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:tx="http://www.springframework.org/schema/tx" xmlns:mvc="http://www.springframework.org/schema/mvc"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans 
+       http://www.springframework.org/schema/beans/spring-beans.xsd 
+       http://www.springframework.org/schema/context 
+       http://www.springframework.org/schema/context/spring-context.xsd 
+       http://www.springframework.org/schema/tx 
+       http://www.springframework.org/schema/tx/spring-tx.xsd
+          http://www.springframework.org/schema/mvc
+       http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+ 
+ <context:annotation-config />
+    <!-- 配置自动扫描的包，完成 Bean 的创建和自动依赖注入的功能 -->
+    <context:component-scan base-package="com.*" />
+     <!-- 这两个类用来配置 annotation 类型的处理器映射器和处理器适配器 -->
+    <bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping" />
+    <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter" />
+
+
+  <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+    <property name="order" value="1" />
+    <property name="prefix" value="/WEB-INF/view/" />
+    <property name="suffix" value=".jsp" />
+    <property name="viewClass" value="org.springframework.web.servlet.view.JstlView" />
+  </bean>
+   <mvc:resources mapping="/html/**" location="/WEB-INF/html/" />
+   <mvc:resources mapping="/js/**" location="/WEB-INF/classes/js/" />
+   <mvc:resources mapping="/css/**" location="/WEB-INF/classes/css/" />
+   <mvc:resources mapping="/img/**" location="/WEB-INF/classes/img/" />
+  </beans>

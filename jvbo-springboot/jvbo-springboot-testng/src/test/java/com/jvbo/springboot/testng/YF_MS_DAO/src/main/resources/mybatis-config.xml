@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE configuration  
+PUBLIC "-//mybatis.org//DTD Config 3.0//EN"  
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+   
+<configuration>  
+<typeAliases>  
+        <!-- 别名定义 -->
+        <typeAlias type="com.youfan.enity.test.Person" alias="person" />
+        
+        <!-- 秒杀商家 -->
+        <typeAlias type="com.youfan.enity.Msmerchant" alias="msmerchant" />
+        <typeAlias type="com.youfan.vo.msmerchant.MsmerchantVo" alias="msmerchantVo" />
+        
+        <!-- 秒杀用户 -->
+         <typeAlias type="com.youfan.enity.Msuser" alias="msuser" />
+          <typeAlias type="com.youfan.vo.msuser.MsuserVo" alias="msuserVo" />
+          
+           <!-- 秒杀商品-->
+         <typeAlias type="com.youfan.enity.Msproductinfo" alias="msproductinfo" />
+         <typeAlias type="com.youfan.vo.msproductinfo.MsProductVo" alias="msProductVo" />
+         
+          <!-- 秒杀商品详情-->
+          <typeAlias type="com.youfan.enity.Msproductdetail" alias="msproductdetail" />
+          
+          <!-- 秒杀订单-->
+          <typeAlias type="com.youfan.enity.Msorder" alias="msorder" />
+          <typeAlias type="com.youfan.vo.order.MsorderVo" alias="msorderVo" />
+    </typeAliases>
+     
+</configuration>
