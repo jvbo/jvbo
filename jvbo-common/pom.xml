@@ -6,12 +6,12 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
-    <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.0.1.RELEASE</version>
-        <relativePath />
-    </parent>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.0.1.RELEASE</version>
+		<relativePath />
+	</parent>
 
 	<modules>
 		<module>jvbo-common-study</module>
@@ -33,6 +33,7 @@
 		<junit.version>4.10</junit.version>
 		<apache.commons.lang3.version>3.6</apache.commons.lang3.version>
 		<apache.commons.collections>3.2.2</apache.commons.collections>
+		<apache.commons.logging.version>1.2</apache.commons.logging.version>
 		<apache.commons.fileupload.version>1.3.2</apache.commons.fileupload.version>
 		<apache.commons.io.version>2.5</apache.commons.io.version>
 		<apache.commons.dbutils>1.6</apache.commons.dbutils>
@@ -44,7 +45,9 @@
 		<sun.tools.btrace>1.2.3</sun.tools.btrace>
 		<openjdk.jmh>1.19</openjdk.jmh>
 		<jodd.version>3.8.1</jodd.version>
-        <slf4j.version>1.7.6</slf4j.version>
+		<slf4j.version>1.7.6</slf4j.version>
+		<cglib.version>3.2.6</cglib.version>
+		<javassist.version>3.12.1.GA</javassist.version>
 	</properties>
 
 	<dependencyManagement>
@@ -64,28 +67,28 @@
 				<artifactId>jvbo-common-javapro</artifactId>
 				<version>${project.version}</version>
 			</dependency>
-			
+
 			<!-- logging -->
-            <dependency>
-                <groupId>org.slf4j</groupId>
-                <artifactId>slf4j-api</artifactId>
-                <version>${slf4j.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.slf4j</groupId>
-                <artifactId>log4j-over-slf4j</artifactId>
-                <version>${slf4j.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.slf4j</groupId>
-                <artifactId>jcl-over-slf4j</artifactId>
-                <version>${slf4j.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.slf4j</groupId>
-                <artifactId>jul-to-slf4j</artifactId>
-                <version>${slf4j.version}</version>
-            </dependency>
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>slf4j-api</artifactId>
+				<version>${slf4j.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>log4j-over-slf4j</artifactId>
+				<version>${slf4j.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>jcl-over-slf4j</artifactId>
+				<version>${slf4j.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>jul-to-slf4j</artifactId>
+				<version>${slf4j.version}</version>
+			</dependency>
 
 			<dependency>
 				<groupId>com.google.collections</groupId>
@@ -101,6 +104,11 @@
 				<groupId>commons-collections</groupId>
 				<artifactId>commons-collections</artifactId>
 				<version>${apache.commons.collections}</version>
+			</dependency>
+			<dependency>
+				<groupId>commons-logging</groupId>
+				<artifactId>commons-logging</artifactId>
+				<version>${apache.commons.logging.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>commons-fileupload</groupId>
@@ -167,6 +175,20 @@
 				<groupId>org.jodd</groupId>
 				<artifactId>jodd-all</artifactId>
 				<version>${jodd.version}</version>
+			</dependency>
+
+			<!-- cglib -->
+			<dependency>
+				<groupId>cglib</groupId>
+				<artifactId>cglib</artifactId>
+				<version>${cglib.version}</version>
+			</dependency>
+
+			<!-- javassist -->
+			<dependency>
+				<groupId>javassist</groupId>
+				<artifactId>javassist</artifactId>
+				<version>${javassist.version}</version>
 			</dependency>
 
 		</dependencies>

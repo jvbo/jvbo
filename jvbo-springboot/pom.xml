@@ -13,6 +13,7 @@
 		<module>jvbo-springboot-template-admin</module>
 		<module>jvbo-springboot-aliexpress</module>
 		<module>jvbo-springboot-practice</module>
+		<module>jvbo-springboot-practice-common</module>
 		<module>jvbo-springboot-quartz</module>
 		<module>jvbo-springboot-testng</module>
 	</modules>

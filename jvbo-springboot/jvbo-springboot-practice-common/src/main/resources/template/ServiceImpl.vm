@@ -1,0 +1,27 @@
+package ${package_name}.core.service.impl;
+
+import com.jvbo.springboot.practice.framework.annotation.BaseService;
+import com.jvbo.springboot.practice.framework.base.BaseServiceImpl;
+import ${package_name}.core.dao.${model_name}Dao;
+import ${package_name}.core.model.${model_name};
+import ${package_name}.core.model.${model_name}Example;
+import ${package_name}.core.service.${service_name};
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+/**
+ * ${service_impl_name}实现
+ * @date ${ctime}
+ */
+@Service
+@BaseService
+public class ${service_impl_name} extends BaseServiceImpl<${model_name}Dao, ${model_name}, ${model_name}Example> implements ${service_name} {
+
+    private static final Logger logger = LoggerFactory.getLogger(${service_impl_name}.class);
+
+    @Autowired
+    ${model_name}Dao ${mapper_name}Dao;
+
+}

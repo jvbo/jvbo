@@ -1,0 +1,13 @@
+package ${package_name}.core.service;
+
+import com.jvbo.springboot.practice.framework.base.BaseService;
+import ${package_name}.core.model.${model_name};
+import ${package_name}.core.model.${model_name}Example;
+
+/**
+ * ${service_name}接口
+ * @date ${ctime}
+ */
+public interface ${service_name} extends BaseService<${model_name}, ${model_name}Example> {
+
+}
