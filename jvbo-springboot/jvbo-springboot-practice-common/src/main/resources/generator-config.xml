@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+
+    <!-- 配置文件 -->
+    <properties resource="application-dev.properties"></properties>
+
+    <context id="MysqlContext" targetRuntime="MyBatis3" defaultModelType="flat">
+    
+        <!-- 当表名或者字段名为SQL关键字的时候,MBG给表明添加分隔符 -->
+        <property name="autoDelimitKeywords" value="true" />
+        <property name="javaFileEncoding" value="UTF-8"/>
+        <!-- 由于beginningDelimiter和endingDelimiter的默认值为双引号(")，在Mysql中不能这么写，所以还要将这两个默认值改为`  -->
+        <property name="beginningDelimiter" value="`"/>
+        <property name="endingDelimiter" value="`"/>
+
+        <!-- 为生成的Java模型创建一个toString方法 -->
+        <plugin type="org.mybatis.generator.plugins.ToStringPlugin"></plugin>
+        <!-- Java模型生成equals和hashcode方法 -->
+        <plugin type="org.mybatis.generator.plugins.EqualsHashCodePlugin"></plugin>
+        <!-- 为生成的Java模型类添加序列化接口，并生成serialVersionUID字段 -->
+        <plugin type="org.mybatis.generator.plugins.SerializablePlugin" />
+        <!-- 自定义插件-mapper的xml文件每次重新生成 -->
+        <plugin type="com.jvbo.springboot.practice.framework.mybatis.plugin.OverIsMergeablePlugin"></plugin>
+        
+        <!-- 生成的代码去掉注释 -->
+        <commentGenerator>
+            <property name="suppressAllComments" value="true" />
+        </commentGenerator>
+
+        <!-- 数据库连接 -->
+        <jdbcConnection driverClass="${generator.jdbc.driver}"
+                        connectionURL="${generator.jdbc.url}"
+                        userId="${generator.jdbc.username}"
+                        password="111111" />
+
+        <!-- model生成 -->
+        <javaModelGenerator targetPackage="com.jvbo.springboot.practice.core.model" targetProject="F:/software/git/repo/jvbo/jvbo-springboot/jvbo-springboot-practice/src/main/java" />
+
+        <!-- MapperXML生成 -->
+        <sqlMapGenerator targetPackage="mapper.generate" targetProject="F:/software/git/repo/jvbo/jvbo-springboot/jvbo-springboot-practice/src/main/resources" />
+
+        <!-- Mapper接口生成 -->
+        <javaClientGenerator targetPackage="com.jvbo.springboot.practice.core.dao" targetProject="F:/software/git/repo/jvbo/jvbo-springboot/jvbo-springboot-practice/src/main/java" type="XMLMAPPER" />
+
+        <!-- 需要映射的表 -->
+                                    <table tableName="t_sys_log" domainObjectName="SysLog" mapperName="SysLogDao">
+                    <generatedKey column="log_id" sqlStatement="MySql" identity="true"/>
+                                                                        
+                                                                                                
+                                                                                                <columnOverride column="log_type" javaType="Integer" jdbcType="TINYINT" />
+                                                                                                
+                                                                                                
+                                                                                                
+                                                                                                
+                                                                                                
+                                                                                                
+                                                                                                
+                                                                                                
+                                                                                                
+                                                                                                
+                                                                                                
+                                                                                                
+                                                                                                
+                                                                                                
+                                                                                                
+                                                                                                
+                                                                                                
+                                                                                                <columnOverride column="is_deleted" javaType="Integer" jdbcType="TINYINT" />
+                                                            </table>
+                                                <table tableName="t_uc_member" domainObjectName="UcMember" mapperName="UcMemberDao">
+                    <generatedKey column="member_id" sqlStatement="MySql" identity="true"/>
+                                                                        
+                                                                                                
+                                                                                                
+                                                                                                
+                                                                                                
+                                                                                                
+                                                                                                
+                                                                                                
+                                                                                                
+                                                                                                
+                                                                                                
+                                                                                                <columnOverride column="is_deleted" javaType="Integer" jdbcType="TINYINT" />
+                                                            </table>
+                                                <table tableName="t_user" domainObjectName="User" mapperName="UserDao">
+                    <generatedKey column="user_id" sqlStatement="MySql" identity="true"/>
+                                                                        
+                                                                                                
+                                                                                                
+                                                                                                
+                                                                                                
+                                                                                                
+                                                                                                
+                                                                                                
+                                                                                                
+                                                                                                <columnOverride column="is_deleted" javaType="Integer" jdbcType="TINYINT" />
+                                                            </table>
+                        </context>
+</generatorConfiguration>
