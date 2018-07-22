@@ -1,4 +1,4 @@
-package solution;
+package com.jvbo.common.leetcode.copy;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;

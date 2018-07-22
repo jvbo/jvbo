@@ -48,4 +48,9 @@ public class UserController {
 		//User user = userService.save(record);
 		return true;
 	}
+	
+	@GetMapping("/user/sampleTaskTwo")
+	public void sampleTaskTwo(){
+	    userService.sampleTaskTwo();
+	}
 }

@@ -1,4 +1,4 @@
-package solution;
+package com.jvbo.common.leetcode.copy;
 /**
  * LeetCode第四题: 寻找两个已经排序好的数组的中位数
  * @author 朱君鹏

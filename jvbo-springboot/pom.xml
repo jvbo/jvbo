@@ -9,13 +9,16 @@
 	<modules>
 		<module>jvbo-springboot-activemq</module>
 		<module>jvbo-springboot-rabbitmq</module>
+		<module>jvbo-springboot-kafka</module>
 		<module>jvbo-springboot-redis</module>
 		<module>jvbo-springboot-template-admin</module>
 		<module>jvbo-springboot-aliexpress</module>
 		<module>jvbo-springboot-practice</module>
+		<module>jvbo-springboot-catches</module>
 		<module>jvbo-springboot-practice-common</module>
 		<module>jvbo-springboot-quartz</module>
 		<module>jvbo-springboot-testng</module>
+		<module>jvbo-springboot-redisson</module>
 	</modules>
 
 	<parent>
@@ -41,6 +44,7 @@
 		<org.apache.httpcomponents.httpcore.version>4.3.2</org.apache.httpcomponents.httpcore.version>
 		<org.apache.httpcomponents.httpclient.version>4.3.5</org.apache.httpcomponents.httpclient.version>
 		<google.guava.version>20.0</google.guava.version>
+		<okhttp.version>3.10.0</okhttp.version>
 		<fastjson.version>1.2.9</fastjson.version>
 		<thoughtworks.xstream.version>1.4.10</thoughtworks.xstream.version>
 		<xmlpull.version>1.1.3.4d_b4_min</xmlpull.version>
@@ -107,6 +111,13 @@
 				<groupId>org.apache.httpcomponents</groupId>
 				<artifactId>httpcore</artifactId>
 				<version>${org.apache.httpcomponents.httpcore.version}</version>
+			</dependency>
+            
+            <!-- okhttp -->
+			<dependency>
+				<groupId>com.squareup.okhttp3</groupId>
+				<artifactId>okhttp</artifactId>
+				<version>${okhttp.version}</version>
 			</dependency>
 
 			<dependency>

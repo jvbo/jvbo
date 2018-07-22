@@ -4,6 +4,7 @@
  */
 package com.jvbo.common.study.job;
 
+import java.math.BigDecimal;
 import java.text.ParseException;
 import java.util.Arrays;
 import java.util.LinkedHashMap;
@@ -11,6 +12,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
 import java.util.stream.Collectors;
+
+import org.apache.commons.lang3.StringUtils;
 
 import com.google.common.collect.Maps;
 
@@ -91,11 +94,17 @@ public class App {
                         .reversed()).forEachOrdered(e -> finalMap.put(e.getKey(), e.getValue()));
         System.out.println(finalMap);*/
         
-        System.out.println(String.class.getSimpleName());
+        /*System.out.println(String.class.getSimpleName());
         
         String phone = "134****9511";
         System.out.println(phone.substring(phone.length() - 4, phone.length()));
-        System.out.println(phone.substring(1, phone.length()));
+        System.out.println(phone.substring(1, phone.length()));*/
+        BigDecimal b = new BigDecimal("0.01527");
+        System.out.println(b.toString());
+        Double d = Double.valueOf(b.toString());
+        String i = "1.1.111";
+        String[] strArr = StringUtils.split(i, ".");
+        System.out.println(Arrays.toString(strArr));
     }
 
 }
