@@ -8,8 +8,6 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-import java.util.UUID;
-import java.util.concurrent.TimeUnit;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -21,15 +19,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
-import org.springframework.util.LinkedMultiValueMap;
-import org.springframework.util.MultiValueMap;
 
-import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.jvbo.springboot.testng.SpringBootTestngApplication;
 
@@ -105,6 +96,12 @@ public class DataTemplateTest {
         tokenList.add(UUID.randomUUID().toString().replaceAll("-", ""));*/
     }
     
+    @Test
+    public void testMember(){
+        boolean flag = stringRedisTemplate.opsForSet().isMember("BLACKLIST_IP", "1.84.211.171");
+        System.out.println(flag);
+    }
+    
     /*@Test
     public void testRedis(){
         Map<String, String> redisData = new HashMap<>();
@@ -176,7 +173,7 @@ public class DataTemplateTest {
         logger.info("registerData:{}", JSON.toJSONString(registerData));
     }*/
     
-    @Test
+    /*@Test
     public void testLogin() throws Exception {
         Map<String, String> loginData = new HashMap<>();
 
@@ -199,5 +196,5 @@ public class DataTemplateTest {
         }
         
         logger.info("loginData:{}", JSON.toJSONString(loginData));
-    }
+    }*/
 }

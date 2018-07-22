@@ -1,4 +1,4 @@
-package solution;
+package com.jvbo.common.leetcode.copy;
 import java.io.*;
 
 import org.junit.Test;

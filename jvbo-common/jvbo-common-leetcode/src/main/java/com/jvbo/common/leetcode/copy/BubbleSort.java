@@ -1,4 +1,4 @@
-package solution;
+package com.jvbo.common.leetcode.copy;
 
 /**
  * 功能: 实现冒泡排序

@@ -1,4 +1,4 @@
-package solution;
+package com.jvbo.common.leetcode.copy;
 
 /**
  * 输入流相关OJ题目

@@ -1,4 +1,4 @@
-package solution;
+package com.jvbo.common.leetcode.copy;
 
 public class AddRecursion {
 	public static int addRecursion(int[] nums, int length){

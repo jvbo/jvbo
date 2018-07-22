@@ -1,4 +1,4 @@
-package solution;
+package com.jvbo.common.leetcode.copy;
 
 public class LeetCode2 {
 	

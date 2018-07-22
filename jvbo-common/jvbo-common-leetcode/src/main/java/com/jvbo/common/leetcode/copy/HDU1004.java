@@ -1,4 +1,4 @@
-package solution;
+package com.jvbo.common.leetcode.copy;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.BufferedReader;

@@ -1,4 +1,4 @@
-package solution;
+package com.jvbo.common.leetcode.copy;
 
 import java.util.ArrayList;
 import java.util.HashMap;

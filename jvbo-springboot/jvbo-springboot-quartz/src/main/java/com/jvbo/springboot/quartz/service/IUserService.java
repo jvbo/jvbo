@@ -12,4 +12,6 @@ public interface IUserService {
 	List<User> findAll();
 	User findById(Long id);
 	User save(User record);
+	
+	void sampleTaskTwo();
 }

@@ -48,29 +48,30 @@ public class TestRestTemplateTest {
     public List<String> phoneList = new LinkedList<>();
     public List<String> tokenList = new LinkedList<>();
     public Map<String, String> data = new HashMap<>();
+    private static final String domain = "http://localhost:8080/";
     
     @Before
     public void setUp(){
-        /*phoneList.add("13000000001");
-        phoneList.add("13000000002");
-        phoneList.add("13000000003");
-        phoneList.add("13000000004");
-        phoneList.add("13000000005");
-        phoneList.add("13000000006");
-        phoneList.add("13000000007");
-        phoneList.add("13000000008");
-        phoneList.add("13000000009");
-        phoneList.add("13000000010");
-        phoneList.add("13000000011");
-        phoneList.add("13000000012");
-        phoneList.add("13000000013");
-        phoneList.add("13000000014");
-        phoneList.add("13000000015");
-        phoneList.add("13000000016");
-        phoneList.add("13000000017");
-        phoneList.add("13000000018");
-        phoneList.add("13000000019");
-        phoneList.add("13000000020");*/
+        /*phoneList.add("13300000001");
+        phoneList.add("13300000002");
+        phoneList.add("13300000003");
+        phoneList.add("13300000004");
+        phoneList.add("13300000005");
+        phoneList.add("13300000006");
+        phoneList.add("13300000007");
+        phoneList.add("13300000008");
+        phoneList.add("13300000009");
+        phoneList.add("13300000010");*/
+        phoneList.add("13600000011");
+        phoneList.add("13600000012");
+        phoneList.add("13600000013");
+        phoneList.add("13600000014");
+        phoneList.add("13600000015");
+        /*phoneList.add("13300000016");
+        phoneList.add("13300000017");
+        phoneList.add("13300000018");
+        phoneList.add("13300000019");
+        phoneList.add("13300000020");*/
         
         /*tokenList.add("fb01923b9b2a49e69ab25302619e4827");
         tokenList.add("75eed505aac04fd3b45c6a4c2878032b");
@@ -81,66 +82,26 @@ public class TestRestTemplateTest {
         tokenList.add("ed41301e7b4b4b379f1a6b903cd7b6a2");
         tokenList.add("a1cf95732d40459a82813bab52404aeb");
         tokenList.add("e5281c8486a34ea39f9e64bb9b892c62");
-        tokenList.add("6134c1d295c74f5bbb42ca835b3c895c");
+        tokenList.add("6134c1d295c74f5bbb42ca835b3c895c");*/
         tokenList.add("9449f895ccac43fbb0c53ddf73476ca4");
         tokenList.add("14a0101e4f6444b6be0651bc8a755481");
         tokenList.add("58961f6d102e47e8b52a0dd13e7744ed");
         tokenList.add("80866746de054879bd6e7ae0d2b9d2c9");
         tokenList.add("e5300e42eb8e427a9062d3e72bf9d06c");
-        tokenList.add("269e3088d9ea4fbfbff213df574d8729");
+        /*tokenList.add("269e3088d9ea4fbfbff213df574d8729");
         tokenList.add("41bb355649c54cd8bc5da1bd635e0172");
         tokenList.add("41bb355649c54cd8bc5da1bd635e0172");
         tokenList.add("a8a22ee5d44949b1ba04f22f77d49bcd");
         tokenList.add("810d335a29b842028f24bb68199116f3");*/
         
-        phoneList.add("13100000001");
-        phoneList.add("13100000002");
-        phoneList.add("13100000003");
-        phoneList.add("13100000004");
-        phoneList.add("13100000005");
-        phoneList.add("13100000006");
-        phoneList.add("13100000007");
-        phoneList.add("13100000008");
-        phoneList.add("13100000009");
-        phoneList.add("13100000010");
-        phoneList.add("13100000011");
-        phoneList.add("13100000012");
-        phoneList.add("13100000013");
-        phoneList.add("13100000014");
-        phoneList.add("13100000015");
-        phoneList.add("13100000016");
-        phoneList.add("13100000017");
-        phoneList.add("13100000018");
-        phoneList.add("13100000019");
-        phoneList.add("13100000020");
-        
-        tokenList.add(UUID.randomUUID().toString().replaceAll("-", ""));
-        tokenList.add(UUID.randomUUID().toString().replaceAll("-", ""));
-        tokenList.add(UUID.randomUUID().toString().replaceAll("-", ""));
-        tokenList.add(UUID.randomUUID().toString().replaceAll("-", ""));
-        tokenList.add(UUID.randomUUID().toString().replaceAll("-", ""));
-        tokenList.add(UUID.randomUUID().toString().replaceAll("-", ""));
-        tokenList.add(UUID.randomUUID().toString().replaceAll("-", ""));
-        tokenList.add(UUID.randomUUID().toString().replaceAll("-", ""));
-        tokenList.add(UUID.randomUUID().toString().replaceAll("-", ""));
-        tokenList.add(UUID.randomUUID().toString().replaceAll("-", ""));
-        tokenList.add(UUID.randomUUID().toString().replaceAll("-", ""));
-        tokenList.add(UUID.randomUUID().toString().replaceAll("-", ""));
-        tokenList.add(UUID.randomUUID().toString().replaceAll("-", ""));
-        tokenList.add(UUID.randomUUID().toString().replaceAll("-", ""));
-        tokenList.add(UUID.randomUUID().toString().replaceAll("-", ""));
-        tokenList.add(UUID.randomUUID().toString().replaceAll("-", ""));
-        tokenList.add(UUID.randomUUID().toString().replaceAll("-", ""));
-        tokenList.add(UUID.randomUUID().toString().replaceAll("-", ""));
-        tokenList.add(UUID.randomUUID().toString().replaceAll("-", ""));
-        tokenList.add(UUID.randomUUID().toString().replaceAll("-", ""));
+        /*tokenList.add(UUID.randomUUID().toString().replaceAll("-", ""));*/
         
     }
     
     @Test
     public void testRedis(){
         Map<String, String> redisData = new HashMap<>();
-        for (int i = 0; i < 20; i++) {
+        for (int i = 0, length = phoneList.size(); i < length; i++) {
             String token = tokenList.get(i);
             String phoneNo = phoneList.get(i);
             JSONObject jo = new JSONObject();
@@ -161,7 +122,7 @@ public class TestRestTemplateTest {
     /*@Test
     public void testSms() throws Exception {
         Map<String, String> smsData = new HashMap<>();
-        final String smsUrl = "http://t-api.heiyu.pro/hyc/sms/send";
+        final String smsUrl = domain.concat("sms/send");
         for (int i = 0, length = phoneList.size(); i < length; i++) {
             String phoneNo = phoneList.get(i);
             HttpHeaders headers = new HttpHeaders();
@@ -182,8 +143,8 @@ public class TestRestTemplateTest {
     public void testRegister() throws Exception {
         Map<String, String> registerData = new HashMap<>();
 
-        final String registerUrl = "http://t-api.heiyu.pro/hyc/user/register";
-        final String inviteCode = "GJaSYY";
+        final String registerUrl = domain.concat("user/register");
+        final String inviteCode = "XRa45E";
         final String fromType = "wechat_friend";
         final String code = "1111";
         for (int i = 0, length = phoneList.size(); i < length; i++) {
@@ -212,7 +173,7 @@ public class TestRestTemplateTest {
     public void testLogin() throws Exception {
         Map<String, String> loginData = new HashMap<>();
 
-        final String loginUrl = "http://t-api.heiyu.pro/hyc/user/login?deviceId={1}";
+        final String loginUrl = domain.concat("user/login?deviceId={1}");
         for (int i = 0, length = tokenList.size(); i < length; i++) {
             String token = tokenList.get(i);
             String deviceId = UUID.randomUUID().toString();
