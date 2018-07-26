@@ -6,9 +6,10 @@ package com.jvbo.common.study.javase.jvm.research;
 
 import java.lang.reflect.Method;
 
-import org.assertj.core.internal.cglib.proxy.Enhancer;
-import org.assertj.core.internal.cglib.proxy.MethodInterceptor;
-import org.assertj.core.internal.cglib.proxy.MethodProxy;
+import net.sf.cglib.proxy.Enhancer;
+import net.sf.cglib.proxy.MethodInterceptor;
+import net.sf.cglib.proxy.MethodProxy;
+
 
 /**
  * 借助CGLIB使方法区出现内存溢出异常
@@ -30,7 +31,7 @@ public class JavaMethodAreaOOM {
                 public Object intercept(Object obj, Method method, Object[] args, MethodProxy proxy) throws Throwable {
                     return proxy.invoke(obj, args);
                 }
-                
+
             });
             enhancer.create();
         }
