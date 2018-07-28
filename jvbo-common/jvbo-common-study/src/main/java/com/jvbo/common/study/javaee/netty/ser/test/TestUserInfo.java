@@ -1,6 +1,5 @@
-package com.jvbo.common.study.javaee.netty.ser;
+package com.jvbo.common.study.javaee.netty.ser.test;
 
-import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
