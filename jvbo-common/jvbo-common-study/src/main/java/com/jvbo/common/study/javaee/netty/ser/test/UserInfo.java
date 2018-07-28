@@ -1,4 +1,4 @@
-package com.jvbo.common.study.javaee.netty.ser;
+package com.jvbo.common.study.javaee.netty.ser.test;
 
 import java.io.Serializable;
 import java.nio.ByteBuffer;
