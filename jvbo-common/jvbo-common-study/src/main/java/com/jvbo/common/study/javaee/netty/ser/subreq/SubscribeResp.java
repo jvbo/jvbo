@@ -1,4 +1,4 @@
-package com.jvbo.common.study.javaee.netty.ser;
+package com.jvbo.common.study.javaee.netty.ser.subreq;
 
 import java.io.Serializable;
 
