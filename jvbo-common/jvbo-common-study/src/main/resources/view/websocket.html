@@ -1,0 +1,57 @@
+﻿<!-- F:\software\git\repo\jvbo\jvbo-common\jvbo-common-study\src\main\resources\view\websocket.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>websocket测试</title>
+</head>
+<body>
+<br>
+<script type="text/javascript">
+	var ws;
+	if(!window.WebSocket){
+		window.WebSocket = window.MozWebSocket;
+	}
+
+	if(window.WebSocket){
+		ws = new WebSocket("ws://localhost:8080/websocket");
+		ws.onopen = function(event) {
+			console.log("conn open");
+			var ta = document.getElementById("responseText");
+			ta.value = "打开websocket服务正常";
+		};
+		ws.onmessage = function(event) {
+			console.log("conn message");
+			var ta = document.getElementById("responseText");
+			ta.value = "";
+			ta.value = event.data;
+		};
+		ws.onclose = function(evt) {
+			console.log("conn close");
+			var ta = document.getElementById("responseText");
+			ta.value = "";
+			ta.value = "websocket 关闭";
+		};
+	}else{
+		alert("浏览器不支持websocket");
+	}
+	
+	function send(message) {
+		if(!window.WebSocket){return;}
+		if(ws.readyState == WebSocket.OPEN){
+			ws.send(message);
+		}else{
+			alert("websocket连接没有建立成功");
+		}
+	}
+</script>
+<form onsubmit="return false;">
+	<input type="text" name="message" value="netty指南"/>
+	<br><br>
+	<input type="button" value="发送" onclick="send(this.form.message.value)"/>
+	<hr color="blue">
+	<h3>服务端返回的应答消息</h3>
+	<textarea id="responseText" style="width: 500px;height: 300px;"></textarea>
+</form>
+</body>
+</html>
