@@ -19,6 +19,7 @@
 		<module>jvbo-springboot-quartz</module>
 		<module>jvbo-springboot-testng</module>
 		<module>jvbo-springboot-redisson</module>
+		<module>jvbo-springboot-netty</module>
 	</modules>
 
 	<parent>

@@ -1,0 +1,514 @@
+2018-08-19 16:02:52.981  INFO 6680 --- [main] c.j.s.netty.SpringBootNettyApplication   : Starting SpringBootNettyApplication on jvbo with PID 6680 (F:\software\git\repo\jvbo\jvbo-springboot\jvbo-springboot-netty\target\classes started by thinkpad in F:\software\git\repo\jvbo\jvbo-springboot\jvbo-springboot-netty)
+2018-08-19 16:02:52.984  INFO 6680 --- [main] c.j.s.netty.SpringBootNettyApplication   : No active profile set, falling back to default profiles: default
+2018-08-19 16:02:53.036  INFO 6680 --- [main] s.c.a.AnnotationConfigApplicationContext : Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@3b07a0d6: startup date [Sun Aug 19 16:02:53 CST 2018]; root of context hierarchy
+2018-08-19 16:02:54.179  INFO 6680 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2018-08-19 16:02:54.199  INFO 6680 --- [main] c.j.s.netty.SpringBootNettyApplication   : Started SpringBootNettyApplication in 1.624 seconds (JVM running for 2.146)
+2018-08-19 16:02:54.542  INFO 6680 --- [main] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2018-08-19 16:02:54.546 ERROR 6680 --- [main] o.s.boot.SpringApplication               : Application run failed
+
+java.lang.Error: Unresolved compilation problem: 
+	The declared package "pro.lianma.crawler.gateio.core.websocket" does not match the expected package "com.jvbo.springboot.netty.websocket"
+
+	at com.jvbo.springboot.netty.websocket.WebSocketClientHandler.<init>(WebSocketClientHandler.java:1) ~[classes/:na]
+	at com.jvbo.springboot.netty.websocket.WebSocketBase.connect(WebSocketBase.java:142) ~[classes/:na]
+	at com.jvbo.springboot.netty.websocket.WebSocketBase.start(WebSocketBase.java:70) ~[classes/:na]
+	at com.jvbo.springboot.netty.SpringBootNettyApplication.run(SpringBootNettyApplication.java:35) [classes/:na]
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:797) ~[spring-boot-2.0.1.RELEASE.jar:2.0.1.RELEASE]
+	at org.springframework.boot.SpringApplication.callRunners(SpringApplication.java:781) ~[spring-boot-2.0.1.RELEASE.jar:2.0.1.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:335) ~[spring-boot-2.0.1.RELEASE.jar:2.0.1.RELEASE]
+	at org.springframework.boot.builder.SpringApplicationBuilder.run(SpringApplicationBuilder.java:137) [spring-boot-2.0.1.RELEASE.jar:2.0.1.RELEASE]
+	at com.jvbo.springboot.netty.SpringBootNettyApplication.main(SpringBootNettyApplication.java:29) [classes/:na]
+
+2018-08-19 16:02:54.548  INFO 6680 --- [main] s.c.a.AnnotationConfigApplicationContext : Closing org.springframework.context.annotation.AnnotationConfigApplicationContext@3b07a0d6: startup date [Sun Aug 19 16:02:53 CST 2018]; root of context hierarchy
+2018-08-19 16:02:54.550  INFO 6680 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans on shutdown
+2018-08-19 16:03:06.267  INFO 1544 --- [main] c.j.s.netty.SpringBootNettyApplication   : Starting SpringBootNettyApplication on jvbo with PID 1544 (F:\software\git\repo\jvbo\jvbo-springboot\jvbo-springboot-netty\target\classes started by thinkpad in F:\software\git\repo\jvbo\jvbo-springboot\jvbo-springboot-netty)
+2018-08-19 16:03:06.270  INFO 1544 --- [main] c.j.s.netty.SpringBootNettyApplication   : No active profile set, falling back to default profiles: default
+2018-08-19 16:03:06.319  INFO 1544 --- [main] s.c.a.AnnotationConfigApplicationContext : Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@2f177a4b: startup date [Sun Aug 19 16:03:06 CST 2018]; root of context hierarchy
+2018-08-19 16:03:07.407  INFO 1544 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2018-08-19 16:03:07.419  INFO 1544 --- [main] c.j.s.netty.SpringBootNettyApplication   : Started SpringBootNettyApplication in 1.477 seconds (JVM running for 1.876)
+2018-08-19 16:03:08.893  INFO 1544 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : WebSocket Client connected!
+2018-08-19 16:03:09.731  INFO 1544 --- [nioEventLoopGroup-3-1] c.j.s.n.w.WebSocketClientHandler         : WebSocket Client connected!
+2018-08-19 16:03:09.918 ERROR 1544 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": null, "result": {"status": "success"}, "id": 1534665788911}
+2018-08-19 16:03:09.924 ERROR 1544 --- [nioEventLoopGroup-2-1] c.j.s.n.w.service.WebSocketService       : 接收消息成功, msg:{"symbol":"BTC_USDT","period":86400,"high":"6534.05","last":"6359.14","low":"6300","change":"-1.62","quoteVolume":"388.409025133","baseVolume":"2477371.724760284962","close":"6359.14","open":"6464.02"}
+2018-08-19 16:03:09.992 ERROR 1544 --- [nioEventLoopGroup-3-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": null, "result": {"status": "success"}, "id": 1534665789733}
+2018-08-19 16:03:10.092 ERROR 1544 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": {"code": 1, "message": "invalid argument"}, "result": null, "id": 0}
+2018-08-19 16:03:10.994 ERROR 1544 --- [nioEventLoopGroup-3-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": {"code": 1, "message": "invalid argument"}, "result": null, "id": 0}
+2018-08-19 16:03:11.692 ERROR 1544 --- [nioEventLoopGroup-2-1] c.j.s.n.w.service.WebSocketService       : 接收消息成功, msg:{"symbol":"BTC_USDT","period":86400,"high":"6534.05","last":"6359.14","low":"6300","change":"-1.62","quoteVolume":"388.430825133","baseVolume":"2477510.354012284962","close":"6359.14","open":"6464.02"}
+2018-08-19 16:03:12.687 ERROR 1544 --- [nioEventLoopGroup-2-1] c.j.s.n.w.service.WebSocketService       : 接收消息成功, msg:{"symbol":"BTC_USDT","period":86400,"high":"6534.05","last":"6358.8","low":"6300","change":"-1.62","quoteVolume":"388.442825133","baseVolume":"2477586.659612284962","close":"6358.8","open":"6464.02"}
+2018-08-19 16:03:15.057 ERROR 1544 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": {"code": 1, "message": "invalid argument"}, "result": null, "id": 0}
+2018-08-19 16:03:15.957 ERROR 1544 --- [nioEventLoopGroup-3-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": {"code": 1, "message": "invalid argument"}, "result": null, "id": 0}
+2018-08-19 16:03:16.704 ERROR 1544 --- [nioEventLoopGroup-3-1] c.j.s.n.w.service.WebSocketService       : 接收消息成功, msg:[1534665600,"6349","6358.8","6359.14","6349","0.2514783887","1598.204992413321","BTC_USDT"]
+2018-08-19 16:03:20.061 ERROR 1544 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": {"code": 1, "message": "invalid argument"}, "result": null, "id": 0}
+2018-08-19 16:03:20.898 ERROR 1544 --- [nioEventLoopGroup-3-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": {"code": 1, "message": "invalid argument"}, "result": null, "id": 0}
+2018-08-19 16:03:25.056 ERROR 1544 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": {"code": 1, "message": "invalid argument"}, "result": null, "id": 0}
+2018-08-19 16:03:25.954 ERROR 1544 --- [nioEventLoopGroup-3-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": {"code": 1, "message": "invalid argument"}, "result": null, "id": 0}
+2018-08-19 16:03:26.686 ERROR 1544 --- [nioEventLoopGroup-2-1] c.j.s.n.w.service.WebSocketService       : 接收消息成功, msg:{"symbol":"BTC_USDT","period":86400,"high":"6534.05","last":"6358.8","low":"6300","change":"-1.62","quoteVolume":"388.441425133","baseVolume":"2477577.609984284962","close":"6358.8","open":"6464.14"}
+2018-08-19 16:03:30.057 ERROR 1544 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": {"code": 1, "message": "invalid argument"}, "result": null, "id": 0}
+2018-08-19 16:03:30.957 ERROR 1544 --- [nioEventLoopGroup-3-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": {"code": 1, "message": "invalid argument"}, "result": null, "id": 0}
+2018-08-19 16:03:35.060 ERROR 1544 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": {"code": 1, "message": "invalid argument"}, "result": null, "id": 0}
+2018-08-19 16:03:35.919 ERROR 1544 --- [nioEventLoopGroup-3-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": {"code": 1, "message": "invalid argument"}, "result": null, "id": 0}
+2018-08-19 16:03:39.683 ERROR 1544 --- [nioEventLoopGroup-2-1] c.j.s.n.w.service.WebSocketService       : 接收消息成功, msg:{"symbol":"BTC_USDT","period":86400,"high":"6534.05","last":"6359.14","low":"6300","change":"-1.62","quoteVolume":"388.465668493","baseVolume":"2477731.776904595362","close":"6359.14","open":"6464.14"}
+2018-08-19 16:03:40.056 ERROR 1544 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": {"code": 1, "message": "invalid argument"}, "result": null, "id": 0}
+2018-08-19 16:03:40.963 ERROR 1544 --- [nioEventLoopGroup-3-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": {"code": 1, "message": "invalid argument"}, "result": null, "id": 0}
+2018-08-19 16:04:05.078  INFO 10360 --- [main] c.j.s.netty.SpringBootNettyApplication   : Starting SpringBootNettyApplication on jvbo with PID 10360 (F:\software\git\repo\jvbo\jvbo-springboot\jvbo-springboot-netty\target\classes started by thinkpad in F:\software\git\repo\jvbo\jvbo-springboot\jvbo-springboot-netty)
+2018-08-19 16:04:05.081  INFO 10360 --- [main] c.j.s.netty.SpringBootNettyApplication   : No active profile set, falling back to default profiles: default
+2018-08-19 16:04:05.131  INFO 10360 --- [main] s.c.a.AnnotationConfigApplicationContext : Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@2fd6b6c7: startup date [Sun Aug 19 16:04:05 CST 2018]; root of context hierarchy
+2018-08-19 16:04:06.092  INFO 10360 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2018-08-19 16:04:06.104  INFO 10360 --- [main] c.j.s.netty.SpringBootNettyApplication   : Started SpringBootNettyApplication in 1.359 seconds (JVM running for 1.721)
+2018-08-19 16:04:07.474  INFO 10360 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : WebSocket Client connected!
+2018-08-19 16:04:07.991 ERROR 10360 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": null, "result": {"status": "success"}, "id": 1534665847492}
+2018-08-19 16:04:07.994 ERROR 10360 --- [nioEventLoopGroup-2-1] c.j.s.n.w.service.WebSocketService       : 接收消息成功, msg:{"symbol":"BTC_USDT","period":86400,"high":"6534.05","last":"6349","low":"6300","change":"-1.78","quoteVolume":"388.488605943","baseVolume":"2477877.406774645362","close":"6349","open":"6464.14"}
+2018-08-19 16:04:08.639 ERROR 10360 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": {"code": 1, "message": "invalid argument"}, "result": null, "id": 0}
+2018-08-19 16:04:13.640 ERROR 10360 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": {"code": 1, "message": "invalid argument"}, "result": null, "id": 0}
+2018-08-19 16:04:18.644 ERROR 10360 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": {"code": 1, "message": "invalid argument"}, "result": null, "id": 0}
+2018-08-19 16:04:20.919 ERROR 10360 --- [nioEventLoopGroup-2-1] c.j.s.n.w.service.WebSocketService       : 接收消息成功, msg:{"symbol":"BTC_USDT","period":86400,"high":"6534.05","last":"6349.06","low":"6300","change":"-1.78","quoteVolume":"388.488805943","baseVolume":"2477878.676586645362","close":"6349.06","open":"6464.14"}
+2018-08-19 16:04:23.647 ERROR 10360 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": {"code": 1, "message": "invalid argument"}, "result": null, "id": 0}
+2018-08-19 16:04:56.015  INFO 1520 --- [main] c.j.s.netty.SpringBootNettyApplication   : Starting SpringBootNettyApplication on jvbo with PID 1520 (F:\software\git\repo\jvbo\jvbo-springboot\jvbo-springboot-netty\target\classes started by thinkpad in F:\software\git\repo\jvbo\jvbo-springboot\jvbo-springboot-netty)
+2018-08-19 16:04:56.018  INFO 1520 --- [main] c.j.s.netty.SpringBootNettyApplication   : No active profile set, falling back to default profiles: default
+2018-08-19 16:04:56.062  INFO 1520 --- [main] s.c.a.AnnotationConfigApplicationContext : Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@229d10bd: startup date [Sun Aug 19 16:04:56 CST 2018]; root of context hierarchy
+2018-08-19 16:04:57.059  INFO 1520 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2018-08-19 16:04:57.073  INFO 1520 --- [main] c.j.s.netty.SpringBootNettyApplication   : Started SpringBootNettyApplication in 1.412 seconds (JVM running for 1.781)
+2018-08-19 16:04:58.717  INFO 1520 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : WebSocket Client connected!
+2018-08-19 16:04:58.839  INFO 1520 --- [main] c.j.s.netty.websocket.WebSocketBase      : dataMsg:{"method":"ticker.subscribe","id":1534665898727,"params":["BTC_USDT"]}
+2018-08-19 16:04:59.021 ERROR 1520 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": null, "result": {"status": "success"}, "id": 1534665898727}
+2018-08-19 16:04:59.026 ERROR 1520 --- [nioEventLoopGroup-2-1] c.j.s.n.w.service.WebSocketService       : 接收消息成功, msg:{"symbol":"BTC_USDT","period":86400,"high":"6534.05","last":"6349.06","low":"6300","change":"-1.78","quoteVolume":"388.488805943","baseVolume":"2477878.676586645362","close":"6349.06","open":"6464.14"}
+2018-08-19 16:04:59.909 ERROR 1520 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": {"code": 1, "message": "invalid argument"}, "result": null, "id": 0}
+2018-08-19 16:05:04.993 ERROR 1520 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": {"code": 1, "message": "invalid argument"}, "result": null, "id": 0}
+2018-08-19 16:05:05.680 ERROR 1520 --- [nioEventLoopGroup-2-1] c.j.s.n.w.service.WebSocketService       : 接收消息成功, msg:{"symbol":"BTC_USDT","period":86400,"high":"6534.05","last":"6349.02","low":"6300","change":"-1.78","quoteVolume":"388.491469943","baseVolume":"2477895.590375925362","close":"6349.02","open":"6464.14"}
+2018-08-19 16:05:07.693 ERROR 1520 --- [nioEventLoopGroup-2-1] c.j.s.n.w.service.WebSocketService       : 接收消息成功, msg:{"symbol":"BTC_USDT","period":86400,"high":"6534.05","last":"6349.02","low":"6300","change":"-1.92","quoteVolume":"388.313169943","baseVolume":"2476742.589327925362","close":"6349.02","open":"6473.37"}
+2018-08-19 16:05:09.980 ERROR 1520 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": {"code": 1, "message": "invalid argument"}, "result": null, "id": 0}
+2018-08-19 16:05:14.984 ERROR 1520 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": {"code": 1, "message": "invalid argument"}, "result": null, "id": 0}
+2018-08-19 16:05:19.894 ERROR 1520 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": {"code": 1, "message": "invalid argument"}, "result": null, "id": 0}
+2018-08-19 16:05:24.961 ERROR 1520 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": {"code": 1, "message": "invalid argument"}, "result": null, "id": 0}
+2018-08-19 16:05:29.923 ERROR 1520 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": {"code": 1, "message": "invalid argument"}, "result": null, "id": 0}
+2018-08-19 16:05:34.939 ERROR 1520 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": {"code": 1, "message": "invalid argument"}, "result": null, "id": 0}
+2018-08-19 16:05:39.968 ERROR 1520 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": {"code": 1, "message": "invalid argument"}, "result": null, "id": 0}
+2018-08-19 16:05:44.906 ERROR 1520 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": {"code": 1, "message": "invalid argument"}, "result": null, "id": 0}
+2018-08-19 16:06:05.185  INFO 8900 --- [main] c.j.s.netty.SpringBootNettyApplication   : Starting SpringBootNettyApplication on jvbo with PID 8900 (F:\software\git\repo\jvbo\jvbo-springboot\jvbo-springboot-netty\target\classes started by thinkpad in F:\software\git\repo\jvbo\jvbo-springboot\jvbo-springboot-netty)
+2018-08-19 16:06:05.188  INFO 8900 --- [main] c.j.s.netty.SpringBootNettyApplication   : No active profile set, falling back to default profiles: default
+2018-08-19 16:06:05.234  INFO 8900 --- [main] s.c.a.AnnotationConfigApplicationContext : Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@16e7dcfd: startup date [Sun Aug 19 16:06:05 CST 2018]; root of context hierarchy
+2018-08-19 16:06:06.248  INFO 8900 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2018-08-19 16:06:06.260  INFO 8900 --- [main] c.j.s.netty.SpringBootNettyApplication   : Started SpringBootNettyApplication in 1.42 seconds (JVM running for 1.804)
+2018-08-19 16:06:07.669  INFO 8900 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : WebSocket Client connected!
+2018-08-19 16:06:07.784  INFO 8900 --- [main] c.j.s.netty.websocket.WebSocketBase      : dataMsg:{"method":"ticker.subscribe","id":1534665967684,"params":["BTC_USDT"]}
+2018-08-19 16:06:08.145 ERROR 8900 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": null, "result": {"status": "success"}, "id": 1534665967684}
+2018-08-19 16:06:08.149 ERROR 8900 --- [nioEventLoopGroup-2-1] c.j.s.n.w.service.WebSocketService       : 接收消息成功, msg:{"symbol":"BTC_USDT","period":86400,"high":"6534.05","last":"6349.02","low":"6300","change":"-2.13","quoteVolume":"387.760569943","baseVolume":"2473165.662465925362","close":"6349.02","open":"6487.3"}
+2018-08-19 16:06:08.846 ERROR 8900 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": {"code": 1, "message": "invalid argument"}, "result": null, "id": 0}
+2018-08-19 16:06:13.834 ERROR 8900 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": {"code": 1, "message": "invalid argument"}, "result": null, "id": 0}
+2018-08-19 16:06:18.838 ERROR 8900 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": {"code": 1, "message": "invalid argument"}, "result": null, "id": 0}
+2018-08-19 16:06:24.329 ERROR 8900 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": {"code": 1, "message": "invalid argument"}, "result": null, "id": 0}
+2018-08-19 16:06:28.831 ERROR 8900 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": {"code": 1, "message": "invalid argument"}, "result": null, "id": 0}
+2018-08-19 16:06:33.830 ERROR 8900 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": {"code": 1, "message": "invalid argument"}, "result": null, "id": 0}
+2018-08-19 16:06:34.080 ERROR 8900 --- [nioEventLoopGroup-2-1] c.j.s.n.w.service.WebSocketService       : 接收消息成功, msg:{"symbol":"BTC_USDT","period":86400,"high":"6534.05","last":"6349.02","low":"6300","change":"-1.78","quoteVolume":"387.670469943","baseVolume":"2472581.156735925362","close":"6349.02","open":"6464.5"}
+2018-08-19 16:06:39.329 ERROR 8900 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": {"code": 1, "message": "invalid argument"}, "result": null, "id": 0}
+2018-08-19 16:06:45.084 ERROR 8900 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": {"code": 1, "message": "invalid argument"}, "result": null, "id": 0}
+2018-08-19 16:06:52.139 ERROR 8900 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": {"code": 1, "message": "invalid argument"}, "result": null, "id": 0}
+2018-08-19 16:06:53.833 ERROR 8900 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": {"code": 1, "message": "invalid argument"}, "result": null, "id": 0}
+2018-08-19 16:06:58.843 ERROR 8900 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": {"code": 1, "message": "invalid argument"}, "result": null, "id": 0}
+2018-08-19 16:07:03.837 ERROR 8900 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": {"code": 1, "message": "invalid argument"}, "result": null, "id": 0}
+2018-08-19 16:07:08.834 ERROR 8900 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": {"code": 1, "message": "invalid argument"}, "result": null, "id": 0}
+2018-08-19 16:07:13.831 ERROR 8900 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": {"code": 1, "message": "invalid argument"}, "result": null, "id": 0}
+2018-08-19 16:07:18.833 ERROR 8900 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": {"code": 1, "message": "invalid argument"}, "result": null, "id": 0}
+2018-08-19 16:07:23.833 ERROR 8900 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": {"code": 1, "message": "invalid argument"}, "result": null, "id": 0}
+2018-08-19 16:07:28.831 ERROR 8900 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": {"code": 1, "message": "invalid argument"}, "result": null, "id": 0}
+2018-08-19 16:07:33.831 ERROR 8900 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": {"code": 1, "message": "invalid argument"}, "result": null, "id": 0}
+2018-08-19 16:07:38.831 ERROR 8900 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": {"code": 1, "message": "invalid argument"}, "result": null, "id": 0}
+2018-08-19 16:07:43.831 ERROR 8900 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": {"code": 1, "message": "invalid argument"}, "result": null, "id": 0}
+2018-08-19 16:07:48.831 ERROR 8900 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": {"code": 1, "message": "invalid argument"}, "result": null, "id": 0}
+2018-08-19 16:07:54.338 ERROR 8900 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": {"code": 1, "message": "invalid argument"}, "result": null, "id": 0}
+2018-08-19 16:09:34.356  INFO 3128 --- [main] c.j.s.netty.SpringBootNettyApplication   : Starting SpringBootNettyApplication on jvbo with PID 3128 (F:\software\git\repo\jvbo\jvbo-springboot\jvbo-springboot-netty\target\classes started by thinkpad in F:\software\git\repo\jvbo\jvbo-springboot\jvbo-springboot-netty)
+2018-08-19 16:09:34.358  INFO 3128 --- [main] c.j.s.netty.SpringBootNettyApplication   : No active profile set, falling back to default profiles: default
+2018-08-19 16:09:34.411  INFO 3128 --- [main] s.c.a.AnnotationConfigApplicationContext : Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@147ed70f: startup date [Sun Aug 19 16:09:34 CST 2018]; root of context hierarchy
+2018-08-19 16:09:35.384  INFO 3128 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2018-08-19 16:09:35.400  INFO 3128 --- [main] c.j.s.netty.SpringBootNettyApplication   : Started SpringBootNettyApplication in 1.394 seconds (JVM running for 1.776)
+2018-08-19 16:09:36.823  INFO 3128 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : WebSocket Client connected!
+2018-08-19 16:09:36.951  INFO 3128 --- [main] c.j.s.netty.websocket.WebSocketBase      : dataMsg:{"method":"ticker.subscribe","id":1534666176838,"params":["BTC_USDT"]}
+2018-08-19 16:09:37.190 ERROR 3128 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": null, "result": {"status": "success"}, "id": 1534666176838}
+2018-08-19 16:09:37.199 ERROR 3128 --- [nioEventLoopGroup-2-1] c.j.s.n.w.service.WebSocketService       : 接收消息成功, msg:{"symbol":"BTC_USDT","period":86400,"high":"6534.05","last":"6365","low":"6300","change":"-1.53","quoteVolume":"387.889036583","baseVolume":"2473971.123007014962","close":"6365","open":"6464.5"}
+2018-08-19 16:09:38.109 ERROR 3128 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": {"code": 1, "message": "invalid argument"}, "result": null, "id": 0}
+2018-08-19 16:09:43.104 ERROR 3128 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": {"code": 1, "message": "invalid argument"}, "result": null, "id": 0}
+2018-08-19 16:09:48.111 ERROR 3128 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": {"code": 1, "message": "invalid argument"}, "result": null, "id": 0}
+2018-08-19 16:09:53.077 ERROR 3128 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": {"code": 1, "message": "invalid argument"}, "result": null, "id": 0}
+2018-08-19 16:09:58.105 ERROR 3128 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": {"code": 1, "message": "invalid argument"}, "result": null, "id": 0}
+2018-08-19 16:10:03.106 ERROR 3128 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": {"code": 1, "message": "invalid argument"}, "result": null, "id": 0}
+2018-08-19 16:10:06.118 ERROR 3128 --- [nioEventLoopGroup-2-1] c.j.s.n.w.service.WebSocketService       : 接收消息成功, msg:{"symbol":"BTC_USDT","period":86400,"high":"6534.05","last":"6353.41","low":"6300","change":"-1.71","quoteVolume":"387.895100483","baseVolume":"2474009.649449913962","close":"6353.41","open":"6464.5"}
+2018-08-19 16:10:08.107 ERROR 3128 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": {"code": 1, "message": "invalid argument"}, "result": null, "id": 0}
+2018-08-19 16:10:13.106 ERROR 3128 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": {"code": 1, "message": "invalid argument"}, "result": null, "id": 0}
+2018-08-19 16:10:18.117 ERROR 3128 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": {"code": 1, "message": "invalid argument"}, "result": null, "id": 0}
+2018-08-19 16:10:23.110 ERROR 3128 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": {"code": 1, "message": "invalid argument"}, "result": null, "id": 0}
+2018-08-19 16:10:24.880 ERROR 3128 --- [nioEventLoopGroup-2-1] c.j.s.n.w.service.WebSocketService       : 接收消息成功, msg:{"symbol":"BTC_USDT","period":86400,"high":"6534.05","last":"6353.48","low":"6300","change":"-1.71","quoteVolume":"387.902363583","baseVolume":"2474055.795410501962","close":"6353.48","open":"6464.5"}
+2018-08-19 16:10:28.112 ERROR 3128 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": {"code": 1, "message": "invalid argument"}, "result": null, "id": 0}
+2018-08-19 16:10:33.123 ERROR 3128 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": {"code": 1, "message": "invalid argument"}, "result": null, "id": 0}
+2018-08-19 16:10:38.102 ERROR 3128 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": {"code": 1, "message": "invalid argument"}, "result": null, "id": 0}
+2018-08-19 16:10:44.169  INFO 10876 --- [main] c.j.s.netty.SpringBootNettyApplication   : Starting SpringBootNettyApplication on jvbo with PID 10876 (F:\software\git\repo\jvbo\jvbo-springboot\jvbo-springboot-netty\target\classes started by thinkpad in F:\software\git\repo\jvbo\jvbo-springboot\jvbo-springboot-netty)
+2018-08-19 16:10:44.172  INFO 10876 --- [main] c.j.s.netty.SpringBootNettyApplication   : No active profile set, falling back to default profiles: default
+2018-08-19 16:10:44.212  INFO 10876 --- [main] s.c.a.AnnotationConfigApplicationContext : Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@61dd025: startup date [Sun Aug 19 16:10:44 CST 2018]; root of context hierarchy
+2018-08-19 16:10:45.136  INFO 10876 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2018-08-19 16:10:45.148  INFO 10876 --- [main] c.j.s.netty.SpringBootNettyApplication   : Started SpringBootNettyApplication in 1.291 seconds (JVM running for 1.66)
+2018-08-19 16:10:46.579  INFO 10876 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : WebSocket Client connected!
+2018-08-19 16:10:46.653  INFO 10876 --- [main] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"ticker.subscribe","id":1534666246593,"params":["BTC_USDT"]}
+2018-08-19 16:10:46.912 ERROR 10876 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": null, "result": {"status": "success"}, "id": 1534666246593}
+2018-08-19 16:10:46.915 ERROR 10876 --- [nioEventLoopGroup-2-1] c.j.s.n.w.service.WebSocketService       : 接收消息成功, msg:{"symbol":"BTC_USDT","period":86400,"high":"6534.05","last":"6353.48","low":"6300","change":"-1.71","quoteVolume":"387.902363583","baseVolume":"2474055.795410501962","close":"6353.48","open":"6464.5"}
+2018-08-19 16:10:47.581  INFO 10876 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534666247581,"params":"[]"}
+2018-08-19 16:10:47.755 ERROR 10876 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": {"code": 1, "message": "invalid argument"}, "result": null, "id": 0}
+2018-08-19 16:10:52.581  INFO 10876 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534666252581,"params":"[]"}
+2018-08-19 16:10:52.751 ERROR 10876 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": {"code": 1, "message": "invalid argument"}, "result": null, "id": 0}
+2018-08-19 16:10:57.581  INFO 10876 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534666257581,"params":"[]"}
+2018-08-19 16:10:57.744 ERROR 10876 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": {"code": 1, "message": "invalid argument"}, "result": null, "id": 0}
+2018-08-19 16:11:02.581  INFO 10876 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534666262581,"params":"[]"}
+2018-08-19 16:11:02.745 ERROR 10876 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": {"code": 1, "message": "invalid argument"}, "result": null, "id": 0}
+2018-08-19 16:11:07.581  INFO 10876 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534666267581,"params":"[]"}
+2018-08-19 16:11:07.757 ERROR 10876 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": {"code": 1, "message": "invalid argument"}, "result": null, "id": 0}
+2018-08-19 16:11:12.581  INFO 10876 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534666272581,"params":"[]"}
+2018-08-19 16:11:12.764 ERROR 10876 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": {"code": 1, "message": "invalid argument"}, "result": null, "id": 0}
+2018-08-19 16:11:17.586  INFO 10876 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534666277585,"params":"[]"}
+2018-08-19 16:11:17.767 ERROR 10876 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": {"code": 1, "message": "invalid argument"}, "result": null, "id": 0}
+2018-08-19 16:11:22.585  INFO 10876 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534666282585,"params":"[]"}
+2018-08-19 16:11:22.764 ERROR 10876 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": {"code": 1, "message": "invalid argument"}, "result": null, "id": 0}
+2018-08-19 16:11:27.585  INFO 10876 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534666287585,"params":"[]"}
+2018-08-19 16:11:27.763 ERROR 10876 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": {"code": 1, "message": "invalid argument"}, "result": null, "id": 0}
+2018-08-19 16:11:32.585  INFO 10876 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534666292585,"params":"[]"}
+2018-08-19 16:11:32.749 ERROR 10876 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": {"code": 1, "message": "invalid argument"}, "result": null, "id": 0}
+2018-08-19 16:11:37.585  INFO 10876 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534666297585,"params":"[]"}
+2018-08-19 16:11:37.744 ERROR 10876 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": {"code": 1, "message": "invalid argument"}, "result": null, "id": 0}
+2018-08-19 16:11:42.585  INFO 10876 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534666302585,"params":"[]"}
+2018-08-19 16:11:42.747 ERROR 10876 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": {"code": 1, "message": "invalid argument"}, "result": null, "id": 0}
+2018-08-19 16:11:47.585  INFO 10876 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534666307585,"params":"[]"}
+2018-08-19 16:11:47.754 ERROR 10876 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": {"code": 1, "message": "invalid argument"}, "result": null, "id": 0}
+2018-08-19 16:11:52.585  INFO 10876 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534666312585,"params":"[]"}
+2018-08-19 16:11:52.759 ERROR 10876 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": {"code": 1, "message": "invalid argument"}, "result": null, "id": 0}
+2018-08-19 16:11:54.138 ERROR 10876 --- [nioEventLoopGroup-2-1] c.j.s.n.w.service.WebSocketService       : 接收消息成功, msg:{"symbol":"BTC_USDT","period":86400,"high":"6534.05","last":"6349.14","low":"6300","change":"-1.78","quoteVolume":"387.906363583","baseVolume":"2474081.191970501962","close":"6349.14","open":"6464.5"}
+2018-08-19 16:11:57.585  INFO 10876 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534666317585,"params":"[]"}
+2018-08-19 16:11:57.763 ERROR 10876 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": {"code": 1, "message": "invalid argument"}, "result": null, "id": 0}
+2018-08-19 16:11:58.137 ERROR 10876 --- [nioEventLoopGroup-2-1] c.j.s.n.w.service.WebSocketService       : 接收消息成功, msg:{"symbol":"BTC_USDT","period":86400,"high":"6534.05","last":"6349.14","low":"6300","change":"-1.78","quoteVolume":"387.886663583","baseVolume":"2473953.842040501962","close":"6349.14","open":"6464.44"}
+2018-08-19 16:12:02.585  INFO 10876 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534666322585,"params":"[]"}
+2018-08-19 16:12:02.758 ERROR 10876 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": {"code": 1, "message": "invalid argument"}, "result": null, "id": 0}
+2018-08-19 16:12:07.585  INFO 10876 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534666327585,"params":"[]"}
+2018-08-19 16:12:07.759 ERROR 10876 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": {"code": 1, "message": "invalid argument"}, "result": null, "id": 0}
+2018-08-19 16:12:10.878 ERROR 10876 --- [nioEventLoopGroup-2-1] c.j.s.n.w.service.WebSocketService       : 接收消息成功, msg:{"symbol":"BTC_USDT","period":86400,"high":"6534.05","last":"6349.19","low":"6300","change":"-1.78","quoteVolume":"387.893663583","baseVolume":"2473998.286370501962","close":"6349.19","open":"6464.44"}
+2018-08-19 16:12:12.585  INFO 10876 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534666332585,"params":"[]"}
+2018-08-19 16:12:12.750 ERROR 10876 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": {"code": 1, "message": "invalid argument"}, "result": null, "id": 0}
+2018-08-19 16:12:17.586  INFO 10876 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534666337586,"params":"[]"}
+2018-08-19 16:12:18.255 ERROR 10876 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": {"code": 1, "message": "invalid argument"}, "result": null, "id": 0}
+2018-08-19 16:12:21.901 ERROR 10876 --- [nioEventLoopGroup-2-1] c.j.s.n.w.service.WebSocketService       : 接收消息成功, msg:{"symbol":"BTC_USDT","period":86400,"high":"6534.05","last":"6349.19","low":"6300","change":"-1.77","quoteVolume":"387.477763583","baseVolume":"2471303.107721101962","close":"6349.19","open":"6464.09"}
+2018-08-19 16:12:22.586  INFO 10876 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534666342586,"params":"[]"}
+2018-08-19 16:12:22.764 ERROR 10876 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": {"code": 1, "message": "invalid argument"}, "result": null, "id": 0}
+2018-08-19 16:12:27.586  INFO 10876 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534666347586,"params":"[]"}
+2018-08-19 16:12:27.759 ERROR 10876 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": {"code": 1, "message": "invalid argument"}, "result": null, "id": 0}
+2018-08-19 16:12:32.586  INFO 10876 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534666352586,"params":"[]"}
+2018-08-19 16:12:32.759 ERROR 10876 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": {"code": 1, "message": "invalid argument"}, "result": null, "id": 0}
+2018-08-19 16:12:37.586  INFO 10876 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534666357586,"params":"[]"}
+2018-08-19 16:12:37.755 ERROR 10876 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": {"code": 1, "message": "invalid argument"}, "result": null, "id": 0}
+2018-08-19 16:12:42.586  INFO 10876 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534666362586,"params":"[]"}
+2018-08-19 16:12:42.760 ERROR 10876 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": {"code": 1, "message": "invalid argument"}, "result": null, "id": 0}
+2018-08-19 16:12:47.586  INFO 10876 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534666367586,"params":"[]"}
+2018-08-19 16:12:47.746 ERROR 10876 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": {"code": 1, "message": "invalid argument"}, "result": null, "id": 0}
+2018-08-19 16:12:52.586  INFO 10876 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534666372586,"params":"[]"}
+2018-08-19 16:12:52.756 ERROR 10876 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": {"code": 1, "message": "invalid argument"}, "result": null, "id": 0}
+2018-08-19 16:12:57.586  INFO 10876 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534666377586,"params":"[]"}
+2018-08-19 16:12:57.754 ERROR 10876 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": {"code": 1, "message": "invalid argument"}, "result": null, "id": 0}
+2018-08-19 16:13:02.586  INFO 10876 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534666382586,"params":"[]"}
+2018-08-19 16:13:02.762 ERROR 10876 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": {"code": 1, "message": "invalid argument"}, "result": null, "id": 0}
+2018-08-19 16:13:07.586  INFO 10876 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534666387586,"params":"[]"}
+2018-08-19 16:13:07.748 ERROR 10876 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": {"code": 1, "message": "invalid argument"}, "result": null, "id": 0}
+2018-08-19 16:13:12.586  INFO 10876 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534666392586,"params":"[]"}
+2018-08-19 16:13:12.757 ERROR 10876 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": {"code": 1, "message": "invalid argument"}, "result": null, "id": 0}
+2018-08-19 16:13:17.586  INFO 10876 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534666397586,"params":"[]"}
+2018-08-19 16:13:17.754 ERROR 10876 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": {"code": 1, "message": "invalid argument"}, "result": null, "id": 0}
+2018-08-19 16:13:22.586  INFO 10876 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534666402586,"params":"[]"}
+2018-08-19 16:13:23.249 ERROR 10876 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": {"code": 1, "message": "invalid argument"}, "result": null, "id": 0}
+2018-08-19 16:13:27.586  INFO 10876 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534666407586,"params":"[]"}
+2018-08-19 16:13:27.774 ERROR 10876 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": {"code": 1, "message": "invalid argument"}, "result": null, "id": 0}
+2018-08-19 16:13:32.586  INFO 10876 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534666412586,"params":"[]"}
+2018-08-19 16:13:32.771 ERROR 10876 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": {"code": 1, "message": "invalid argument"}, "result": null, "id": 0}
+2018-08-19 16:13:39.453  INFO 6124 --- [main] c.j.s.netty.SpringBootNettyApplication   : Starting SpringBootNettyApplication on jvbo with PID 6124 (F:\software\git\repo\jvbo\jvbo-springboot\jvbo-springboot-netty\target\classes started by thinkpad in F:\software\git\repo\jvbo\jvbo-springboot\jvbo-springboot-netty)
+2018-08-19 16:13:39.456  INFO 6124 --- [main] c.j.s.netty.SpringBootNettyApplication   : No active profile set, falling back to default profiles: default
+2018-08-19 16:13:39.497  INFO 6124 --- [main] s.c.a.AnnotationConfigApplicationContext : Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@79efed2d: startup date [Sun Aug 19 16:13:39 CST 2018]; root of context hierarchy
+2018-08-19 16:13:40.444  INFO 6124 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2018-08-19 16:13:40.458  INFO 6124 --- [main] c.j.s.netty.SpringBootNettyApplication   : Started SpringBootNettyApplication in 1.336 seconds (JVM running for 1.708)
+2018-08-19 16:13:41.795  INFO 6124 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : WebSocket Client connected!
+2018-08-19 16:13:41.848  INFO 6124 --- [main] c.j.s.netty.websocket.WebSocketBase      : addChannel:{"method":"ticker.subscribe","params":["BTC_USDT"]}
+2018-08-19 16:13:41.905  INFO 6124 --- [main] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"ticker.subscribe","id":1534666421849,"params":["BTC_USDT"]}
+2018-08-19 16:13:42.797  INFO 6124 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534666422797,"params":"[]"}
+2018-08-19 16:13:43.233 ERROR 6124 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": null, "result": {"status": "success"}, "id": 1534666421849}
+2018-08-19 16:13:43.237 ERROR 6124 --- [nioEventLoopGroup-2-1] c.j.s.n.w.service.WebSocketService       : 接收消息成功, msg:{"symbol":"BTC_USDT","period":86400,"high":"6534.05","last":"6349.19","low":"6300","change":"-1.77","quoteVolume":"387.477763583","baseVolume":"2471303.107721101962","close":"6349.19","open":"6464.09"}
+2018-08-19 16:13:43.238 ERROR 6124 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": {"code": 1, "message": "invalid argument"}, "result": null, "id": 0}
+2018-08-19 16:13:47.797  INFO 6124 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534666427797,"params":"[]"}
+2018-08-19 16:13:48.167 ERROR 6124 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": {"code": 1, "message": "invalid argument"}, "result": null, "id": 0}
+2018-08-19 16:13:52.797  INFO 6124 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534666432797,"params":"[]"}
+2018-08-19 16:13:53.131 ERROR 6124 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": {"code": 1, "message": "invalid argument"}, "result": null, "id": 0}
+2018-08-19 16:13:57.797  INFO 6124 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534666437797,"params":"[]"}
+2018-08-19 16:13:58.122 ERROR 6124 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": {"code": 1, "message": "invalid argument"}, "result": null, "id": 0}
+2018-08-19 16:14:02.797  INFO 6124 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534666442797,"params":"[]"}
+2018-08-19 16:14:03.139 ERROR 6124 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": {"code": 1, "message": "invalid argument"}, "result": null, "id": 0}
+2018-08-19 16:14:07.797  INFO 6124 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534666447797,"params":"[]"}
+2018-08-19 16:14:08.117 ERROR 6124 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": {"code": 1, "message": "invalid argument"}, "result": null, "id": 0}
+2018-08-19 16:14:12.797  INFO 6124 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534666452797,"params":"[]"}
+2018-08-19 16:14:13.117 ERROR 6124 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": {"code": 1, "message": "invalid argument"}, "result": null, "id": 0}
+2018-08-19 16:14:17.797  INFO 6124 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534666457797,"params":"[]"}
+2018-08-19 16:14:17.889 ERROR 6124 --- [nioEventLoopGroup-2-1] c.j.s.n.w.service.WebSocketService       : 接收消息成功, msg:{"symbol":"BTC_USDT","period":86400,"high":"6534.05","last":"6349.19","low":"6300","change":"-1.77","quoteVolume":"387.447433583","baseVolume":"2471107.051871401962","close":"6349.19","open":"6464.1"}
+2018-08-19 16:14:18.135 ERROR 6124 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": {"code": 1, "message": "invalid argument"}, "result": null, "id": 0}
+2018-08-19 16:14:22.797  INFO 6124 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534666462797,"params":"[]"}
+2018-08-19 16:14:23.177 ERROR 6124 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": {"code": 1, "message": "invalid argument"}, "result": null, "id": 0}
+2018-08-19 16:14:27.797  INFO 6124 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534666467797,"params":"[]"}
+2018-08-19 16:14:28.144 ERROR 6124 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": {"code": 1, "message": "invalid argument"}, "result": null, "id": 0}
+2018-08-19 16:14:32.797  INFO 6124 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534666472797,"params":"[]"}
+2018-08-19 16:14:33.462 ERROR 6124 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": {"code": 1, "message": "invalid argument"}, "result": null, "id": 0}
+2018-08-19 16:14:37.797  INFO 6124 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534666477797,"params":"[]"}
+2018-08-19 16:14:38.160 ERROR 6124 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": {"code": 1, "message": "invalid argument"}, "result": null, "id": 0}
+2018-08-19 16:14:42.797  INFO 6124 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534666482797,"params":"[]"}
+2018-08-19 16:14:43.146 ERROR 6124 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": {"code": 1, "message": "invalid argument"}, "result": null, "id": 0}
+2018-08-19 16:14:47.797  INFO 6124 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534666487797,"params":"[]"}
+2018-08-19 16:14:48.460 ERROR 6124 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": {"code": 1, "message": "invalid argument"}, "result": null, "id": 0}
+2018-08-19 16:14:52.797  INFO 6124 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534666492797,"params":"[]"}
+2018-08-19 16:14:54.134 ERROR 6124 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": {"code": 1, "message": "invalid argument"}, "result": null, "id": 0}
+2018-08-19 16:14:57.797  INFO 6124 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534666497797,"params":"[]"}
+2018-08-19 16:14:58.141 ERROR 6124 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": {"code": 1, "message": "invalid argument"}, "result": null, "id": 0}
+2018-08-19 16:15:02.797  INFO 6124 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534666502797,"params":"[]"}
+2018-08-19 16:15:03.192 ERROR 6124 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": {"code": 1, "message": "invalid argument"}, "result": null, "id": 0}
+2018-08-19 16:15:07.797  INFO 6124 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534666507797,"params":"[]"}
+2018-08-19 16:15:08.156 ERROR 6124 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": {"code": 1, "message": "invalid argument"}, "result": null, "id": 0}
+2018-08-19 16:15:12.797  INFO 6124 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534666512797,"params":"[]"}
+2018-08-19 16:15:13.128 ERROR 6124 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": {"code": 1, "message": "invalid argument"}, "result": null, "id": 0}
+2018-08-19 16:15:17.797  INFO 6124 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534666517797,"params":"[]"}
+2018-08-19 16:15:18.140 ERROR 6124 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": {"code": 1, "message": "invalid argument"}, "result": null, "id": 0}
+2018-08-19 16:15:22.797  INFO 6124 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534666522797,"params":"[]"}
+2018-08-19 16:15:23.171 ERROR 6124 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": {"code": 1, "message": "invalid argument"}, "result": null, "id": 0}
+2018-08-19 16:15:27.797  INFO 6124 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534666527797,"params":"[]"}
+2018-08-19 16:15:28.159 ERROR 6124 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": {"code": 1, "message": "invalid argument"}, "result": null, "id": 0}
+2018-08-19 16:15:32.797  INFO 6124 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534666532797,"params":"[]"}
+2018-08-19 16:15:33.150 ERROR 6124 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": {"code": 1, "message": "invalid argument"}, "result": null, "id": 0}
+2018-08-19 16:15:37.797  INFO 6124 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534666537797,"params":"[]"}
+2018-08-19 16:15:38.159 ERROR 6124 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": {"code": 1, "message": "invalid argument"}, "result": null, "id": 0}
+2018-08-19 16:15:42.797  INFO 6124 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534666542797,"params":"[]"}
+2018-08-19 16:15:43.165 ERROR 6124 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": {"code": 1, "message": "invalid argument"}, "result": null, "id": 0}
+2018-08-19 16:15:44.167 ERROR 6124 --- [nioEventLoopGroup-2-1] c.j.s.n.w.service.WebSocketService       : 接收消息成功, msg:{"symbol":"BTC_USDT","period":86400,"high":"6534.05","last":"6349.19","low":"6300","change":"-1.77","quoteVolume":"387.382833583","baseVolume":"2470689.471062401962","close":"6349.19","open":"6464.09"}
+2018-08-19 16:15:50.735  INFO 6732 --- [main] c.j.s.netty.SpringBootNettyApplication   : Starting SpringBootNettyApplication on jvbo with PID 6732 (F:\software\git\repo\jvbo\jvbo-springboot\jvbo-springboot-netty\target\classes started by thinkpad in F:\software\git\repo\jvbo\jvbo-springboot\jvbo-springboot-netty)
+2018-08-19 16:15:50.738  INFO 6732 --- [main] c.j.s.netty.SpringBootNettyApplication   : No active profile set, falling back to default profiles: default
+2018-08-19 16:15:50.785  INFO 6732 --- [main] s.c.a.AnnotationConfigApplicationContext : Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@2f177a4b: startup date [Sun Aug 19 16:15:50 CST 2018]; root of context hierarchy
+2018-08-19 16:15:51.753  INFO 6732 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2018-08-19 16:15:51.767  INFO 6732 --- [main] c.j.s.netty.SpringBootNettyApplication   : Started SpringBootNettyApplication in 1.355 seconds (JVM running for 1.724)
+2018-08-19 16:15:53.225  INFO 6732 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : WebSocket Client connected!
+2018-08-19 16:15:53.269  INFO 6732 --- [main] c.j.s.netty.websocket.WebSocketBase      : addChannel:{"method":"ticker.subscribe","params":["BTC_USDT"]}
+2018-08-19 16:15:53.334  INFO 6732 --- [main] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"ticker.subscribe","id":1534666553270,"params":["BTC_USDT"]}
+2018-08-19 16:15:53.564 ERROR 6732 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": null, "result": {"status": "success"}, "id": 1534666553270}
+2018-08-19 16:15:53.569 ERROR 6732 --- [nioEventLoopGroup-2-1] c.j.s.n.w.service.WebSocketService       : 接收消息成功, msg:{"symbol":"BTC_USDT","period":86400,"high":"6534.05","last":"6349.19","low":"6300","change":"-1.77","quoteVolume":"387.382833583","baseVolume":"2470689.471062401962","close":"6349.19","open":"6464.09"}
+2018-08-19 16:15:54.227  INFO 6732 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534666554227,"params":[]}
+2018-08-19 16:15:54.425 ERROR 6732 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": null, "result": "pong", "id": 1534666554227}
+2018-08-19 16:15:59.227  INFO 6732 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534666559227,"params":[]}
+2018-08-19 16:15:59.435 ERROR 6732 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": null, "result": "pong", "id": 1534666559227}
+2018-08-19 16:16:04.227  INFO 6732 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534666564227,"params":[]}
+2018-08-19 16:16:04.431 ERROR 6732 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": null, "result": "pong", "id": 1534666564227}
+2018-08-19 16:16:09.227  INFO 6732 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534666569227,"params":[]}
+2018-08-19 16:16:09.403 ERROR 6732 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": null, "result": "pong", "id": 1534666569227}
+2018-08-19 16:16:14.227  INFO 6732 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534666574227,"params":[]}
+2018-08-19 16:16:15.123 ERROR 6732 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": null, "result": "pong", "id": 1534666574227}
+2018-08-19 16:16:19.227  INFO 6732 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534666579227,"params":[]}
+2018-08-19 16:16:19.392 ERROR 6732 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": null, "result": "pong", "id": 1534666579227}
+2018-08-19 16:16:24.227  INFO 6732 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534666584227,"params":[]}
+2018-08-19 16:16:24.390 ERROR 6732 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": null, "result": "pong", "id": 1534666584227}
+2018-08-19 16:16:29.227  INFO 6732 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534666589227,"params":[]}
+2018-08-19 16:16:29.392 ERROR 6732 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": null, "result": "pong", "id": 1534666589227}
+2018-08-19 16:16:31.142 ERROR 6732 --- [nioEventLoopGroup-2-1] c.j.s.n.w.service.WebSocketService       : 接收消息成功, msg:{"symbol":"BTC_USDT","period":86400,"high":"6534.05","last":"6349.19","low":"6300","change":"-1.77","quoteVolume":"387.359363583","baseVolume":"2470537.758870101962","close":"6349.19","open":"6464.09"}
+2018-08-19 16:16:34.227  INFO 6732 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534666594227,"params":[]}
+2018-08-19 16:16:34.390 ERROR 6732 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": null, "result": "pong", "id": 1534666594227}
+2018-08-19 16:16:34.880 ERROR 6732 --- [nioEventLoopGroup-2-1] c.j.s.n.w.service.WebSocketService       : 接收消息成功, msg:{"symbol":"BTC_USDT","period":86400,"high":"6534.05","last":"6349","low":"6300","change":"-1.78","quoteVolume":"387.360363583","baseVolume":"2470544.107870101962","close":"6349","open":"6464.09"}
+2018-08-19 16:16:39.227  INFO 6732 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534666599227,"params":[]}
+2018-08-19 16:16:39.391 ERROR 6732 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": null, "result": "pong", "id": 1534666599227}
+2018-08-19 16:16:44.227  INFO 6732 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534666604227,"params":[]}
+2018-08-19 16:16:44.396 ERROR 6732 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": null, "result": "pong", "id": 1534666604227}
+2018-08-19 16:16:49.227  INFO 6732 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534666609227,"params":[]}
+2018-08-19 16:16:49.395 ERROR 6732 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": null, "result": "pong", "id": 1534666609227}
+2018-08-19 16:16:54.227  INFO 6732 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534666614227,"params":[]}
+2018-08-19 16:16:55.117 ERROR 6732 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": null, "result": "pong", "id": 1534666614227}
+2018-08-19 16:16:59.227  INFO 6732 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534666619227,"params":[]}
+2018-08-19 16:16:59.395 ERROR 6732 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": null, "result": "pong", "id": 1534666619227}
+2018-08-19 16:17:02.890 ERROR 6732 --- [nioEventLoopGroup-2-1] c.j.s.n.w.service.WebSocketService       : 接收消息成功, msg:{"symbol":"BTC_USDT","period":86400,"high":"6534.05","last":"6349","low":"6300","change":"-1.73","quoteVolume":"387.312563583","baseVolume":"2470235.124368101962","close":"6349","open":"6460.81"}
+2018-08-19 16:17:04.227  INFO 6732 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534666624227,"params":[]}
+2018-08-19 16:17:04.395 ERROR 6732 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": null, "result": "pong", "id": 1534666624227}
+2018-08-19 16:17:09.227  INFO 6732 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534666629227,"params":[]}
+2018-08-19 16:17:09.395 ERROR 6732 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": null, "result": "pong", "id": 1534666629227}
+2018-08-19 16:17:14.227  INFO 6732 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534666634227,"params":[]}
+2018-08-19 16:17:14.394 ERROR 6732 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": null, "result": "pong", "id": 1534666634227}
+2018-08-19 16:17:19.227  INFO 6732 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534666639227,"params":[]}
+2018-08-19 16:17:19.398 ERROR 6732 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": null, "result": "pong", "id": 1534666639227}
+2018-08-19 16:17:24.227  INFO 6732 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534666644227,"params":[]}
+2018-08-19 16:17:24.395 ERROR 6732 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": null, "result": "pong", "id": 1534666644227}
+2018-08-19 16:17:29.227  INFO 6732 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534666649227,"params":[]}
+2018-08-19 16:17:29.396 ERROR 6732 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": null, "result": "pong", "id": 1534666649227}
+2018-08-19 16:17:34.227  INFO 6732 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534666654227,"params":[]}
+2018-08-19 16:17:35.142 ERROR 6732 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": null, "result": "pong", "id": 1534666654227}
+2018-08-19 16:17:39.227  INFO 6732 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534666659227,"params":[]}
+2018-08-19 16:17:40.495 ERROR 6732 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": null, "result": "pong", "id": 1534666659227}
+2018-08-19 16:17:44.227  INFO 6732 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534666664227,"params":[]}
+2018-08-19 16:17:44.395 ERROR 6732 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": null, "result": "pong", "id": 1534666664227}
+2018-08-19 16:17:45.872 ERROR 6732 --- [nioEventLoopGroup-2-1] c.j.s.n.w.service.WebSocketService       : 接收消息成功, msg:{"symbol":"BTC_USDT","period":86400,"high":"6534.05","last":"6349","low":"6300","change":"-1.78","quoteVolume":"387.256363583","baseVolume":"2469872.026846101962","close":"6349","open":"6464.09"}
+2018-08-19 16:17:49.227  INFO 6732 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534666669227,"params":[]}
+2018-08-19 16:17:49.398 ERROR 6732 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": null, "result": "pong", "id": 1534666669227}
+2018-08-19 16:17:54.227  INFO 6732 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534666674227,"params":[]}
+2018-08-19 16:17:54.395 ERROR 6732 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": null, "result": "pong", "id": 1534666674227}
+2018-08-19 16:17:59.227  INFO 6732 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534666679227,"params":[]}
+2018-08-19 16:17:59.396 ERROR 6732 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": null, "result": "pong", "id": 1534666679227}
+2018-08-19 16:18:04.227  INFO 6732 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534666684227,"params":[]}
+2018-08-19 16:18:04.405 ERROR 6732 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": null, "result": "pong", "id": 1534666684227}
+2018-08-19 16:18:09.227  INFO 6732 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534666689227,"params":[]}
+2018-08-19 16:18:09.394 ERROR 6732 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": null, "result": "pong", "id": 1534666689227}
+2018-08-19 16:18:14.227  INFO 6732 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534666694227,"params":[]}
+2018-08-19 16:18:14.396 ERROR 6732 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": null, "result": "pong", "id": 1534666694227}
+2018-08-19 16:18:19.227  INFO 6732 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534666699227,"params":[]}
+2018-08-19 16:18:19.393 ERROR 6732 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": null, "result": "pong", "id": 1534666699227}
+2018-08-19 16:18:24.227  INFO 6732 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534666704227,"params":[]}
+2018-08-19 16:18:24.388 ERROR 6732 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": null, "result": "pong", "id": 1534666704227}
+2018-08-19 16:18:29.227  INFO 6732 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534666709227,"params":[]}
+2018-08-19 16:18:29.393 ERROR 6732 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": null, "result": "pong", "id": 1534666709227}
+2018-08-19 16:18:34.227  INFO 6732 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534666714227,"params":[]}
+2018-08-19 16:18:34.390 ERROR 6732 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": null, "result": "pong", "id": 1534666714227}
+2018-08-19 16:18:39.227  INFO 6732 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534666719227,"params":[]}
+2018-08-19 16:18:39.387 ERROR 6732 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": null, "result": "pong", "id": 1534666719227}
+2018-08-19 16:18:44.227  INFO 6732 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534666724227,"params":[]}
+2018-08-19 16:18:44.390 ERROR 6732 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": null, "result": "pong", "id": 1534666724227}
+2018-08-19 16:18:49.227  INFO 6732 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534666729227,"params":[]}
+2018-08-19 16:18:49.389 ERROR 6732 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": null, "result": "pong", "id": 1534666729227}
+2018-08-19 16:18:54.227  INFO 6732 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534666734227,"params":[]}
+2018-08-19 16:18:55.141 ERROR 6732 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": null, "result": "pong", "id": 1534666734227}
+2018-08-19 16:18:59.227  INFO 6732 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534666739227,"params":[]}
+2018-08-19 16:18:59.387 ERROR 6732 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": null, "result": "pong", "id": 1534666739227}
+2018-08-19 16:19:04.227  INFO 6732 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534666744227,"params":[]}
+2018-08-19 16:19:04.387 ERROR 6732 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": null, "result": "pong", "id": 1534666744227}
+2018-08-19 16:19:41.774  INFO 9172 --- [main] c.j.s.netty.SpringBootNettyApplication   : Starting SpringBootNettyApplication on jvbo with PID 9172 (F:\software\git\repo\jvbo\jvbo-springboot\jvbo-springboot-netty\target\classes started by thinkpad in F:\software\git\repo\jvbo\jvbo-springboot\jvbo-springboot-netty)
+2018-08-19 16:19:41.776  INFO 9172 --- [main] c.j.s.netty.SpringBootNettyApplication   : No active profile set, falling back to default profiles: default
+2018-08-19 16:19:41.818  INFO 9172 --- [main] s.c.a.AnnotationConfigApplicationContext : Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@79efed2d: startup date [Sun Aug 19 16:19:41 CST 2018]; root of context hierarchy
+2018-08-19 16:19:42.746  INFO 9172 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2018-08-19 16:19:42.758  INFO 9172 --- [main] c.j.s.netty.SpringBootNettyApplication   : Started SpringBootNettyApplication in 1.301 seconds (JVM running for 1.663)
+2018-08-19 16:19:44.507  INFO 9172 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : WebSocket Client connected!
+2018-08-19 16:19:44.534  INFO 9172 --- [main] c.j.s.netty.websocket.WebSocketBase      : addChannel:{"method":"ticker.subscribe","params":["BTC_USDT"]}
+2018-08-19 16:19:44.588  INFO 9172 --- [main] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"ticker.subscribe","id":1534666784535,"params":["BTC_USDT"]}
+2018-08-19 16:19:44.922 ERROR 9172 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : 无效消息:{"error": null, "result": {"status": "success"}, "id": 1534666784535}
+2018-08-19 16:19:44.928 ERROR 9172 --- [nioEventLoopGroup-2-1] c.j.s.n.w.service.WebSocketService       : 接收消息成功, msg:{"symbol":"BTC_USDT","period":86400,"high":"6534.05","last":"6349.06","low":"6300","change":"-1.77","quoteVolume":"387.287163583","baseVolume":"2470067.577894101962","close":"6349.06","open":"6464.09"}
+2018-08-19 16:19:45.508  INFO 9172 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534666785508,"params":[]}
+2018-08-19 16:19:45.869  INFO 9172 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : WebSocket Client received pong
+2018-08-19 16:19:50.508  INFO 9172 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534666790508,"params":[]}
+2018-08-19 16:19:50.915  INFO 9172 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : WebSocket Client received pong
+2018-08-19 16:19:55.508  INFO 9172 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534666795508,"params":[]}
+2018-08-19 16:19:55.681  INFO 9172 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : WebSocket Client received pong
+2018-08-19 16:20:00.508  INFO 9172 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534666800508,"params":[]}
+2018-08-19 16:20:00.877  INFO 9172 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : WebSocket Client received pong
+2018-08-19 16:20:05.508  INFO 9172 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534666805508,"params":[]}
+2018-08-19 16:20:05.682  INFO 9172 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : WebSocket Client received pong
+2018-08-19 16:20:10.508  INFO 9172 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534666810508,"params":[]}
+2018-08-19 16:20:10.688  INFO 9172 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : WebSocket Client received pong
+2018-08-19 16:20:15.508  INFO 9172 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534666815508,"params":[]}
+2018-08-19 16:20:16.877  INFO 9172 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : WebSocket Client received pong
+2018-08-19 16:20:20.508  INFO 9172 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534666820508,"params":[]}
+2018-08-19 16:20:20.682  INFO 9172 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : WebSocket Client received pong
+2018-08-19 16:20:24.687 ERROR 9172 --- [nioEventLoopGroup-2-1] c.j.s.n.w.service.WebSocketService       : 接收消息成功, msg:{"symbol":"BTC_USDT","period":86400,"high":"6534.05","last":"6349.06","low":"6300","change":"-2.01","quoteVolume":"387.287133583","baseVolume":"2470067.383971401962","close":"6349.06","open":"6479.6"}
+2018-08-19 16:20:25.508  INFO 9172 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534666825508,"params":[]}
+2018-08-19 16:20:25.688  INFO 9172 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : WebSocket Client received pong
+2018-08-19 16:20:30.508  INFO 9172 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534666830508,"params":[]}
+2018-08-19 16:20:30.682  INFO 9172 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : WebSocket Client received pong
+2018-08-19 16:20:35.508  INFO 9172 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534666835508,"params":[]}
+2018-08-19 16:20:36.170  INFO 9172 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : WebSocket Client received pong
+2018-08-19 16:20:40.508  INFO 9172 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534666840508,"params":[]}
+2018-08-19 16:20:40.695  INFO 9172 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : WebSocket Client received pong
+2018-08-19 16:20:45.508  INFO 9172 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534666845508,"params":[]}
+2018-08-19 16:20:45.682  INFO 9172 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : WebSocket Client received pong
+2018-08-19 16:20:50.508  INFO 9172 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534666850508,"params":[]}
+2018-08-19 16:20:50.681  INFO 9172 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : WebSocket Client received pong
+2018-08-19 16:20:55.508  INFO 9172 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534666855508,"params":[]}
+2018-08-19 16:20:55.669  INFO 9172 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : WebSocket Client received pong
+2018-08-19 16:21:00.508  INFO 9172 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534666860508,"params":[]}
+2018-08-19 16:21:00.844  INFO 9172 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : WebSocket Client received pong
+2018-08-19 16:21:05.508  INFO 9172 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534666865508,"params":[]}
+2018-08-19 16:21:05.868  INFO 9172 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : WebSocket Client received pong
+2018-08-19 16:21:10.508  INFO 9172 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534666870508,"params":[]}
+2018-08-19 16:21:10.867  INFO 9172 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : WebSocket Client received pong
+2018-08-19 16:21:15.508  INFO 9172 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534666875508,"params":[]}
+2018-08-19 16:21:16.169  INFO 9172 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : WebSocket Client received pong
+2018-08-19 16:21:17.846 ERROR 9172 --- [nioEventLoopGroup-2-1] c.j.s.n.w.service.WebSocketService       : 接收消息成功, msg:{"symbol":"BTC_USDT","period":86400,"high":"6534.05","last":"6365","low":"6300","change":"-1.76","quoteVolume":"387.318433583","baseVolume":"2470266.608471401962","close":"6365","open":"6479.6"}
+2018-08-19 16:21:20.508  INFO 9172 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534666880508,"params":[]}
+2018-08-19 16:21:21.862  INFO 9172 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : WebSocket Client received pong
+2018-08-19 16:21:25.508  INFO 9172 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534666885508,"params":[]}
+2018-08-19 16:21:25.872  INFO 9172 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : WebSocket Client received pong
+2018-08-19 16:21:30.508  INFO 9172 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534666890508,"params":[]}
+2018-08-19 16:21:30.845  INFO 9172 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : WebSocket Client received pong
+2018-08-19 16:21:33.696 ERROR 9172 --- [nioEventLoopGroup-2-1] c.j.s.n.w.service.WebSocketService       : 接收消息成功, msg:{"symbol":"BTC_USDT","period":86400,"high":"6534.05","last":"6365","low":"6300","change":"-1.76","quoteVolume":"387.318151233","baseVolume":"2470264.778956341962","close":"6365","open":"6479.46"}
+2018-08-19 16:21:35.508  INFO 9172 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534666895508,"params":[]}
+2018-08-19 16:21:35.858  INFO 9172 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : WebSocket Client received pong
+2018-08-19 16:21:37.899 ERROR 9172 --- [nioEventLoopGroup-2-1] c.j.s.n.w.service.WebSocketService       : 接收消息成功, msg:{"symbol":"BTC_USDT","period":86400,"high":"6534.05","last":"6365","low":"6300","change":"-1.76","quoteVolume":"387.323151233","baseVolume":"2470296.603956341962","close":"6365","open":"6479.46"}
+2018-08-19 16:21:40.508  INFO 9172 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534666900508,"params":[]}
+2018-08-19 16:21:40.858  INFO 9172 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : WebSocket Client received pong
+2018-08-19 16:21:45.508  INFO 9172 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534666905508,"params":[]}
+2018-08-19 16:21:45.897  INFO 9172 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : WebSocket Client received pong
+2018-08-19 16:21:50.508  INFO 9172 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534666910508,"params":[]}
+2018-08-19 16:21:50.869  INFO 9172 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : WebSocket Client received pong
+2018-08-19 16:21:55.508  INFO 9172 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534666915508,"params":[]}
+2018-08-19 16:21:55.668  INFO 9172 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : WebSocket Client received pong
+2018-08-19 16:21:57.906 ERROR 9172 --- [nioEventLoopGroup-2-1] c.j.s.n.w.service.WebSocketService       : 接收消息成功, msg:{"symbol":"BTC_USDT","period":86400,"high":"6534.05","last":"6365","low":"6300","change":"-1.76","quoteVolume":"387.330351233","baseVolume":"2470342.431956341962","close":"6365","open":"6479.46"}
+2018-08-19 16:22:00.508  INFO 9172 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534666920508,"params":[]}
+2018-08-19 16:22:00.903  INFO 9172 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : WebSocket Client received pong
+2018-08-19 16:22:05.508  INFO 9172 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534666925508,"params":[]}
+2018-08-19 16:22:05.888  INFO 9172 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : WebSocket Client received pong
+2018-08-19 16:22:10.508  INFO 9172 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534666930508,"params":[]}
+2018-08-19 16:22:10.685  INFO 9172 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : WebSocket Client received pong
+2018-08-19 16:22:15.508  INFO 9172 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534666935508,"params":[]}
+2018-08-19 16:22:16.169  INFO 9172 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : WebSocket Client received pong
+2018-08-19 16:22:20.508  INFO 9172 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534666940508,"params":[]}
+2018-08-19 16:22:20.912  INFO 9172 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : WebSocket Client received pong
+2018-08-19 16:22:25.508  INFO 9172 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534666945508,"params":[]}
+2018-08-19 16:22:25.667  INFO 9172 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : WebSocket Client received pong
+2018-08-19 16:22:30.508  INFO 9172 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534666950508,"params":[]}
+2018-08-19 16:22:30.683  INFO 9172 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : WebSocket Client received pong
+2018-08-19 16:22:35.508  INFO 9172 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534666955508,"params":[]}
+2018-08-19 16:22:36.169  INFO 9172 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : WebSocket Client received pong
+2018-08-19 16:22:40.508  INFO 9172 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534666960508,"params":[]}
+2018-08-19 16:22:40.882  INFO 9172 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : WebSocket Client received pong
+2018-08-19 16:22:45.508  INFO 9172 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534666965508,"params":[]}
+2018-08-19 16:22:45.690 ERROR 9172 --- [nioEventLoopGroup-2-1] c.j.s.n.w.service.WebSocketService       : 接收消息成功, msg:{"symbol":"BTC_USDT","period":86400,"high":"6534.05","last":"6365","low":"6300","change":"-1.65","quoteVolume":"387.159823393","baseVolume":"2469237.503638175562","close":"6365","open":"6472.22"}
+2018-08-19 16:22:45.882  INFO 9172 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : WebSocket Client received pong
+2018-08-19 16:22:50.508  INFO 9172 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534666970508,"params":[]}
+2018-08-19 16:22:50.881  INFO 9172 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : WebSocket Client received pong
+2018-08-19 16:22:55.508  INFO 9172 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534666975508,"params":[]}
+2018-08-19 16:22:55.906  INFO 9172 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : WebSocket Client received pong
+2018-08-19 16:23:00.508  INFO 9172 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534666980508,"params":[]}
+2018-08-19 16:23:00.683  INFO 9172 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : WebSocket Client received pong
+2018-08-19 16:23:05.508  INFO 9172 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534666985508,"params":[]}
+2018-08-19 16:23:05.681  INFO 9172 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : WebSocket Client received pong
+2018-08-19 16:23:10.508  INFO 9172 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534666990508,"params":[]}
+2018-08-19 16:23:10.667  INFO 9172 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : WebSocket Client received pong
+2018-08-19 16:23:15.508  INFO 9172 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534666995508,"params":[]}
+2018-08-19 16:23:15.668  INFO 9172 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : WebSocket Client received pong
+2018-08-19 16:23:20.508  INFO 9172 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534667000508,"params":[]}
+2018-08-19 16:23:20.914 ERROR 9172 --- [nioEventLoopGroup-2-1] c.j.s.n.w.service.WebSocketService       : 接收消息成功, msg:{"symbol":"BTC_USDT","period":86400,"high":"6534.05","last":"6350.15","low":"6300","change":"-1.88","quoteVolume":"387.202893393","baseVolume":"2469511.004598675562","close":"6350.15","open":"6472.22"}
+2018-08-19 16:23:20.918  INFO 9172 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : WebSocket Client received pong
+2018-08-19 16:23:25.508  INFO 9172 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534667005508,"params":[]}
+2018-08-19 16:23:25.682  INFO 9172 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : WebSocket Client received pong
+2018-08-19 16:23:30.508  INFO 9172 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534667010508,"params":[]}
+2018-08-19 16:23:30.681  INFO 9172 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : WebSocket Client received pong
+2018-08-19 16:23:35.508  INFO 9172 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534667015508,"params":[]}
+2018-08-19 16:23:35.897  INFO 9172 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : WebSocket Client received pong
+2018-08-19 16:23:40.508  INFO 9172 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534667020508,"params":[]}
+2018-08-19 16:23:40.922  INFO 9172 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : WebSocket Client received pong
+2018-08-19 16:23:45.508  INFO 9172 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534667025508,"params":[]}
+2018-08-19 16:23:45.669  INFO 9172 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : WebSocket Client received pong
+2018-08-19 16:23:50.508  INFO 9172 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534667030508,"params":[]}
+2018-08-19 16:23:50.684  INFO 9172 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : WebSocket Client received pong
+2018-08-19 16:23:55.508  INFO 9172 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534667035508,"params":[]}
+2018-08-19 16:23:56.889  INFO 9172 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : WebSocket Client received pong
+2018-08-19 16:24:00.508  INFO 9172 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534667040508,"params":[]}
+2018-08-19 16:24:00.682  INFO 9172 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : WebSocket Client received pong
+2018-08-19 16:24:01.892 ERROR 9172 --- [nioEventLoopGroup-2-1] c.j.s.n.w.service.WebSocketService       : 接收消息成功, msg:{"symbol":"BTC_USDT","period":86400,"high":"6534.05","last":"6365","low":"6300","change":"-1.65","quoteVolume":"387.221793393","baseVolume":"2469631.303098675562","close":"6365","open":"6472.22"}
+2018-08-19 16:24:03.878 ERROR 9172 --- [nioEventLoopGroup-2-1] c.j.s.n.w.service.WebSocketService       : 接收消息成功, msg:{"symbol":"BTC_USDT","period":86400,"high":"6534.05","last":"6365","low":"6300","change":"-1.65","quoteVolume":"387.241793393","baseVolume":"2469758.603098675562","close":"6365","open":"6472.22"}
+2018-08-19 16:24:04.887 ERROR 9172 --- [nioEventLoopGroup-2-1] c.j.s.n.w.service.WebSocketService       : 接收消息成功, msg:{"symbol":"BTC_USDT","period":86400,"high":"6534.05","last":"6365","low":"6300","change":"-1.65","quoteVolume":"387.259193393","baseVolume":"2469869.354098675562","close":"6365","open":"6472.22"}
+2018-08-19 16:24:05.508  INFO 9172 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534667045508,"params":[]}
+2018-08-19 16:24:05.681  INFO 9172 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : WebSocket Client received pong
+2018-08-19 16:24:07.685 ERROR 9172 --- [nioEventLoopGroup-2-1] c.j.s.n.w.service.WebSocketService       : 接收消息成功, msg:{"symbol":"BTC_USDT","period":86400,"high":"6534.05","last":"6365","low":"6300","change":"-1.65","quoteVolume":"387.274393393","baseVolume":"2469966.102098675562","close":"6365","open":"6472.22"}
+2018-08-19 16:24:10.508  INFO 9172 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534667050508,"params":[]}
+2018-08-19 16:24:10.891  INFO 9172 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : WebSocket Client received pong
+2018-08-19 16:24:15.508  INFO 9172 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534667055508,"params":[]}
+2018-08-19 16:24:15.685  INFO 9172 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : WebSocket Client received pong
+2018-08-19 16:24:20.508  INFO 9172 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534667060508,"params":[]}
+2018-08-19 16:24:20.669  INFO 9172 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : WebSocket Client received pong
+2018-08-19 16:24:25.508  INFO 9172 --- [Timer-0] c.j.s.netty.websocket.WebSocketBase      : message:{"method":"server.ping","id":1534667065508,"params":[]}
+2018-08-19 16:24:26.170  INFO 9172 --- [nioEventLoopGroup-2-1] c.j.s.n.w.WebSocketClientHandler         : WebSocket Client received pong
