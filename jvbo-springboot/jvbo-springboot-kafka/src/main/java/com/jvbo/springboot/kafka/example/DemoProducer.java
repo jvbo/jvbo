@@ -24,7 +24,7 @@ public class DemoProducer {
     private KafkaTemplate<String, String> kafkaTemplate;
     
     public void demoProducer(){
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 1000; i++) {
             String topic = "test";
             String key = "test".concat(String.valueOf(Instant.now().toEpochMilli()));
             String value = "value";

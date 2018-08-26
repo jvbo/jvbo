@@ -6,7 +6,7 @@
 		<artifactId>jvbo-springboot</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
-	<artifactId>jvbo-springboot-redisson</artifactId>
+	<artifactId>jvbo-springboot-netty</artifactId>
 	<packaging>jar</packaging>
 
 	<dependencies>
@@ -16,9 +16,8 @@
 		</dependency>
 
 		<dependency>
-			<groupId>org.redisson</groupId>
-			<artifactId>redisson</artifactId>
-			<version>3.7.3</version>
+			<groupId>io.netty</groupId>
+			<artifactId>netty-all</artifactId>
 		</dependency>
 
 		<dependency>
@@ -36,11 +35,10 @@
 			<groupId>com.alibaba</groupId>
 			<artifactId>fastjson</artifactId>
 		</dependency>
-
 		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-configuration-processor</artifactId>
-			<optional>true</optional>
+			<groupId>com.jvbo.common</groupId>
+			<artifactId>jvbo-common-study</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 	</dependencies>
 
@@ -50,7 +48,7 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
-					<mainClass>com.jvbo.springboot.redisson.SpringBootRedissonApplication</mainClass>
+					<mainClass>com.jvbo.springboot.netty.SpringBootNettyApplication</mainClass>
 				</configuration>
 			</plugin>
 		</plugins>
