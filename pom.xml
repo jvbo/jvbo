@@ -16,6 +16,7 @@
 		<module>jvbo-common</module>
 		<module>jvbo-springboot</module>
 		<module>jvbo-springcloud</module>
+		<module>jvbo-fun</module>
 	</modules>
 
 </project>

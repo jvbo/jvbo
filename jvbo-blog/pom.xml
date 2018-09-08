@@ -14,7 +14,6 @@
 		<module>jvbo-blog-web</module>
 		<module>jvbo-blog-cache</module>
 		<module>jvbo-blog-ueditor</module>
-		<module>jvbo-blog-hplus-web</module>
 	</modules>
 	<properties>
 		<environment.encoding>UTF-8</environment.encoding>
