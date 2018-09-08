@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!-- jndi druid mysql数据源配置 使用时放在项目的webapp/META-INF下 -->
-<Resource name="jdbc/jvbo_blog_mysqlDataSource" factory="com.alibaba.druid.pool.DruidDataSourceFactory"
-	auth="Container" type="javax.sql.DataSource" maxActive="10" maxWait="10000"
-	removeAbandoned="true" logAbandoned="true" removeAbandonedTimeout="1800"
-	TimeBetweenEvictionRunsMillis="3000" poolPreparedStatements="true"
-	maxPoolPreparedStatementPerConnectionSize="20" filters="stat"
-	validationQuery="SELECT 1" testWhileIdle="true"
-	url="jdbc:mysql://114.55.1.70:3306/jvbo_blog?Unicode=true&amp;characterEncoding=UTF-8" username="root" password="111111" />

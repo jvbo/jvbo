@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	
+	<groupId>site.jvbo.fun</groupId>
+	<artifactId>jvbo-fun-upms</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
+
+	<parent>
+		<groupId>site.jvbo.fun</groupId>
+		<artifactId>jvbo-fun</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+	
+	<name>jvbo-fun</name>
+	<description>http://jvbo.site</description>
+
+	<modules>
+		<module>jvbo-fun-upms-common</module>
+		<module>jvbo-fun-upms-dao</module>
+		<module>jvbo-fun-upms-service</module>
+		<module>jvbo-fun-upms-web</module>
+	</modules>
+
+	<properties>
+		<environment.encoding>UTF-8</environment.encoding>
+		<java.version>1.8</java.version>
+
+		<jvbo.fun.common.version>0.0.1-SNAPSHOT</jvbo.fun.common.version>
+		<jvbo.fun.upms.common.version>0.0.1-SNAPSHOT</jvbo.fun.upms.common.version>
+		<jvbo.fun.upms.dao.version>0.0.1-SNAPSHOT</jvbo.fun.upms.dao.version>
+		<jvbo.fun.upms.service.version>0.0.1-SNAPSHOT</jvbo.fun.upms.service.version>
+	</properties>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>site.jvbo.fun</groupId>
+				<artifactId>jvbo-fun-common</artifactId>
+				<version>${jvbo.fun.common.version}</version>
+				<type>jar</type>
+			</dependency>
+
+			<dependency>
+				<groupId>site.jvbo.fun</groupId>
+				<artifactId>jvbo-fun-upms-common</artifactId>
+				<version>${jvbo.fun.upms.common.version}</version>
+				<type>jar</type>
+			</dependency>
+
+			<dependency>
+				<groupId>site.jvbo.fun</groupId>
+				<artifactId>jvbo-fun-upms-dao</artifactId>
+				<version>${jvbo.fun.upms.dao.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>site.jvbo.fun</groupId>
+				<artifactId>jvbo-fun-upms-service</artifactId>
+				<version>${jvbo.fun.upms.service.version}</version>
+			</dependency>
+
+		</dependencies>
+	</dependencyManagement>
+
+	<repositories>
+		<!-- nexus私服 -->
+	<!-- <repositories> <repository> <id>public</id> <name>Public Repository</name>
+		<url>http://114.55.1.70:9999/nexus/content/groups/public</url> </repository>
+		</repositories> -->
+
+		<!-- <repository>
+			<id>aliyun</id>
+			<name>aliyun repo</name>
+			<url>http://maven.aliyun.com/nexus/content/groups/public</url>
+		</repository> -->
+
+		<repository>
+			<id>maven2Repo</id>
+			<name>maven2Repo</name>
+			<url>http://repo2.maven.org/maven2/</url>
+			<layout>default</layout>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+	</repositories>
+
+	<!-- 打包发布 -->
+	<!-- <distributionManagement> <repository> <id>releases</id> <url>http://114.55.1.70:9999/nexus/content/repositories/releases</url>
+		</repository> <snapshotRepository> <id>snapshots</id> <url>http://114.55.1.70:9999/nexus/content/repositories/snapshots</url>
+		</snapshotRepository> </distributionManagement> -->
+</project>
