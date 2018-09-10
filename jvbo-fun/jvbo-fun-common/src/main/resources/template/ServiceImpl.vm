@@ -2,7 +2,7 @@ package ${package_name}.service.impl;
 
 import site.jvbo.fun.common.annotation.base.BaseService;
 import site.jvbo.fun.common.base.BaseServiceImpl;
-import ${package_name}.dao.${model_name}Dao;
+import ${package_name}.dao.dao.${model_name}Dao;
 import ${package_name}.dao.model.${model_name};
 import ${package_name}.dao.model.${model_name}Example;
 import ${package_name}.service.${service_name};
