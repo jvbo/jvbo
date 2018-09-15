@@ -44,7 +44,7 @@
         <javaClientGenerator targetPackage="site.jvbo.fun.upms.dao.dao" targetProject="/F:/software/git/repo/jvbo/jvbo-fun/jvbo-fun-upms/jvbo-fun-upms-dao/src/main/java" type="XMLMAPPER" />
 
         <!-- 需要映射的表 -->
-                                    <table tableName="upms_log" domainObjectName="Log" mapperName="LogDao">
+                                    <table tableName="upms_log" domainObjectName="UpmsLog" mapperName="UpmsLogDao">
                     <generatedKey column="log_id" sqlStatement="MySql" identity="true"/>
                                                                         
                                                                                                 <columnOverride column="log_type" javaType="Integer" jdbcType="TINYINT" />
@@ -71,7 +71,7 @@
                                                                                                 
                                                                                                 <columnOverride column="is_deleted" javaType="Integer" jdbcType="TINYINT" />
                                                             </table>
-                                                <table tableName="upms_organization" domainObjectName="Organization" mapperName="OrganizationDao">
+                                                <table tableName="upms_organization" domainObjectName="UpmsOrganization" mapperName="UpmsOrganizationDao">
                     <generatedKey column="organization_id" sqlStatement="MySql" identity="true"/>
                                                                         
                                                                                                 
@@ -83,7 +83,7 @@
                                                                                                 
                                                                                                 <columnOverride column="is_deleted" javaType="Integer" jdbcType="TINYINT" />
                                                             </table>
-                                                <table tableName="upms_permission" domainObjectName="Permission" mapperName="PermissionDao">
+                                                <table tableName="upms_permission" domainObjectName="UpmsPermission" mapperName="UpmsPermissionDao">
                     <generatedKey column="permission_id" sqlStatement="MySql" identity="true"/>
                                                                         
                                                                                                 
@@ -101,7 +101,7 @@
                                                                                                 
                                                                                                 <columnOverride column="is_deleted" javaType="Integer" jdbcType="TINYINT" />
                                                             </table>
-                                                <table tableName="upms_role" domainObjectName="Role" mapperName="RoleDao">
+                                                <table tableName="upms_role" domainObjectName="UpmsRole" mapperName="UpmsRoleDao">
                     <generatedKey column="role_id" sqlStatement="MySql" identity="true"/>
                                                                         
                                                                                                 
@@ -114,7 +114,7 @@
                                                                                                 
                                                                                                 <columnOverride column="is_deleted" javaType="Integer" jdbcType="TINYINT" />
                                                             </table>
-                                                <table tableName="upms_role_permission" domainObjectName="RolePermission" mapperName="RolePermissionDao">
+                                                <table tableName="upms_role_permission" domainObjectName="UpmsRolePermission" mapperName="UpmsRolePermissionDao">
                     <generatedKey column="role_permission_id" sqlStatement="MySql" identity="true"/>
                                                                         
                                                                                                 
@@ -125,7 +125,7 @@
                                                                                                 
                                                                                                 <columnOverride column="is_deleted" javaType="Integer" jdbcType="TINYINT" />
                                                             </table>
-                                                <table tableName="upms_system" domainObjectName="System" mapperName="SystemDao">
+                                                <table tableName="upms_system" domainObjectName="UpmsSystem" mapperName="UpmsSystemDao">
                     <generatedKey column="system_id" sqlStatement="MySql" identity="true"/>
                                                                         
                                                                                                 
@@ -143,7 +143,7 @@
                                                                                                 
                                                                                                 <columnOverride column="is_deleted" javaType="Integer" jdbcType="TINYINT" />
                                                             </table>
-                                                <table tableName="upms_user" domainObjectName="User" mapperName="UserDao">
+                                                <table tableName="upms_user" domainObjectName="UpmsUser" mapperName="UpmsUserDao">
                     <generatedKey column="user_id" sqlStatement="MySql" identity="true"/>
                                                                         
                                                                                                 
@@ -161,7 +161,7 @@
                                                                                                 
                                                                                                 <columnOverride column="is_deleted" javaType="Integer" jdbcType="TINYINT" />
                                                             </table>
-                                                <table tableName="upms_user_organization" domainObjectName="UserOrganization" mapperName="UserOrganizationDao">
+                                                <table tableName="upms_user_organization" domainObjectName="UpmsUserOrganization" mapperName="UpmsUserOrganizationDao">
                     <generatedKey column="user_organization_id" sqlStatement="MySql" identity="true"/>
                                                                         
                                                                                                 
@@ -172,7 +172,7 @@
                                                                                                 
                                                                                                 <columnOverride column="is_deleted" javaType="Integer" jdbcType="TINYINT" />
                                                             </table>
-                                                <table tableName="upms_user_permission" domainObjectName="UserPermission" mapperName="UserPermissionDao">
+                                                <table tableName="upms_user_permission" domainObjectName="UpmsUserPermission" mapperName="UpmsUserPermissionDao">
                     <generatedKey column="user_permission_id" sqlStatement="MySql" identity="true"/>
                                                                         
                                                                                                 
@@ -184,7 +184,7 @@
                                                                                                 
                                                                                                 <columnOverride column="is_deleted" javaType="Integer" jdbcType="TINYINT" />
                                                             </table>
-                                                <table tableName="upms_user_role" domainObjectName="UserRole" mapperName="UserRoleDao">
+                                                <table tableName="upms_user_role" domainObjectName="UpmsUserRole" mapperName="UpmsUserRoleDao">
                     <generatedKey column="user_role_id" sqlStatement="MySql" identity="true"/>
                                                                         
                                                                                                 

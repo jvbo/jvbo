@@ -26,8 +26,8 @@ public class BaseServiceInitApplicationReadyListener implements ApplicationListe
             for(Object service : baseServices.values()) {
                 logger.debug(">>>>> {}.initDaoMapper()", service.getClass().getName());
                 try {
-                    Method initMapper = service.getClass().getMethod("initDaoMapper");
-                    initMapper.invoke(service);
+                    Method initDaoMapper = service.getClass().getMethod("initDaoMapper");
+					initDaoMapper.invoke(service);
                 } catch (Exception e) {
                     logger.error("初始化BaseService的initDaoMapper方法异常", e);
                     e.printStackTrace();

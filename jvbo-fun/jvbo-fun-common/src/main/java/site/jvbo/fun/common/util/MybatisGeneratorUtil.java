@@ -75,7 +75,7 @@ public class MybatisGeneratorUtil {
 				System.out.println(map.get("TABLE_NAME"));
 				table = new HashMap<>();
 				String tableName = ObjectUtils.toString(map.get("TABLE_NAME"), null);
-				String modelName = StringUtil.lineToHump(StringUtils.removeStart(ObjectUtils.toString(tableName, null), table_prefix));
+				String modelName = StringUtil.lineToHump(ObjectUtils.toString(tableName));
 				table.put("table_name", tableName);
 				table.put("model_name", modelName);
 				table.put("mapper_name", modelName + "Dao");
