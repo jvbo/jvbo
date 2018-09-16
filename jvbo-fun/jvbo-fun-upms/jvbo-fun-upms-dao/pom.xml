@@ -11,6 +11,9 @@
 	<artifactId>jvbo-fun-upms-dao</artifactId>
 	<packaging>jar</packaging>
 
+	<name>jvbo-fun-upms-dao</name>
+	<description>http://jvbo.site</description>
+
 	<properties>
 		<environment.encoding>UTF-8</environment.encoding>
 		<java.version>1.8</java.version>

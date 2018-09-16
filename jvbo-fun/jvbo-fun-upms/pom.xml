@@ -14,8 +14,8 @@
         <version>2.0.1.RELEASE</version>
         <relativePath /> <!-- lookup parent from repository -->
     </parent>
-	
-	<name>jvbo-fun</name>
+
+	<name>jvbo-fun-upms</name>
 	<description>http://jvbo.site</description>
 
 	<modules>

@@ -13,6 +13,9 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
+	<name>jvbo-fun-eureka</name>
+	<description>http://jvbo.site</description>
+
 	<properties>
 		<environment.encoding>UTF-8</environment.encoding>
 		<java.version>1.8</java.version>
@@ -53,7 +56,7 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
-					<mainClass>site.jvbo.fun.eureka.FunUpmsApplication</mainClass>
+					<mainClass>site.jvbo.fun.eureka.FunEurekaApplication</mainClass>
 				</configuration>
 			</plugin>
 		</plugins>

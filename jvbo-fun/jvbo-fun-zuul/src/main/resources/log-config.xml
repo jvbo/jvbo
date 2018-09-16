@@ -2,7 +2,7 @@
 <configuration scan="true" scanPeriod="60 seconds" debug="false">
 	<contextName>heiyu-shop</contextName>
 	<property name="logPath" value="./logs" />
-	<property name="appName" value="jvbo-fun-upms" />
+	<property name="appName" value="jvbo-fun-zuul" />
 	<property name="maxHistory" value="7" />
 
 	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">

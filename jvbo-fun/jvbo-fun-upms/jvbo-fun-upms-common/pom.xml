@@ -11,6 +11,9 @@
 	<artifactId>jvbo-fun-upms-common</artifactId>
 	<packaging>jar</packaging>
 
+	<name>jvbo-fun-upms-common</name>
+	<description>http://jvbo.site</description>
+
 	<dependencies>
 		<dependency>
 			<groupId>site.jvbo.fun</groupId>
