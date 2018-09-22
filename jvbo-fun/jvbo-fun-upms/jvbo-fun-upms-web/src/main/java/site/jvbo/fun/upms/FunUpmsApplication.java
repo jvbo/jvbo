@@ -5,6 +5,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.cloud.client.SpringCloudApplication;
+import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
@@ -12,6 +13,7 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+import org.springframework.web.client.RestTemplate;
 import site.jvbo.fun.common.base.BaseInterface;
 import site.jvbo.fun.common.redis.serializer.RedisObjectSerializer;
 import site.jvbo.fun.common.spring.listener.BaseServiceInitApplicationReadyListener;
@@ -23,6 +25,12 @@ import site.jvbo.fun.common.spring.listener.SpringUtilsApplicationPreparedListen
 @SpringCloudApplication
 public class FunUpmsApplication implements BaseInterface {
 	private static Logger logger = LoggerFactory.getLogger(FunUpmsApplication.class);
+
+	@Bean
+	@LoadBalanced
+	public RestTemplate restTemplate() {
+		return new RestTemplate();
+	}
 
 	@Override
 	public void init() {

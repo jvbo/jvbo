@@ -41,11 +41,10 @@ public class AuthFilter extends ZuulFilter {
 	}
 
 	@Override
-	public Object run() throws ZuulException {
+	public Object run(){
 		// TODO
 		RequestContext ctx = RequestContext.getCurrentContext();
 		HttpServletRequest request = ctx.getRequest();
-
 		return null;
 	}
 }
