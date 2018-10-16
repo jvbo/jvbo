@@ -1,4 +1,4 @@
-package site.jvbo.fun.umps.service;
+package site.jvbo.fun.umps;
 
 import java.util.concurrent.TimeUnit;
 
@@ -14,7 +14,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class FunUpmsApplicationTests {
-    
+
     private static final Logger logger = LoggerFactory.getLogger(FunUpmsApplicationTests.class);
 
     @Autowired
