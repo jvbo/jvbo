@@ -1,5 +1,6 @@
 package site.jvbo.fun.common.util;
 
+import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.RandomUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.time.DateFormatUtils;
@@ -129,6 +130,24 @@ public class CodeUtil {
 		String before = StringUtils.substring(phoneNo, 0, 3);
 		String after = StringUtils.substring(phoneNo, phoneNo.length() - 4, phoneNo.length());
 		return new StringBuilder(before).append("****").append(after).toString();
+	}
+
+	/**
+	 * 生成文件全路径
+	 * @param filePathPrefix 前缀
+	 * @param filePathSuffix 后缀
+	 * @param market 市场
+	 * @param symbolPair 币对币 (全大写,下划线分隔)
+	 * @param fileName 文件名 eg: 20180929开头(日期年月日开头)
+	 * @return
+	 */
+	public static String genFilePath(String filePathPrefix, String filePathSuffix, String market, String symbolPair, String fileName){
+		String dateFileName = StringUtils.substring(fileName, 0, 6);
+		StringBuilder sb = new StringBuilder();
+		sb.append(filePathPrefix).append(market).append(IOUtils.DIR_SEPARATOR_UNIX)
+				.append(symbolPair).append(IOUtils.DIR_SEPARATOR_UNIX).append(dateFileName)
+				.append(IOUtils.DIR_SEPARATOR_UNIX).append(fileName).append(filePathSuffix);
+		return sb.toString();
 	}
 
 	public static void main(String[] args) {

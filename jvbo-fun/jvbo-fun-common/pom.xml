@@ -36,6 +36,7 @@
 		<okhttp.version>3.10.0</okhttp.version>
 		<google.guava.version>20.0</google.guava.version>
 		<fastjson.version>1.2.9</fastjson.version>
+		<fastjson.version>1.2.9</fastjson.version>
 		<druid.springboot.starter.version>1.1.9</druid.springboot.starter.version>
 	</properties>
 
@@ -89,6 +90,12 @@
 				<groupId>org.apache.httpcomponents</groupId>
 				<artifactId>httpcore</artifactId>
 				<version>${org.apache.httpcomponents.httpcore.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.squareup.okhttp3</groupId>
+				<artifactId>okhttp</artifactId>
+				<version>${okhttp.version}</version>
 			</dependency>
 
 			<!-- google-guava -->
@@ -167,12 +174,21 @@
 			<artifactId>commons-lang3</artifactId>
 		</dependency>
 		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-collections4</artifactId>
+		</dependency>
+		<dependency>
 			<groupId>commons-io</groupId>
 			<artifactId>commons-io</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>commons-codec</groupId>
 			<artifactId>commons-codec</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>com.squareup.okhttp3</groupId>
+			<artifactId>okhttp</artifactId>
 		</dependency>
 
 		<dependency>

@@ -20,6 +20,9 @@
 		<environment.encoding>UTF-8</environment.encoding>
 		<java.version>1.8</java.version>
 
+		<shiro.spring.boot.starter.version>1.4.0</shiro.spring.boot.starter.version>
+		<thymeleaf.extras.shiro>2.0.0</thymeleaf.extras.shiro>
+		<jwt.version>3.2.0</jwt.version>
 		<springfox.swagger2.version>2.9.2</springfox.swagger2.version>
 		<springfox.swagger.ui>2.9.2</springfox.swagger.ui>
 	</properties>
@@ -38,18 +41,6 @@
 				<groupId>site.jvbo.fun</groupId>
 				<artifactId>jvbo-fun-upms-service</artifactId>
 				<version>0.0.1-SNAPSHOT</version>
-			</dependency>
-
-			<!-- swagger2 -->
-			<dependency>
-				<groupId>io.springfox</groupId>
-				<artifactId>springfox-swagger2</artifactId>
-				<version>${springfox.swagger2.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>io.springfox</groupId>
-				<artifactId>springfox-swagger-ui</artifactId>
-				<version>${springfox.swagger.ui}</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
@@ -80,13 +71,40 @@
 			<artifactId>spring-boot-starter-actuator</artifactId>
 		</dependency>
 
+
+
+		<!-- apache-shiro -->
+		<dependency>
+			<groupId>org.apache.shiro</groupId>
+			<artifactId>shiro-spring-boot-starter</artifactId>
+			<version>${shiro.spring.boot.starter.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.auth0</groupId>
+			<artifactId>java-jwt</artifactId>
+			<version>${jwt.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-thymeleaf</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.github.theborakompanioni</groupId>
+			<artifactId>thymeleaf-extras-shiro</artifactId>
+			<version>${thymeleaf.extras.shiro}</version>
+		</dependency>
+
+		<!-- swagger2 -->
 		<dependency>
 			<groupId>io.springfox</groupId>
 			<artifactId>springfox-swagger2</artifactId>
+			<version>${springfox.swagger2.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>io.springfox</groupId>
 			<artifactId>springfox-swagger-ui</artifactId>
+			<version>${springfox.swagger.ui}</version>
 		</dependency>
 
 		<dependency>
