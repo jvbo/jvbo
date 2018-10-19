@@ -20,6 +20,8 @@
 	<properties>
 		<environment.encoding>UTF-8</environment.encoding>
 		<java.version>1.8</java.version>
+		<maven.test.skip>true</maven.test.skip>
+
 		<apache.commons.lang.version>3.8</apache.commons.lang.version>
 		<apache.commons.collections4.version>4.1</apache.commons.collections4.version>
 		<apache.commons.io.version>2.5</apache.commons.io.version>

@@ -19,6 +19,7 @@
 	<properties>
 		<environment.encoding>UTF-8</environment.encoding>
 		<java.version>1.8</java.version>
+		<maven.test.skip>true</maven.test.skip>
 
 		<shiro.spring.boot.starter.version>1.4.0</shiro.spring.boot.starter.version>
 		<thymeleaf.extras.shiro>2.0.0</thymeleaf.extras.shiro>
