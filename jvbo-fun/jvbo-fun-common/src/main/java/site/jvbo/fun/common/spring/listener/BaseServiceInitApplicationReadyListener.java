@@ -19,34 +19,31 @@ public class BaseServiceInitApplicationReadyListener implements ApplicationListe
 
     @Override
     public void onApplicationEvent(ApplicationReadyEvent applicationReadyEvent) {
-        if(null == applicationReadyEvent.getApplicationContext().getParent()) {
-            logger.debug(">>>>> spring初始化完毕 <<<<<");
-            // spring初始化完毕后，通过反射调用所有使用BaseService注解的initDaoMapper方法
-            Map<String, Object> baseServices = applicationReadyEvent.getApplicationContext().getBeansWithAnnotation(BaseService.class);
-            for(Object service : baseServices.values()) {
-                logger.debug(">>>>> {}.initDaoMapper()", service.getClass().getName());
-                try {
-                    Method initDaoMapper = service.getClass().getMethod("initDaoMapper");
-					initDaoMapper.invoke(service);
-                } catch (Exception e) {
-                    logger.error("初始化BaseService的initDaoMapper方法异常", e);
-                    e.printStackTrace();
-                }
-            }
+		logger.debug(">>>>> spring初始化完毕 <<<<<");
+		// spring初始化完毕后，通过反射调用所有使用BaseService注解的initDaoMapper方法
+		Map<String, Object> baseServices = applicationReadyEvent.getApplicationContext().getBeansWithAnnotation(BaseService.class);
+		for(Object service : baseServices.values()) {
+			logger.debug(">>>>> {}.initDaoMapper()", service.getClass().getName());
+			try {
+				Method initDaoMapper = service.getClass().getMethod("initDaoMapper");
+				initDaoMapper.invoke(service);
+			} catch (Exception e) {
+				logger.error("初始化BaseService的initDaoMapper方法异常", e);
+				e.printStackTrace();
+			}
+		}
 
-            // 系统入口初始化
-            Map<String, BaseInterface> baseInterfaceBeans = applicationReadyEvent.getApplicationContext().getBeansOfType(BaseInterface.class);
-            for(Object service : baseInterfaceBeans.values()) {
-                logger.debug(">>>>> {}.init()", service.getClass().getName());
-                try {
-                    Method init = service.getClass().getMethod("init");
-                    init.invoke(service);
-                } catch (Exception e) {
-                    logger.error("初始化BaseInterface的init方法异常", e);
-                    e.printStackTrace();
-                }
-            }
-
-        }
+		// 系统入口初始化
+		Map<String, BaseInterface> baseInterfaceBeans = applicationReadyEvent.getApplicationContext().getBeansOfType(BaseInterface.class);
+		for(Object service : baseInterfaceBeans.values()) {
+			logger.debug(">>>>> {}.init()", service.getClass().getName());
+			try {
+				Method init = service.getClass().getMethod("init");
+				init.invoke(service);
+			} catch (Exception e) {
+				logger.error("初始化BaseInterface的init方法异常", e);
+				e.printStackTrace();
+			}
+		}
     }
 }
