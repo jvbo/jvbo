@@ -4,6 +4,9 @@
  */
 package com.jvbo.common.structure.tree;
 
+import com.jvbo.common.structure.tree.sample.BinaryTree;
+import com.jvbo.common.structure.tree.sort.BinarySortTree;
+
 public class App {
     
     /**

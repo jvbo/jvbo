@@ -55,4 +55,22 @@ public class SubReqClientHandler extends ChannelHandlerAdapter {
 	public void channelReadComplete(ChannelHandlerContext ctx) throws Exception {
 		ctx.flush();
 	}
+
+	public static void main(String[] args) {
+		List<String> strs = new ArrayList<>();
+		strs.add("1");
+		strs.add("2");
+		System.out.println(strs);
+		List<String> two = deal(strs);
+		System.out.println(two);
+	}
+
+	private static List<String> deal(List<String> strs){
+		for (String item: strs) {
+			item = "4";
+			strs.add(item);
+		}
+		System.out.println(strs);
+		return strs;
+	}
 }
