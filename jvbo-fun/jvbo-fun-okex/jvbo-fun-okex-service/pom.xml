@@ -1,0 +1,29 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	
+	<parent>
+		<groupId>site.jvbo.fun</groupId>
+		<artifactId>jvbo-fun-okex</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+	
+	<artifactId>jvbo-fun-okex-service</artifactId>
+	<packaging>jar</packaging>
+
+	<name>jvbo-fun-okex-service</name>
+	<description>http://jvbo.site</description>
+
+	<properties>
+		<environment.encoding>UTF-8</environment.encoding>
+		<java.version>1.8</java.version>
+		<maven.test.skip>true</maven.test.skip>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>site.jvbo.fun</groupId>
+			<artifactId>jvbo-fun-okex-dao</artifactId>
+		</dependency>
+	</dependencies>
+</project>

@@ -36,9 +36,12 @@ public class MvcExceptionHandler extends ExceptionHandlerExceptionResolver {
         if (method == null) 
             return null;
 
-        //如果定义了ExceptionHandler则返回相应的Map中的数据
-        ModelAndView returnValue = super.doResolveHandlerMethodException(request, response, handlerMethod, exception);
-        ResponseBody responseBodyAnn = AnnotationUtils.findAnnotation(method, ResponseBody.class);
+		logger.error("异常: {}, 详情: {}", exception.getLocalizedMessage(), JSON.toJSONString(exception));
+
+		//如果定义了ExceptionHandler则返回相应的Map中的数据
+		ModelAndView modelAndView = super.doResolveHandlerMethodException(request, response, handlerMethod, exception);
+
+		ResponseBody responseBodyAnn = AnnotationUtils.findAnnotation(method, ResponseBody.class);
         ResponseBody classBodyAnn = AnnotationUtils.findAnnotation(method.getDeclaringClass(), ResponseBody.class);
         if (responseBodyAnn != null || classBodyAnn != null) {
             response.setCharacterEncoding(EnCodingEnum.UTF8.getCode());
@@ -72,6 +75,6 @@ public class MvcExceptionHandler extends ExceptionHandlerExceptionResolver {
             }
             return new ModelAndView();
         }
-        return returnValue;
+		return modelAndView;
     }
 }

@@ -16,6 +16,7 @@
 		<module>jvbo-fun-eureka</module>
 		<module>jvbo-fun-zuul</module>
 		<module>jvbo-fun-gateway</module>
+		<module>jvbo-fun-okex</module>
 		<module>jvbo-fun-upms</module>
 	</modules>
 

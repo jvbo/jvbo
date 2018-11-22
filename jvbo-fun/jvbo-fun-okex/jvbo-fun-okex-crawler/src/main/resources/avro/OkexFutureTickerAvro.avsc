@@ -1,0 +1,25 @@
+{"namespace": "site.jvbo.fun.okex.crawler.avro",
+  "type": "record",
+  "name": "OkexFutureTickerAvro",
+  "fields": [
+	{"name": "timestamp", "type": ["long", "null"]},
+	{"name": "market", "type": ["string", "null"]},
+	{"name": "symbol", "type": ["string", "null"]},
+	{"name": "data", "type": {"name": "OkexFutureTickerDataAvro", "type": "record",
+	  "fields": [
+		  {"name": "high", "type": ["string", "null"]},
+		  {"name": "limitLow", "type": ["string", "null"]},
+		  {"name": "vol", "type": ["string", "null"]},
+		  {"name": "last", "type": ["string", "null"]},
+		  {"name": "low", "type": ["string", "null"]},
+		  {"name": "buy", "type": ["string", "null"]},
+		  {"name": "hold_amount", "type": ["string", "null"]},
+		  {"name": "sell", "type": ["string", "null"]},
+		  {"name": "contractId", "type": ["string", "null"]},
+		  {"name": "unitAmount", "type": ["string", "null"]},
+		  {"name": "limitHigh", "type": ["string", "null"]}
+		]
+	  }
+	}
+  ]
+}

@@ -3,6 +3,7 @@ package site.jvbo.fun.upms.service;
 import site.jvbo.fun.common.base.BaseService;
 import site.jvbo.fun.upms.dao.model.UpmsPermission;
 import site.jvbo.fun.upms.dao.model.UpmsPermissionExample;
+import site.jvbo.fun.upms.dao.model.UpmsRole;
 
 import java.util.List;
 
@@ -15,6 +16,8 @@ public interface IUpmsPermissionService extends BaseService<UpmsPermission, Upms
 	Object findTreeByRoleId(Long roleId);
 
 	Object getTreeByUserId(Long userId, Integer type);
+
+	List<UpmsRole> selectUpmsRoleByUpmsUserId(Long userId);
 
 	List<UpmsPermission> selectUpmsPermissionByUpmsUserId(Long userId);
 }

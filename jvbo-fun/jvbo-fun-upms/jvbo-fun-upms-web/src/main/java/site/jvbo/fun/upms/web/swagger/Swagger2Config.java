@@ -1,5 +1,6 @@
 package site.jvbo.fun.upms.web.swagger;
 
+import com.github.xiaoymin.swaggerbootstrapui.annotations.EnableSwaggerBootstrapUI;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import springfox.documentation.builders.ApiInfoBuilder;
@@ -12,15 +13,21 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @Configuration
 @EnableSwagger2
+@EnableSwaggerBootstrapUI // swagger-bootstrap-ui
 public class Swagger2Config {
 
 	/**
-	 * http:{domain}:{port}/swagger-ui.html
+	 * 1. default springfox-swagger-ui
+	 * http://${host}:${port}/swagger-ui.html
+	 *
+	 * 2. personal swagger-bootstrap-ui
+	 * http://${host}:${port}/doc.html
 	 */
 
 	@Bean
 	public Docket createRestApi() {
 		return new Docket(DocumentationType.SWAGGER_2)
+				.groupName("jvbo-fun-upms-web")
 				.apiInfo(apiInfo())
 				.select()
 				.apis(RequestHandlerSelectors.basePackage("site.jvbo.fun.upms.web.controller"))
@@ -32,8 +39,9 @@ public class Swagger2Config {
 		return new ApiInfoBuilder()
 				.title("UPMS Restful API")
 				.description("UPMS系统API")
-				//.termsOfServiceUrl("http://127.0.0.1:8080/")
+				//.termsOfServiceUrl("http://localhost:8080/")
 				.version("0.0.1-SNAPSHOT")
+				//.contact(new Contact("jvbo", "http://jvbo.site", "programmer.jv.bo@gmail.com"))
 				.build();
 	}
 }

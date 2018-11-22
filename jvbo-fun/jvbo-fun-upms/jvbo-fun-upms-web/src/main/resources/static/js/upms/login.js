@@ -13,6 +13,7 @@ $(function(){
 var login = function(){
 	var username = $("#username").val();
 	var password = $("#password").val();
+	var appName = "jvbo.fun.upms";
 	if(!username){
 		$("#warn").text("请填写用户名");
 		return false;
@@ -21,12 +22,13 @@ var login = function(){
 		$("#warn").text("请填写密码");
 		return false;
 	}
-	ajaxPost("/login", {"username": username, "password": password}, function (repData) {
-		if(repData.code != 200 || repData.data != "true"){
+	ajaxPost("/sso/login", {"username": username, "password": password, "appName": appName}, function (repData) {
+		if(repData.code != 200){
 			$("#warn").text(repData.msg);
 			return false;
 		}else{
-			window.location.href = '/index';
+			var backUrl = repData.data;
+			window.location.href = backUrl;
 		}
 	});
 	return false;

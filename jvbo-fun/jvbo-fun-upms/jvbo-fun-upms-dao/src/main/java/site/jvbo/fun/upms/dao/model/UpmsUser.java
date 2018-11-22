@@ -21,7 +21,7 @@ public class UpmsUser implements Serializable {
 
     private Integer sex;
 
-    private Integer locked;
+    private Integer isLocked;
 
     private Long gmtCreate;
 
@@ -107,12 +107,12 @@ public class UpmsUser implements Serializable {
         this.sex = sex;
     }
 
-    public Integer getLocked() {
-        return locked;
+    public Integer getIsLocked() {
+        return isLocked;
     }
 
-    public void setLocked(Integer locked) {
-        this.locked = locked;
+    public void setIsLocked(Integer isLocked) {
+        this.isLocked = isLocked;
     }
 
     public Long getGmtCreate() {
@@ -170,7 +170,7 @@ public class UpmsUser implements Serializable {
         sb.append(", phone=").append(phone);
         sb.append(", email=").append(email);
         sb.append(", sex=").append(sex);
-        sb.append(", locked=").append(locked);
+        sb.append(", isLocked=").append(isLocked);
         sb.append(", gmtCreate=").append(gmtCreate);
         sb.append(", createBy=").append(createBy);
         sb.append(", gmtModified=").append(gmtModified);
@@ -201,7 +201,7 @@ public class UpmsUser implements Serializable {
             && (this.getPhone() == null ? other.getPhone() == null : this.getPhone().equals(other.getPhone()))
             && (this.getEmail() == null ? other.getEmail() == null : this.getEmail().equals(other.getEmail()))
             && (this.getSex() == null ? other.getSex() == null : this.getSex().equals(other.getSex()))
-            && (this.getLocked() == null ? other.getLocked() == null : this.getLocked().equals(other.getLocked()))
+            && (this.getIsLocked() == null ? other.getIsLocked() == null : this.getIsLocked().equals(other.getIsLocked()))
             && (this.getGmtCreate() == null ? other.getGmtCreate() == null : this.getGmtCreate().equals(other.getGmtCreate()))
             && (this.getCreateBy() == null ? other.getCreateBy() == null : this.getCreateBy().equals(other.getCreateBy()))
             && (this.getGmtModified() == null ? other.getGmtModified() == null : this.getGmtModified().equals(other.getGmtModified()))
@@ -222,7 +222,7 @@ public class UpmsUser implements Serializable {
         result = prime * result + ((getPhone() == null) ? 0 : getPhone().hashCode());
         result = prime * result + ((getEmail() == null) ? 0 : getEmail().hashCode());
         result = prime * result + ((getSex() == null) ? 0 : getSex().hashCode());
-        result = prime * result + ((getLocked() == null) ? 0 : getLocked().hashCode());
+        result = prime * result + ((getIsLocked() == null) ? 0 : getIsLocked().hashCode());
         result = prime * result + ((getGmtCreate() == null) ? 0 : getGmtCreate().hashCode());
         result = prime * result + ((getCreateBy() == null) ? 0 : getCreateBy().hashCode());
         result = prime * result + ((getGmtModified() == null) ? 0 : getGmtModified().hashCode());

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	
+	<groupId>site.jvbo.fun</groupId>
+	<artifactId>jvbo-fun-okex</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
+
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>1.5.13.RELEASE</version>
+	</parent>
+
+	<name>jvbo-fun-okex</name>
+	<description>http://jvbo.site</description>
+
+	<modules>
+		<module>jvbo-fun-okex-common</module>
+		<module>jvbo-fun-okex-dao</module>
+		<module>jvbo-fun-okex-service</module>
+		<module>jvbo-fun-okex-crawler</module>
+		<module>jvbo-fun-okex-web</module>
+	</modules>
+
+	<properties>
+		<environment.encoding>UTF-8</environment.encoding>
+		<java.version>1.8</java.version>
+		<maven.test.skip>true</maven.test.skip>
+
+		<jvbo.fun.common.version>0.0.1-SNAPSHOT</jvbo.fun.common.version>
+		<jvbo.fun.okex.common.version>0.0.1-SNAPSHOT</jvbo.fun.okex.common.version>
+		<jvbo.fun.okex.dao.version>0.0.1-SNAPSHOT</jvbo.fun.okex.dao.version>
+		<jvbo.fun.okex.service.version>0.0.1-SNAPSHOT</jvbo.fun.okex.service.version>
+	</properties>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>site.jvbo.fun</groupId>
+				<artifactId>jvbo-fun-common</artifactId>
+				<version>${jvbo.fun.common.version}</version>
+				<type>jar</type>
+			</dependency>
+			<dependency>
+				<groupId>site.jvbo.fun</groupId>
+				<artifactId>jvbo-fun-okex-common</artifactId>
+				<version>${jvbo.fun.okex.common.version}</version>
+				<type>jar</type>
+			</dependency>
+			<dependency>
+				<groupId>site.jvbo.fun</groupId>
+				<artifactId>jvbo-fun-okex-dao</artifactId>
+				<version>${jvbo.fun.okex.dao.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>site.jvbo.fun</groupId>
+				<artifactId>jvbo-fun-okex-service</artifactId>
+				<version>${jvbo.fun.okex.service.version}</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<repositories>
+		<!-- nexus私服 -->
+	<!-- <repositories> <repository> <id>public</id> <name>Public Repository</name>
+		<url>http://114.55.1.70:9999/nexus/content/groups/public</url> </repository>
+		</repositories> -->
+
+		<!-- <repository>
+			<id>aliyun</id>
+			<name>aliyun repo</name>
+			<url>http://maven.aliyun.com/nexus/content/groups/public</url>
+		</repository> -->
+
+		<repository>
+			<id>maven2Repo</id>
+			<name>maven2Repo</name>
+			<url>http://repo2.maven.org/maven2/</url>
+			<layout>default</layout>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+	</repositories>
+
+	<!-- 打包发布 -->
+	<!-- <distributionManagement> <repository> <id>releases</id> <url>http://114.55.1.70:9999/nexus/content/repositories/releases</url>
+		</repository> <snapshotRepository> <id>snapshots</id> <url>http://114.55.1.70:9999/nexus/content/repositories/snapshots</url>
+		</snapshotRepository> </distributionManagement> -->
+</project>

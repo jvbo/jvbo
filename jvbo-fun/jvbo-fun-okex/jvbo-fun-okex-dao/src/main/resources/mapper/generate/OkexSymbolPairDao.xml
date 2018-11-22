@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="site.jvbo.fun.okex.dao.dao.OkexSymbolPairDao">
+  <resultMap id="BaseResultMap" type="site.jvbo.fun.okex.dao.model.OkexSymbolPair">
+    <id column="symbol_pair_id" jdbcType="BIGINT" property="symbolPairId" />
+    <result column="base" jdbcType="VARCHAR" property="base" />
+    <result column="quote" jdbcType="VARCHAR" property="quote" />
+    <result column="is_onlined" jdbcType="TINYINT" property="isOnlined" />
+    <result column="is_monitored" jdbcType="TINYINT" property="isMonitored" />
+    <result column="sort" jdbcType="BIGINT" property="sort" />
+    <result column="gmt_create" jdbcType="BIGINT" property="gmtCreate" />
+    <result column="create_by" jdbcType="BIGINT" property="createBy" />
+    <result column="gmt_modified" jdbcType="BIGINT" property="gmtModified" />
+    <result column="modified_by" jdbcType="BIGINT" property="modifiedBy" />
+    <result column="is_deleted" jdbcType="TINYINT" property="isDeleted" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    symbol_pair_id, base, `quote`, is_onlined, is_monitored, sort, gmt_create, create_by, 
+    gmt_modified, modified_by, is_deleted
+  </sql>
+  <select id="selectByExample" parameterType="site.jvbo.fun.okex.dao.model.OkexSymbolPairExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from okex_symbol_pair
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from okex_symbol_pair
+    where symbol_pair_id = #{symbolPairId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from okex_symbol_pair
+    where symbol_pair_id = #{symbolPairId,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="site.jvbo.fun.okex.dao.model.OkexSymbolPairExample">
+    delete from okex_symbol_pair
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="site.jvbo.fun.okex.dao.model.OkexSymbolPair">
+    <selectKey keyProperty="symbolPairId" order="AFTER" resultType="java.lang.Long">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into okex_symbol_pair (base, `quote`, is_onlined, 
+      is_monitored, sort, gmt_create, 
+      create_by, gmt_modified, modified_by, 
+      is_deleted)
+    values (#{base,jdbcType=VARCHAR}, #{quote,jdbcType=VARCHAR}, #{isOnlined,jdbcType=TINYINT}, 
+      #{isMonitored,jdbcType=TINYINT}, #{sort,jdbcType=BIGINT}, #{gmtCreate,jdbcType=BIGINT}, 
+      #{createBy,jdbcType=BIGINT}, #{gmtModified,jdbcType=BIGINT}, #{modifiedBy,jdbcType=BIGINT}, 
+      #{isDeleted,jdbcType=TINYINT})
+  </insert>
+  <insert id="insertSelective" parameterType="site.jvbo.fun.okex.dao.model.OkexSymbolPair">
+    <selectKey keyProperty="symbolPairId" order="AFTER" resultType="java.lang.Long">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into okex_symbol_pair
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="base != null">
+        base,
+      </if>
+      <if test="quote != null">
+        `quote`,
+      </if>
+      <if test="isOnlined != null">
+        is_onlined,
+      </if>
+      <if test="isMonitored != null">
+        is_monitored,
+      </if>
+      <if test="sort != null">
+        sort,
+      </if>
+      <if test="gmtCreate != null">
+        gmt_create,
+      </if>
+      <if test="createBy != null">
+        create_by,
+      </if>
+      <if test="gmtModified != null">
+        gmt_modified,
+      </if>
+      <if test="modifiedBy != null">
+        modified_by,
+      </if>
+      <if test="isDeleted != null">
+        is_deleted,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="base != null">
+        #{base,jdbcType=VARCHAR},
+      </if>
+      <if test="quote != null">
+        #{quote,jdbcType=VARCHAR},
+      </if>
+      <if test="isOnlined != null">
+        #{isOnlined,jdbcType=TINYINT},
+      </if>
+      <if test="isMonitored != null">
+        #{isMonitored,jdbcType=TINYINT},
+      </if>
+      <if test="sort != null">
+        #{sort,jdbcType=BIGINT},
+      </if>
+      <if test="gmtCreate != null">
+        #{gmtCreate,jdbcType=BIGINT},
+      </if>
+      <if test="createBy != null">
+        #{createBy,jdbcType=BIGINT},
+      </if>
+      <if test="gmtModified != null">
+        #{gmtModified,jdbcType=BIGINT},
+      </if>
+      <if test="modifiedBy != null">
+        #{modifiedBy,jdbcType=BIGINT},
+      </if>
+      <if test="isDeleted != null">
+        #{isDeleted,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="site.jvbo.fun.okex.dao.model.OkexSymbolPairExample" resultType="java.lang.Long">
+    select count(*) from okex_symbol_pair
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update okex_symbol_pair
+    <set>
+      <if test="record.symbolPairId != null">
+        symbol_pair_id = #{record.symbolPairId,jdbcType=BIGINT},
+      </if>
+      <if test="record.base != null">
+        base = #{record.base,jdbcType=VARCHAR},
+      </if>
+      <if test="record.quote != null">
+        `quote` = #{record.quote,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isOnlined != null">
+        is_onlined = #{record.isOnlined,jdbcType=TINYINT},
+      </if>
+      <if test="record.isMonitored != null">
+        is_monitored = #{record.isMonitored,jdbcType=TINYINT},
+      </if>
+      <if test="record.sort != null">
+        sort = #{record.sort,jdbcType=BIGINT},
+      </if>
+      <if test="record.gmtCreate != null">
+        gmt_create = #{record.gmtCreate,jdbcType=BIGINT},
+      </if>
+      <if test="record.createBy != null">
+        create_by = #{record.createBy,jdbcType=BIGINT},
+      </if>
+      <if test="record.gmtModified != null">
+        gmt_modified = #{record.gmtModified,jdbcType=BIGINT},
+      </if>
+      <if test="record.modifiedBy != null">
+        modified_by = #{record.modifiedBy,jdbcType=BIGINT},
+      </if>
+      <if test="record.isDeleted != null">
+        is_deleted = #{record.isDeleted,jdbcType=TINYINT},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update okex_symbol_pair
+    set symbol_pair_id = #{record.symbolPairId,jdbcType=BIGINT},
+      base = #{record.base,jdbcType=VARCHAR},
+      `quote` = #{record.quote,jdbcType=VARCHAR},
+      is_onlined = #{record.isOnlined,jdbcType=TINYINT},
+      is_monitored = #{record.isMonitored,jdbcType=TINYINT},
+      sort = #{record.sort,jdbcType=BIGINT},
+      gmt_create = #{record.gmtCreate,jdbcType=BIGINT},
+      create_by = #{record.createBy,jdbcType=BIGINT},
+      gmt_modified = #{record.gmtModified,jdbcType=BIGINT},
+      modified_by = #{record.modifiedBy,jdbcType=BIGINT},
+      is_deleted = #{record.isDeleted,jdbcType=TINYINT}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="site.jvbo.fun.okex.dao.model.OkexSymbolPair">
+    update okex_symbol_pair
+    <set>
+      <if test="base != null">
+        base = #{base,jdbcType=VARCHAR},
+      </if>
+      <if test="quote != null">
+        `quote` = #{quote,jdbcType=VARCHAR},
+      </if>
+      <if test="isOnlined != null">
+        is_onlined = #{isOnlined,jdbcType=TINYINT},
+      </if>
+      <if test="isMonitored != null">
+        is_monitored = #{isMonitored,jdbcType=TINYINT},
+      </if>
+      <if test="sort != null">
+        sort = #{sort,jdbcType=BIGINT},
+      </if>
+      <if test="gmtCreate != null">
+        gmt_create = #{gmtCreate,jdbcType=BIGINT},
+      </if>
+      <if test="createBy != null">
+        create_by = #{createBy,jdbcType=BIGINT},
+      </if>
+      <if test="gmtModified != null">
+        gmt_modified = #{gmtModified,jdbcType=BIGINT},
+      </if>
+      <if test="modifiedBy != null">
+        modified_by = #{modifiedBy,jdbcType=BIGINT},
+      </if>
+      <if test="isDeleted != null">
+        is_deleted = #{isDeleted,jdbcType=TINYINT},
+      </if>
+    </set>
+    where symbol_pair_id = #{symbolPairId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="site.jvbo.fun.okex.dao.model.OkexSymbolPair">
+    update okex_symbol_pair
+    set base = #{base,jdbcType=VARCHAR},
+      `quote` = #{quote,jdbcType=VARCHAR},
+      is_onlined = #{isOnlined,jdbcType=TINYINT},
+      is_monitored = #{isMonitored,jdbcType=TINYINT},
+      sort = #{sort,jdbcType=BIGINT},
+      gmt_create = #{gmtCreate,jdbcType=BIGINT},
+      create_by = #{createBy,jdbcType=BIGINT},
+      gmt_modified = #{gmtModified,jdbcType=BIGINT},
+      modified_by = #{modifiedBy,jdbcType=BIGINT},
+      is_deleted = #{isDeleted,jdbcType=TINYINT}
+    where symbol_pair_id = #{symbolPairId,jdbcType=BIGINT}
+  </update>
+</mapper>

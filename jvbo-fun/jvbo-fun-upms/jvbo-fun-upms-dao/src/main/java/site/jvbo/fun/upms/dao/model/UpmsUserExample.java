@@ -714,63 +714,63 @@ public class UpmsUserExample {
             return (Criteria) this;
         }
 
-        public Criteria andLockedIsNull() {
-            addCriterion("locked is null");
+        public Criteria andIsLockedIsNull() {
+            addCriterion("is_locked is null");
             return (Criteria) this;
         }
 
-        public Criteria andLockedIsNotNull() {
-            addCriterion("locked is not null");
+        public Criteria andIsLockedIsNotNull() {
+            addCriterion("is_locked is not null");
             return (Criteria) this;
         }
 
-        public Criteria andLockedEqualTo(Integer value) {
-            addCriterion("locked =", value, "locked");
+        public Criteria andIsLockedEqualTo(Integer value) {
+            addCriterion("is_locked =", value, "isLocked");
             return (Criteria) this;
         }
 
-        public Criteria andLockedNotEqualTo(Integer value) {
-            addCriterion("locked <>", value, "locked");
+        public Criteria andIsLockedNotEqualTo(Integer value) {
+            addCriterion("is_locked <>", value, "isLocked");
             return (Criteria) this;
         }
 
-        public Criteria andLockedGreaterThan(Integer value) {
-            addCriterion("locked >", value, "locked");
+        public Criteria andIsLockedGreaterThan(Integer value) {
+            addCriterion("is_locked >", value, "isLocked");
             return (Criteria) this;
         }
 
-        public Criteria andLockedGreaterThanOrEqualTo(Integer value) {
-            addCriterion("locked >=", value, "locked");
+        public Criteria andIsLockedGreaterThanOrEqualTo(Integer value) {
+            addCriterion("is_locked >=", value, "isLocked");
             return (Criteria) this;
         }
 
-        public Criteria andLockedLessThan(Integer value) {
-            addCriterion("locked <", value, "locked");
+        public Criteria andIsLockedLessThan(Integer value) {
+            addCriterion("is_locked <", value, "isLocked");
             return (Criteria) this;
         }
 
-        public Criteria andLockedLessThanOrEqualTo(Integer value) {
-            addCriterion("locked <=", value, "locked");
+        public Criteria andIsLockedLessThanOrEqualTo(Integer value) {
+            addCriterion("is_locked <=", value, "isLocked");
             return (Criteria) this;
         }
 
-        public Criteria andLockedIn(List<Integer> values) {
-            addCriterion("locked in", values, "locked");
+        public Criteria andIsLockedIn(List<Integer> values) {
+            addCriterion("is_locked in", values, "isLocked");
             return (Criteria) this;
         }
 
-        public Criteria andLockedNotIn(List<Integer> values) {
-            addCriterion("locked not in", values, "locked");
+        public Criteria andIsLockedNotIn(List<Integer> values) {
+            addCriterion("is_locked not in", values, "isLocked");
             return (Criteria) this;
         }
 
-        public Criteria andLockedBetween(Integer value1, Integer value2) {
-            addCriterion("locked between", value1, value2, "locked");
+        public Criteria andIsLockedBetween(Integer value1, Integer value2) {
+            addCriterion("is_locked between", value1, value2, "isLocked");
             return (Criteria) this;
         }
 
-        public Criteria andLockedNotBetween(Integer value1, Integer value2) {
-            addCriterion("locked not between", value1, value2, "locked");
+        public Criteria andIsLockedNotBetween(Integer value1, Integer value2) {
+            addCriterion("is_locked not between", value1, value2, "isLocked");
             return (Criteria) this;
         }
 

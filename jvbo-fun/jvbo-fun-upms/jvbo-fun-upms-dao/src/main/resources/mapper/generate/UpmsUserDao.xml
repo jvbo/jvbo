@@ -11,7 +11,7 @@
     <result column="phone" jdbcType="VARCHAR" property="phone" />
     <result column="email" jdbcType="VARCHAR" property="email" />
     <result column="sex" jdbcType="TINYINT" property="sex" />
-    <result column="locked" jdbcType="TINYINT" property="locked" />
+    <result column="is_locked" jdbcType="TINYINT" property="isLocked" />
     <result column="gmt_create" jdbcType="BIGINT" property="gmtCreate" />
     <result column="create_by" jdbcType="BIGINT" property="createBy" />
     <result column="gmt_modified" jdbcType="BIGINT" property="gmtModified" />
@@ -77,7 +77,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    user_id, username, `password`, salt, realname, head_img, phone, email, sex, locked, 
+    user_id, username, `password`, salt, realname, head_img, phone, email, sex, is_locked, 
     gmt_create, create_by, gmt_modified, modified_by, is_deleted
   </sql>
   <select id="selectByExample" parameterType="site.jvbo.fun.upms.dao.model.UpmsUserExample" resultMap="BaseResultMap">
@@ -116,12 +116,12 @@
     </selectKey>
     insert into upms_user (username, `password`, salt, 
       realname, head_img, phone, 
-      email, sex, locked, 
+      email, sex, is_locked, 
       gmt_create, create_by, gmt_modified, 
       modified_by, is_deleted)
     values (#{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, #{salt,jdbcType=VARCHAR}, 
       #{realname,jdbcType=VARCHAR}, #{headImg,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, 
-      #{email,jdbcType=VARCHAR}, #{sex,jdbcType=TINYINT}, #{locked,jdbcType=TINYINT}, 
+      #{email,jdbcType=VARCHAR}, #{sex,jdbcType=TINYINT}, #{isLocked,jdbcType=TINYINT}, 
       #{gmtCreate,jdbcType=BIGINT}, #{createBy,jdbcType=BIGINT}, #{gmtModified,jdbcType=BIGINT}, 
       #{modifiedBy,jdbcType=BIGINT}, #{isDeleted,jdbcType=TINYINT})
   </insert>
@@ -155,8 +155,8 @@
       <if test="sex != null">
         sex,
       </if>
-      <if test="locked != null">
-        locked,
+      <if test="isLocked != null">
+        is_locked,
       </if>
       <if test="gmtCreate != null">
         gmt_create,
@@ -199,8 +199,8 @@
       <if test="sex != null">
         #{sex,jdbcType=TINYINT},
       </if>
-      <if test="locked != null">
-        #{locked,jdbcType=TINYINT},
+      <if test="isLocked != null">
+        #{isLocked,jdbcType=TINYINT},
       </if>
       <if test="gmtCreate != null">
         #{gmtCreate,jdbcType=BIGINT},
@@ -255,8 +255,8 @@
       <if test="record.sex != null">
         sex = #{record.sex,jdbcType=TINYINT},
       </if>
-      <if test="record.locked != null">
-        locked = #{record.locked,jdbcType=TINYINT},
+      <if test="record.isLocked != null">
+        is_locked = #{record.isLocked,jdbcType=TINYINT},
       </if>
       <if test="record.gmtCreate != null">
         gmt_create = #{record.gmtCreate,jdbcType=BIGINT},
@@ -289,7 +289,7 @@
       phone = #{record.phone,jdbcType=VARCHAR},
       email = #{record.email,jdbcType=VARCHAR},
       sex = #{record.sex,jdbcType=TINYINT},
-      locked = #{record.locked,jdbcType=TINYINT},
+      is_locked = #{record.isLocked,jdbcType=TINYINT},
       gmt_create = #{record.gmtCreate,jdbcType=BIGINT},
       create_by = #{record.createBy,jdbcType=BIGINT},
       gmt_modified = #{record.gmtModified,jdbcType=BIGINT},
@@ -326,8 +326,8 @@
       <if test="sex != null">
         sex = #{sex,jdbcType=TINYINT},
       </if>
-      <if test="locked != null">
-        locked = #{locked,jdbcType=TINYINT},
+      <if test="isLocked != null">
+        is_locked = #{isLocked,jdbcType=TINYINT},
       </if>
       <if test="gmtCreate != null">
         gmt_create = #{gmtCreate,jdbcType=BIGINT},
@@ -357,7 +357,7 @@
       phone = #{phone,jdbcType=VARCHAR},
       email = #{email,jdbcType=VARCHAR},
       sex = #{sex,jdbcType=TINYINT},
-      locked = #{locked,jdbcType=TINYINT},
+      is_locked = #{isLocked,jdbcType=TINYINT},
       gmt_create = #{gmtCreate,jdbcType=BIGINT},
       create_by = #{createBy,jdbcType=BIGINT},
       gmt_modified = #{gmtModified,jdbcType=BIGINT},

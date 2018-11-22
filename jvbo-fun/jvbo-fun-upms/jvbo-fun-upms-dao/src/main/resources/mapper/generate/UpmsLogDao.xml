@@ -4,21 +4,21 @@
   <resultMap id="BaseResultMap" type="site.jvbo.fun.upms.dao.model.UpmsLog">
     <id column="log_id" jdbcType="BIGINT" property="logId" />
     <result column="log_type" jdbcType="TINYINT" property="logType" />
+    <result column="app_name" jdbcType="VARCHAR" property="appName" />
     <result column="method_name" jdbcType="VARCHAR" property="methodName" />
     <result column="method_desc" jdbcType="VARCHAR" property="methodDesc" />
-    <result column="spend_time_ms" jdbcType="INTEGER" property="spendTimeMs" />
+    <result column="spend_time_ms" jdbcType="BIGINT" property="spendTimeMs" />
     <result column="request_ip" jdbcType="VARCHAR" property="requestIp" />
     <result column="request_type" jdbcType="VARCHAR" property="requestType" />
+    <result column="request_user" jdbcType="BIGINT" property="requestUser" />
     <result column="request_user_agent" jdbcType="VARCHAR" property="requestUserAgent" />
     <result column="request_base_path" jdbcType="VARCHAR" property="requestBasePath" />
     <result column="request_uri" jdbcType="VARCHAR" property="requestUri" />
     <result column="request_url" jdbcType="VARCHAR" property="requestUrl" />
     <result column="request_params" jdbcType="VARCHAR" property="requestParams" />
     <result column="permissions" jdbcType="VARCHAR" property="permissions" />
-    <result column="response_code" jdbcType="VARCHAR" property="responseCode" />
-    <result column="response_status" jdbcType="VARCHAR" property="responseStatus" />
-    <result column="response_msg" jdbcType="VARCHAR" property="responseMsg" />
-    <result column="response_data" jdbcType="VARCHAR" property="responseData" />
+    <result column="response_status_code" jdbcType="INTEGER" property="responseStatusCode" />
+    <result column="response_result" jdbcType="VARCHAR" property="responseResult" />
     <result column="exception_msg" jdbcType="VARCHAR" property="exceptionMsg" />
     <result column="exception_desc" jdbcType="VARCHAR" property="exceptionDesc" />
     <result column="gmt_create" jdbcType="BIGINT" property="gmtCreate" />
@@ -86,9 +86,9 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    log_id, log_type, method_name, method_desc, spend_time_ms, request_ip, request_type, 
-    request_user_agent, request_base_path, request_uri, request_url, request_params, 
-    permissions, response_code, response_status, response_msg, response_data, exception_msg, 
+    log_id, log_type, app_name, method_name, method_desc, spend_time_ms, request_ip, 
+    request_type, request_user, request_user_agent, request_base_path, request_uri, request_url, 
+    request_params, permissions, response_status_code, response_result, exception_msg, 
     exception_desc, gmt_create, create_by, gmt_modified, modified_by, is_deleted
   </sql>
   <select id="selectByExample" parameterType="site.jvbo.fun.upms.dao.model.UpmsLogExample" resultMap="BaseResultMap">
@@ -125,20 +125,20 @@
     <selectKey keyProperty="logId" order="AFTER" resultType="java.lang.Long">
       SELECT LAST_INSERT_ID()
     </selectKey>
-    insert into upms_log (log_type, method_name, method_desc, 
-      spend_time_ms, request_ip, request_type, 
-      request_user_agent, request_base_path, request_uri, 
-      request_url, request_params, permissions, 
-      response_code, response_status, response_msg, 
-      response_data, exception_msg, exception_desc, 
+    insert into upms_log (log_type, app_name, method_name, 
+      method_desc, spend_time_ms, request_ip, 
+      request_type, request_user, request_user_agent, 
+      request_base_path, request_uri, request_url, 
+      request_params, permissions, response_status_code, 
+      response_result, exception_msg, exception_desc, 
       gmt_create, create_by, gmt_modified, 
       modified_by, is_deleted)
-    values (#{logType,jdbcType=TINYINT}, #{methodName,jdbcType=VARCHAR}, #{methodDesc,jdbcType=VARCHAR}, 
-      #{spendTimeMs,jdbcType=INTEGER}, #{requestIp,jdbcType=VARCHAR}, #{requestType,jdbcType=VARCHAR}, 
-      #{requestUserAgent,jdbcType=VARCHAR}, #{requestBasePath,jdbcType=VARCHAR}, #{requestUri,jdbcType=VARCHAR}, 
-      #{requestUrl,jdbcType=VARCHAR}, #{requestParams,jdbcType=VARCHAR}, #{permissions,jdbcType=VARCHAR}, 
-      #{responseCode,jdbcType=VARCHAR}, #{responseStatus,jdbcType=VARCHAR}, #{responseMsg,jdbcType=VARCHAR}, 
-      #{responseData,jdbcType=VARCHAR}, #{exceptionMsg,jdbcType=VARCHAR}, #{exceptionDesc,jdbcType=VARCHAR}, 
+    values (#{logType,jdbcType=TINYINT}, #{appName,jdbcType=VARCHAR}, #{methodName,jdbcType=VARCHAR}, 
+      #{methodDesc,jdbcType=VARCHAR}, #{spendTimeMs,jdbcType=BIGINT}, #{requestIp,jdbcType=VARCHAR}, 
+      #{requestType,jdbcType=VARCHAR}, #{requestUser,jdbcType=BIGINT}, #{requestUserAgent,jdbcType=VARCHAR}, 
+      #{requestBasePath,jdbcType=VARCHAR}, #{requestUri,jdbcType=VARCHAR}, #{requestUrl,jdbcType=VARCHAR}, 
+      #{requestParams,jdbcType=VARCHAR}, #{permissions,jdbcType=VARCHAR}, #{responseStatusCode,jdbcType=INTEGER}, 
+      #{responseResult,jdbcType=VARCHAR}, #{exceptionMsg,jdbcType=VARCHAR}, #{exceptionDesc,jdbcType=VARCHAR}, 
       #{gmtCreate,jdbcType=BIGINT}, #{createBy,jdbcType=BIGINT}, #{gmtModified,jdbcType=BIGINT}, 
       #{modifiedBy,jdbcType=BIGINT}, #{isDeleted,jdbcType=TINYINT})
   </insert>
@@ -150,6 +150,9 @@
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="logType != null">
         log_type,
+      </if>
+      <if test="appName != null">
+        app_name,
       </if>
       <if test="methodName != null">
         method_name,
@@ -165,6 +168,9 @@
       </if>
       <if test="requestType != null">
         request_type,
+      </if>
+      <if test="requestUser != null">
+        request_user,
       </if>
       <if test="requestUserAgent != null">
         request_user_agent,
@@ -184,17 +190,11 @@
       <if test="permissions != null">
         permissions,
       </if>
-      <if test="responseCode != null">
-        response_code,
+      <if test="responseStatusCode != null">
+        response_status_code,
       </if>
-      <if test="responseStatus != null">
-        response_status,
-      </if>
-      <if test="responseMsg != null">
-        response_msg,
-      </if>
-      <if test="responseData != null">
-        response_data,
+      <if test="responseResult != null">
+        response_result,
       </if>
       <if test="exceptionMsg != null">
         exception_msg,
@@ -222,6 +222,9 @@
       <if test="logType != null">
         #{logType,jdbcType=TINYINT},
       </if>
+      <if test="appName != null">
+        #{appName,jdbcType=VARCHAR},
+      </if>
       <if test="methodName != null">
         #{methodName,jdbcType=VARCHAR},
       </if>
@@ -229,13 +232,16 @@
         #{methodDesc,jdbcType=VARCHAR},
       </if>
       <if test="spendTimeMs != null">
-        #{spendTimeMs,jdbcType=INTEGER},
+        #{spendTimeMs,jdbcType=BIGINT},
       </if>
       <if test="requestIp != null">
         #{requestIp,jdbcType=VARCHAR},
       </if>
       <if test="requestType != null">
         #{requestType,jdbcType=VARCHAR},
+      </if>
+      <if test="requestUser != null">
+        #{requestUser,jdbcType=BIGINT},
       </if>
       <if test="requestUserAgent != null">
         #{requestUserAgent,jdbcType=VARCHAR},
@@ -255,17 +261,11 @@
       <if test="permissions != null">
         #{permissions,jdbcType=VARCHAR},
       </if>
-      <if test="responseCode != null">
-        #{responseCode,jdbcType=VARCHAR},
+      <if test="responseStatusCode != null">
+        #{responseStatusCode,jdbcType=INTEGER},
       </if>
-      <if test="responseStatus != null">
-        #{responseStatus,jdbcType=VARCHAR},
-      </if>
-      <if test="responseMsg != null">
-        #{responseMsg,jdbcType=VARCHAR},
-      </if>
-      <if test="responseData != null">
-        #{responseData,jdbcType=VARCHAR},
+      <if test="responseResult != null">
+        #{responseResult,jdbcType=VARCHAR},
       </if>
       <if test="exceptionMsg != null">
         #{exceptionMsg,jdbcType=VARCHAR},
@@ -305,6 +305,9 @@
       <if test="record.logType != null">
         log_type = #{record.logType,jdbcType=TINYINT},
       </if>
+      <if test="record.appName != null">
+        app_name = #{record.appName,jdbcType=VARCHAR},
+      </if>
       <if test="record.methodName != null">
         method_name = #{record.methodName,jdbcType=VARCHAR},
       </if>
@@ -312,13 +315,16 @@
         method_desc = #{record.methodDesc,jdbcType=VARCHAR},
       </if>
       <if test="record.spendTimeMs != null">
-        spend_time_ms = #{record.spendTimeMs,jdbcType=INTEGER},
+        spend_time_ms = #{record.spendTimeMs,jdbcType=BIGINT},
       </if>
       <if test="record.requestIp != null">
         request_ip = #{record.requestIp,jdbcType=VARCHAR},
       </if>
       <if test="record.requestType != null">
         request_type = #{record.requestType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.requestUser != null">
+        request_user = #{record.requestUser,jdbcType=BIGINT},
       </if>
       <if test="record.requestUserAgent != null">
         request_user_agent = #{record.requestUserAgent,jdbcType=VARCHAR},
@@ -338,17 +344,11 @@
       <if test="record.permissions != null">
         permissions = #{record.permissions,jdbcType=VARCHAR},
       </if>
-      <if test="record.responseCode != null">
-        response_code = #{record.responseCode,jdbcType=VARCHAR},
+      <if test="record.responseStatusCode != null">
+        response_status_code = #{record.responseStatusCode,jdbcType=INTEGER},
       </if>
-      <if test="record.responseStatus != null">
-        response_status = #{record.responseStatus,jdbcType=VARCHAR},
-      </if>
-      <if test="record.responseMsg != null">
-        response_msg = #{record.responseMsg,jdbcType=VARCHAR},
-      </if>
-      <if test="record.responseData != null">
-        response_data = #{record.responseData,jdbcType=VARCHAR},
+      <if test="record.responseResult != null">
+        response_result = #{record.responseResult,jdbcType=VARCHAR},
       </if>
       <if test="record.exceptionMsg != null">
         exception_msg = #{record.exceptionMsg,jdbcType=VARCHAR},
@@ -380,21 +380,21 @@
     update upms_log
     set log_id = #{record.logId,jdbcType=BIGINT},
       log_type = #{record.logType,jdbcType=TINYINT},
+      app_name = #{record.appName,jdbcType=VARCHAR},
       method_name = #{record.methodName,jdbcType=VARCHAR},
       method_desc = #{record.methodDesc,jdbcType=VARCHAR},
-      spend_time_ms = #{record.spendTimeMs,jdbcType=INTEGER},
+      spend_time_ms = #{record.spendTimeMs,jdbcType=BIGINT},
       request_ip = #{record.requestIp,jdbcType=VARCHAR},
       request_type = #{record.requestType,jdbcType=VARCHAR},
+      request_user = #{record.requestUser,jdbcType=BIGINT},
       request_user_agent = #{record.requestUserAgent,jdbcType=VARCHAR},
       request_base_path = #{record.requestBasePath,jdbcType=VARCHAR},
       request_uri = #{record.requestUri,jdbcType=VARCHAR},
       request_url = #{record.requestUrl,jdbcType=VARCHAR},
       request_params = #{record.requestParams,jdbcType=VARCHAR},
       permissions = #{record.permissions,jdbcType=VARCHAR},
-      response_code = #{record.responseCode,jdbcType=VARCHAR},
-      response_status = #{record.responseStatus,jdbcType=VARCHAR},
-      response_msg = #{record.responseMsg,jdbcType=VARCHAR},
-      response_data = #{record.responseData,jdbcType=VARCHAR},
+      response_status_code = #{record.responseStatusCode,jdbcType=INTEGER},
+      response_result = #{record.responseResult,jdbcType=VARCHAR},
       exception_msg = #{record.exceptionMsg,jdbcType=VARCHAR},
       exception_desc = #{record.exceptionDesc,jdbcType=VARCHAR},
       gmt_create = #{record.gmtCreate,jdbcType=BIGINT},
@@ -412,6 +412,9 @@
       <if test="logType != null">
         log_type = #{logType,jdbcType=TINYINT},
       </if>
+      <if test="appName != null">
+        app_name = #{appName,jdbcType=VARCHAR},
+      </if>
       <if test="methodName != null">
         method_name = #{methodName,jdbcType=VARCHAR},
       </if>
@@ -419,13 +422,16 @@
         method_desc = #{methodDesc,jdbcType=VARCHAR},
       </if>
       <if test="spendTimeMs != null">
-        spend_time_ms = #{spendTimeMs,jdbcType=INTEGER},
+        spend_time_ms = #{spendTimeMs,jdbcType=BIGINT},
       </if>
       <if test="requestIp != null">
         request_ip = #{requestIp,jdbcType=VARCHAR},
       </if>
       <if test="requestType != null">
         request_type = #{requestType,jdbcType=VARCHAR},
+      </if>
+      <if test="requestUser != null">
+        request_user = #{requestUser,jdbcType=BIGINT},
       </if>
       <if test="requestUserAgent != null">
         request_user_agent = #{requestUserAgent,jdbcType=VARCHAR},
@@ -445,17 +451,11 @@
       <if test="permissions != null">
         permissions = #{permissions,jdbcType=VARCHAR},
       </if>
-      <if test="responseCode != null">
-        response_code = #{responseCode,jdbcType=VARCHAR},
+      <if test="responseStatusCode != null">
+        response_status_code = #{responseStatusCode,jdbcType=INTEGER},
       </if>
-      <if test="responseStatus != null">
-        response_status = #{responseStatus,jdbcType=VARCHAR},
-      </if>
-      <if test="responseMsg != null">
-        response_msg = #{responseMsg,jdbcType=VARCHAR},
-      </if>
-      <if test="responseData != null">
-        response_data = #{responseData,jdbcType=VARCHAR},
+      <if test="responseResult != null">
+        response_result = #{responseResult,jdbcType=VARCHAR},
       </if>
       <if test="exceptionMsg != null">
         exception_msg = #{exceptionMsg,jdbcType=VARCHAR},
@@ -484,21 +484,21 @@
   <update id="updateByPrimaryKey" parameterType="site.jvbo.fun.upms.dao.model.UpmsLog">
     update upms_log
     set log_type = #{logType,jdbcType=TINYINT},
+      app_name = #{appName,jdbcType=VARCHAR},
       method_name = #{methodName,jdbcType=VARCHAR},
       method_desc = #{methodDesc,jdbcType=VARCHAR},
-      spend_time_ms = #{spendTimeMs,jdbcType=INTEGER},
+      spend_time_ms = #{spendTimeMs,jdbcType=BIGINT},
       request_ip = #{requestIp,jdbcType=VARCHAR},
       request_type = #{requestType,jdbcType=VARCHAR},
+      request_user = #{requestUser,jdbcType=BIGINT},
       request_user_agent = #{requestUserAgent,jdbcType=VARCHAR},
       request_base_path = #{requestBasePath,jdbcType=VARCHAR},
       request_uri = #{requestUri,jdbcType=VARCHAR},
       request_url = #{requestUrl,jdbcType=VARCHAR},
       request_params = #{requestParams,jdbcType=VARCHAR},
       permissions = #{permissions,jdbcType=VARCHAR},
-      response_code = #{responseCode,jdbcType=VARCHAR},
-      response_status = #{responseStatus,jdbcType=VARCHAR},
-      response_msg = #{responseMsg,jdbcType=VARCHAR},
-      response_data = #{responseData,jdbcType=VARCHAR},
+      response_status_code = #{responseStatusCode,jdbcType=INTEGER},
+      response_result = #{responseResult,jdbcType=VARCHAR},
       exception_msg = #{exceptionMsg,jdbcType=VARCHAR},
       exception_desc = #{exceptionDesc,jdbcType=VARCHAR},
       gmt_create = #{gmtCreate,jdbcType=BIGINT},

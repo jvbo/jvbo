@@ -1,0 +1,26 @@
+{"namespace": "site.jvbo.fun.okex.crawler.avro",
+  "type": "record",
+  "name": "OkexSpotTickerAvro",
+  "fields": [
+	{"name": "timestamp", "type": ["long", "null"]},
+	{"name": "market", "type": ["string", "null"]},
+	{"name": "symbol", "type": ["string", "null"]},
+	{"name": "data", "type": {"name": "OkexSpotTickerDataAvro", "type": "record",
+	  "fields": [
+		  {"name": "high", "type": ["string", "null"]},
+		  {"name": "vol", "type": ["string", "null"]},
+		  {"name": "last", "type": ["string", "null"]},
+		  {"name": "low", "type": ["string", "null"]},
+		  {"name": "buy", "type": ["string", "null"]},
+		  {"name": "change", "type": ["string", "null"]},
+		  {"name": "sell", "type": ["string", "null"]},
+		  {"name": "dayLow", "type": ["string", "null"]},
+		  {"name": "close", "type": ["string", "null"]},
+		  {"name": "dayHigh", "type": ["string", "null"]},
+		  {"name": "open", "type": ["string", "null"]},
+		  {"name": "timestamp", "type": ["long", "null"]}
+		]
+	  }
+	}
+  ]
+}

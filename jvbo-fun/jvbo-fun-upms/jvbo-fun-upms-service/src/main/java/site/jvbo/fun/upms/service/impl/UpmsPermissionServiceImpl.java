@@ -8,6 +8,7 @@ import site.jvbo.fun.upms.dao.dao.UpmsPermissionDao;
 import site.jvbo.fun.upms.dao.dao.UpmsRolePermissionDao;
 import site.jvbo.fun.upms.dao.dao.UpmsSystemDao;
 import site.jvbo.fun.upms.dao.dao.UpmsUserPermissionDao;
+import site.jvbo.fun.upms.dao.mapper.UpmsPermissionMapper;
 import site.jvbo.fun.upms.dao.model.*;
 import site.jvbo.fun.upms.service.IUpmsPermissionService;
 import org.slf4j.Logger;
@@ -34,6 +35,8 @@ public class UpmsPermissionServiceImpl extends BaseServiceImpl<UpmsPermissionDao
 	UpmsRolePermissionDao upmsRolePermissionDao;
 	@Autowired
 	UpmsUserPermissionDao upmsUserPermissionDao;
+	@Autowired
+	UpmsPermissionMapper upmsPermissionMapper;
 
 	@Override
 	public Object findTreeByRoleId(Long roleId) {
@@ -250,7 +253,14 @@ public class UpmsPermissionServiceImpl extends BaseServiceImpl<UpmsPermissionDao
 	}
 
 	@Override
+	public List<UpmsRole> selectUpmsRoleByUpmsUserId(Long userId) {
+		List<UpmsRole> upmsRoleList = upmsPermissionMapper.selectUpmsRoleByUpmsUserId(userId);
+		return upmsRoleList;
+	}
+
+	@Override
 	public List<UpmsPermission> selectUpmsPermissionByUpmsUserId(Long userId) {
-		return null;
+		List<UpmsPermission> upmsPermissionList = upmsPermissionMapper.selectUpmsPermissionByUpmsUserId(userId);
+		return upmsPermissionList;
 	}
 }
