@@ -45,7 +45,16 @@ public enum PublicEnum implements IEnum {
         }
         return null;
     }
-    
+
+	public static PublicEnum getEnumByCode(String code){
+		for (PublicEnum enums : values()) {
+			if(enums.getCode().equalsIgnoreCase(code)){
+				return enums;
+			}
+		}
+		return null;
+	}
+
     public static String toJsonString() {
         StringBuffer jsonStr = new StringBuffer("[");
         for (PublicEnum enums : values()) {

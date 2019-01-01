@@ -42,14 +42,14 @@ public class UpmsSystemController extends BaseController {
 
 	@ApiOperation(value = "系统首页")
 	@RequiresPermissions("upms:system:read")
-	@RequestMapping(value = "/index", method = RequestMethod.GET)
+	@GetMapping("/index")
 	public String index() {
 		return "system/index";
 	}
 
 	@ApiOperation(value = "系统列表")
 	@RequiresPermissions("upms:system:read")
-	@RequestMapping(value = "/list", method = RequestMethod.GET)
+	@GetMapping("/list")
 	@ResponseBody
 	public Object list(
 			@RequestParam(required = false, defaultValue = "0", value = "offset") Integer offset,
@@ -75,14 +75,14 @@ public class UpmsSystemController extends BaseController {
 
 	@ApiOperation(value = "新增系统")
 	@RequiresPermissions("upms:system:create")
-	@RequestMapping(value = "/create", method = RequestMethod.GET)
+	@GetMapping("/create")
 	public String create() {
 		return "system/create";
 	}
 
 	@ApiOperation(value = "新增系统")
 	@RequiresPermissions("upms:system:create")
-	@RequestMapping(value = "/create", method = RequestMethod.POST)
+	@PostMapping("/create")
 	@ResponseBody
 	public Object create(UpmsSystem upmsSystem) {
 		ComplexResult result = FluentValidator.checkAll()
