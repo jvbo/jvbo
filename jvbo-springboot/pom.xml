@@ -34,7 +34,7 @@
 		<environment.encoding>UTF-8</environment.encoding>
 		<java.version>1.8</java.version>
 		<apache.commons.lang3.version>3.4</apache.commons.lang3.version>
-		<apache.commons.beanutils.version>1.8.0</apache.commons.beanutils.version>
+		<apache.commons.beanutils.version>1.9.2</apache.commons.beanutils.version>
 		<apache.commons.collections.version>3.2.2</apache.commons.collections.version>
 		<apache.commons.codec.version>1.10</apache.commons.codec.version>
 		<apache.commons.compress.version>1.18</apache.commons.compress.version>
